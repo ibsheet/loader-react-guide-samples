@@ -1,4 +1,6 @@
 # loader-react-guide-samples
 
+### Guide sample using loader and react
+
 1. samples 폴더에 들어가면 기본 sample 사용법 제공
-2. 추후 다른 샘플들이 추가 될 수 있음으로 폴더를 하나 더 묶어서 제공. (지금은 샘플폴더가 하나지만.. 나중에는 다른 방식의 샘플들이 추가 될 수 있으니까..)
+2. 추후 다양한 샘플들을 만들 예정. (ex) typescript, coffeescript)
