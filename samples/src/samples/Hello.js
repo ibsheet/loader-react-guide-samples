@@ -1,7 +1,7 @@
 /* eslint-disable */
 // 기본 옵션.
 import React, { useState, useEffect } from 'react';
-import IBSheet8 from './SheetCreate';
+import IBSheet8 from 'components/SheetCreate';
 
 const Hello = () => {
   const options = {

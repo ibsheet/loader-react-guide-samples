@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from 'components/App';
 import reportWebVitals from './reportWebVitals';
 import IBSheetLoader from '@ibsheet/loader';
 
@@ -13,9 +13,9 @@ IBSheetLoader.config({
         baseUrl: './lib/assets', // ibsheet 라이브러리 위치
         locales: ["en","ko"],
         plugins: [
-            "dialog",
-            "common",
-            "excel",
+          "dialog",
+          "common",
+          "excel",
         ]
       }
   ]
