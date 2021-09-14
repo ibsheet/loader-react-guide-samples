@@ -9,7 +9,7 @@ const IBSheet8 = (props) => {
   const options = props.options || {};
   const basicStyle = {
     width: '100%',
-    height: '800px'
+    height: 'calc(100vh - 300px)'
   }
   const elStyle = {
     width: props.width || basicStyle.width,
