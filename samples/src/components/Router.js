@@ -11,15 +11,9 @@ const AppRouter = () => {
       <Navigation />
       <Switch>
         <>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/hello">
-            <Hello />
-          </Route>
-          <Route exact path="/format">
-            <Format />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/hello" component={Hello} />
+          <Route exact path="/format" component={Format} />
         </>
       </Switch>
     </Router>

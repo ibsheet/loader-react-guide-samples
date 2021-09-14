@@ -10,7 +10,8 @@ const Hello = () => {
 
   const options = {
     Cfg: {
-      SearchMode: 0
+      SearchMode: 0,
+      FitWidth: 1
     },
     Cols: [
       {

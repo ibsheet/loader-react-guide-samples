@@ -6,9 +6,15 @@ import loader from '@ibsheet/loader'
 const IBSheet8 = (props) => {
   const id = props.id || 'sheet';
   const el = props.el || 'sheetDiv';
-  const width = props.width || '100%';
-  const height = props.height || '300px';
   const options = props.options || {};
+  const basicStyle = {
+    width: '100%',
+    height: '800px'
+  }
+  const elStyle = {
+    width: props.width || basicStyle.width,
+    height: props.height || basicStyle.height
+  }
 
   useEffect(() => {
     loader.createSheet({
@@ -28,7 +34,9 @@ const IBSheet8 = (props) => {
 
   return (
     <>
-      <div id={ el } style={ {width:{ width }, height: { height }} }></div>
+      <div style={ basicStyle }>
+        <div id={ el } style={ elStyle }></div>
+      </div>
     </>
   );
 }
