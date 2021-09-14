@@ -1,6 +1,6 @@
 /* eslint-disable */
 // IBSheet를 태그 형태로 제공합니다. CreateSheet.
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import loader from '@ibsheet/loader'
 
 const IBSheet8 = (props) => {

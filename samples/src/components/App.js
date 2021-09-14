@@ -1,6 +1,5 @@
 // Main.
 import AppRouter from "components/Router";
-import Hello from "samples/Hello";
 
 const App = () => {
   return (
