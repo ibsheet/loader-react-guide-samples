@@ -11,7 +11,7 @@ const Content = ({ title, subTitle, description, options }) => {
       fontFamily: 'Arial'
     },
     title: {
-      
+
     },
     subTitle: {
       color: '#4c4c57'
