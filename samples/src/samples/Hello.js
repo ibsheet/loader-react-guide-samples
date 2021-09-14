@@ -4,6 +4,10 @@ import React, { useState, useEffect } from 'react';
 import Content from 'components/Content';
 
 const Hello = () => {
+  const title = '타이틀 영역';
+  const subTitle = '서브 타이틀 영역';
+  const description = '샘플 설명';
+
   const options = {
     Cfg: {
       SearchMode: 0
@@ -55,7 +59,7 @@ const Hello = () => {
 
   return (
     <>
-      <Content options={ options }/>
+      <Content title={ title } subTitle={ subTitle } description={ description } options={ options }/>
     </>
   );
 }
