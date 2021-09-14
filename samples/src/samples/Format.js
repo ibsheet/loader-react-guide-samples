@@ -4,6 +4,9 @@ import React, { useState, useEffect } from 'react';
 import Content from 'components/Content';
 
 const Format = () => {
+  const title = '포맷 예제';
+  const subTitle = '포맷 관련 예제 입니다.';
+
   const options = {
     Cfg: {
       SearchMode: 2,
@@ -227,7 +230,7 @@ const Format = () => {
 
   return (
     <>
-      <Content options={ options }/>
+      <Content title={ title } subTitle={ subTitle } options={ options }/>
     </>
   );
 }
