@@ -4,11 +4,6 @@ import React, { useState, useEffect } from 'react';
 import loader from '@ibsheet/loader'
 
 const IBSheet8 = (props) => {
-  // const [id, setId] = useState('sheet');
-  // const [el, setEl] = useState('sheetDiv');
-  // const [width, setWidth] = useState('100%');
-  // const [height, setHeight] = useState('300px');
-  // const [options, setOptions] = useState(null);
   const id = props.id || 'sheet';
   const el = props.el || 'sheetDiv';
   const width = props.width || '100%';
