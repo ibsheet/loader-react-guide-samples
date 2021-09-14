@@ -1,7 +1,7 @@
 /* eslint-disable */
 // 기본 옵션.
 import React, { useState, useEffect } from 'react';
-import IBSheet8 from 'components/SheetCreate';
+import Content from 'components/Content';
 
 const Hello = () => {
   const options = {
@@ -55,7 +55,7 @@ const Hello = () => {
 
   return (
     <>
-      <IBSheet8 id="sheet" el="sheetDiv" width="700px" height="500px" options={ options } />
+      <Content options={ options }/>
     </>
   );
 }
