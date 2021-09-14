@@ -14,6 +14,9 @@ const Navigation = () => {
         <li>
           <Link to="/format">Format Sample</Link>
         </li>
+        <li>
+          <Link to="/merge">Merge Sample</Link>
+        </li>
       </ul>
     </nav>
   )
