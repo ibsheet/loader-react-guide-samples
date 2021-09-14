@@ -5,7 +5,7 @@ import Hello from 'samples/Hello';
 import Home from 'samples/Home';
 import Format from 'samples/Format';
 
-const AppRouter = ({}) => {
+const AppRouter = () => {
   return (
     <Router>
       <Navigation />
