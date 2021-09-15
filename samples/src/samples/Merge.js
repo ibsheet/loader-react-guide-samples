@@ -12,7 +12,8 @@ const Type = () => {
 
   const options = {
     Cfg: {
-      SearchMode: 0
+      SearchMode: 0,
+      CustomScroll: 1
     },
     LeftCols: [
       {
