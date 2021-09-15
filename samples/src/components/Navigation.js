@@ -12,10 +12,13 @@ const Navigation = () => {
           <Link to="/type">Type Sample</Link>
         </li>
         <li>
-          <Link to="/format">Format Sample</Link>
+          <Link to="/merge">Merge Sample</Link>
         </li>
         <li>
-          <Link to="/merge">Merge Sample</Link>
+          <Link to="/subsum">SubSum Sample</Link>
+        </li>
+        <li>
+          <Link to="/tree">Tree Sample</Link>
         </li>
       </ul>
     </nav>
