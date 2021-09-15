@@ -5,9 +5,9 @@ import Content from 'components/Content';
 import { typeData } from 'data/samplesData';
 
 const Type = () => {
-  const [title, setTitle] = useState('');
-  const [subTitle, setsubTitle] = useState('');
-  const [description, setDes] = useState('');
+  const title = '컬럼 별 타입';
+  const subTitle = '각 컬럼별 설정 가능한 Type에 대한 예제입니다.';
+  const description = 'Text, Enum, Button, Int, Float, Date 등 다양한 Type을 지원합니다.';
 
   const options = {
     Cfg: {
@@ -100,10 +100,6 @@ const Type = () => {
     ],
     Events: {
       onRenderFirstFinish: (evt) => {
-        setTitle('컬럼 별 타입');
-        setsubTitle('각 컬럼별 설정 가능한 Type에 대한 예제입니다.');
-        setDes('Text, Enum, Button, Int, Float, Date 등 다양한 Type을 지원합니다.');
-
         // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
         evt.sheet.loadSearchData(typeData);
       }
