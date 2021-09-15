@@ -24,12 +24,13 @@ const Content = ({ title, subTitle, description, func, options }) => {
       padding: props.spacing(2),
       marginBottom: props.spacing(2),
       backgroundColor: 'rgb(250, 250, 250)',
-    },
+    }
   }));
 
   const classes = useStyles();
 
   // 우선 추가되어야할 컴포넌트로는 button, select
+  // 이 구간에서 이벤트에 사용할 함수를 받아와 실행 할 수 있는지??..
   const funcResult = [];
   if (func) {
     if (func.button) {
