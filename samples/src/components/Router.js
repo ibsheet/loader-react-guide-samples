@@ -3,8 +3,9 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Navigation from 'components/Navigation';
 import Type from 'samples/Type';
 import Home from 'samples/Home';
-import Tree from 'samples/Tree';
 import Merge from 'samples/Merge';
+import SubSum from 'samples/SubSum';
+import Tree from 'samples/Tree';
 
 const AppRouter = () => {
   return (
@@ -14,8 +15,9 @@ const AppRouter = () => {
         <>
           <Route exact path="/" component={Home} />
           <Route exact path="/type" component={Type} />
-          <Route exact path="/tree" component={Tree} />
           <Route exact path="/merge" component={Merge} />
+          <Route exact path="/subsum" component={SubSum} />
+          <Route exact path="/tree" component={Tree} />
         </>
       </Switch>
     </Router>

@@ -15,6 +15,9 @@ const Navigation = () => {
           <Link to="/merge">Merge Sample</Link>
         </li>
         <li>
+          <Link to="/subsum">SubSum Sample</Link>
+        </li>
+        <li>
           <Link to="/tree">Tree Sample</Link>
         </li>
       </ul>
