@@ -9,10 +9,13 @@ const Navigation = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/hello">Hello Sample</Link>
+          <Link to="/type">Type Sample</Link>
         </li>
         <li>
           <Link to="/format">Format Sample</Link>
+        </li>
+        <li>
+          <Link to="/merge">Merge Sample</Link>
         </li>
       </ul>
     </nav>
