@@ -1,11 +1,10 @@
 // Main.
-import AppRouter from "components/Router";
+import Layout from "components/Layout";
 
 const App = () => {
   return (
     <>
-      <AppRouter />
-      <footer>&copy; {new Date().getFullYear()} IBSheet8 React Guide Sample</footer>
+      <Layout />
     </>
   );
 }

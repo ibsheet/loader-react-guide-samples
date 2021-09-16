@@ -1,34 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import Home from '../samples/Home';
+import Type from '../samples/Type';
+import Merge from '../samples/Merge';
+import SubSum from '../samples/SubSum';
+import Tree from '../samples/Tree';
+import ServerPaging from '../samples/ServerPaging';
+class Navigation extends Component {
 
-const Navigation = () => {
-  return  (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/type">Type Sample</Link>
-        </li>
-        <li>
-          <Link to="/merge">Merge Sample</Link>
-        </li>
-        <li>
-          <Link to="/subsum">SubSum Sample</Link>
-        </li>
-        <li>
-          <Link to="/tree">Tree Sample</Link>
-        </li>
-        <li>
-          <Link to="/serverpaging">ServerPaging Sample</Link>
-        </li>
-        <li>
-          <Link to="/formula">Formula Sample</Link>
-        </li>
-      </ul>
-    </nav>
-  )
+  render() {
+    if (this.props.match.params.name === "type") {
+      return <Type></Type>;
+    }
+    if (this.props.match.params.name === "merge") {
+      return <Merge></Merge>;
+    }
+    if (this.props.match.params.name === "subsum") {
+      return <SubSum></SubSum>;
+    }
+    if (this.props.match.params.name === "tree") {
+      return <Tree></Tree>;
+    }
+    if (this.props.match.params.name === "serverpaging") {
+      return <ServerPaging></ServerPaging>;
+    }
+    
+    return <Home></Home>;
+  }
 }
 
 export default Navigation;
