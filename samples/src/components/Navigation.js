@@ -23,6 +23,9 @@ const Navigation = () => {
         <li>
           <Link to="/serverpaging">ServerPaging Sample</Link>
         </li>
+        <li>
+          <Link to="/formula">Formula Sample</Link>
+        </li>
       </ul>
     </nav>
   )
