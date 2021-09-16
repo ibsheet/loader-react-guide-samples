@@ -1335,4 +1335,195 @@ const subData = [
 	}
 ];
 
-export {typeData, mergeData, treeData, subData};
+const formulaData = [
+	{
+		sArea: '서울시',
+		sTheater: 91,
+		sScreen: 527,
+		sSeat: 91288,
+		sNormal: 84,
+		sDigital2: 512,
+		sDigital3: 229,
+		sDigital4: 15,
+		sDigitalImax: 4
+	},
+	{
+		sArea: '경기도',
+		sTheater: 96,
+		sScreen: 570,
+		sSeat: 89065,
+		sNormal: 26,
+		sDigital2: 545,
+		sDigital3: 191,
+		sDigital4: 8,
+		sDigitalImax: 4
+	},
+	{
+		sArea: '강원도',
+		sTheater: 15,
+		sScreen: 76,
+		sSeat: 12103,
+		sNormal: 6,
+		sDigital2: 71,
+		sDigital3: 26,
+		sDigital4: 0,
+		sDigitalImax: 1
+	},
+	{
+		sArea: '충청북도',
+		sTheater: 11,
+		sScreen: 84,
+		sSeat: 14641,
+		sNormal: 13,
+		sDigital2: 80,
+		sDigital3: 23,
+		sDigital4: 1,
+		sDigitalImax: 0
+	},
+	{
+		sArea: '충청남도',
+		sTheater: 19,
+		sScreen: 102,
+		sSeat: 13798,
+		sNormal: 4,
+		sDigital2: 92,
+		sDigital3: 42,
+		sDigital4: 1,
+		sDigitalImax: 0
+	},
+	{
+		sArea: '경상북도',
+		sTheater: 19,
+		sScreen: 100,
+		sSeat: 16053,
+		sNormal: 7,
+		sDigital2: 85,
+		sDigital3: 20,
+		sDigital4: 0,
+		sDigitalImax: 0
+	},
+	{
+		sArea: '경상남도',
+		sTheater: 25,
+		sScreen: 141,
+		sSeat: 23387,
+		sNormal: 2,
+		sDigital2: 129,
+		sDigital3: 49,
+		sDigital4: 2,
+		sDigitalImax: 1
+	},
+	{
+		sArea: '전라북도',
+		sTheater: 23,
+		sScreen: 107,
+		sSeat: 15746,
+		sNormal: 7,
+		sDigital2: 104,
+		sDigital3: 41,
+		sDigital4: 1,
+		sDigitalImax: 1
+	},
+	{
+		sArea: '전라남도',
+		sTheater: 13,
+		sScreen: 74,
+		sSeat: 10365,
+		sNormal: 2,
+		sDigital2: 73,
+		sDigital3: 26,
+		sDigital4: 0,
+		sDigitalImax: 0
+	},
+	{
+		sArea: '제주도',
+		sTheater: 6,
+		sScreen: 33,
+		sSeat: 4468,
+		sNormal: 1,
+		sDigital2: 33,
+		sDigital3: 9,
+		sDigital4: 0,
+		sDigitalImax: 0
+	},
+	{
+		sArea: '부산시',
+		sTheater: 31,
+		sScreen: 197,
+		sSeat: 37883,
+		sNormal: 35,
+		sDigital2: 189,
+		sDigital3: 76,
+		sDigital4: 3,
+		sDigitalImax: 1
+	},
+	{
+		sArea: '대구시',
+		sTheater: 24,
+		sScreen: 133,
+		sSeat: 21465,
+		sNormal: 7,
+		sDigital2: 132,
+		sDigital3: 55,
+		sDigital4: 1,
+		sDigitalImax: 1
+	},
+	{
+		sArea: '대전시',
+		sTheater: 12,
+		sScreen: 73,
+		sSeat: 13257,
+		sNormal: 4,
+		sDigital2: 73,
+		sDigital3: 26,
+		sDigital4: 2,
+		sDigitalImax: 1
+	},
+	{
+		sArea: '울산시',
+		sTheater: 7,
+		sScreen: 42,
+		sSeat: 7727,
+		sNormal: 8,
+		sDigital2: 40,
+		sDigital3: 17,
+		sDigital4: 2,
+		sDigitalImax: 1
+	},
+	{
+		sArea: '인천시',
+		sTheater: 22,
+		sScreen: 133,
+		sSeat: 21673,
+		sNormal: 10,
+		sDigital2: 119,
+		sDigital3: 43,
+		sDigital4: 1,
+		sDigitalImax: 1
+	},
+	{
+		sArea: '광주시',
+		sTheater: 16,
+		sScreen: 111,
+		sSeat: 18893,
+		sNormal: 9,
+		sDigital2: 110,
+		sDigital3: 34,
+		sDigital4: 2,
+		sDigitalImax: 1
+	},
+	{
+		sArea: '세종시',
+		sTheater: 3,
+		sScreen: 14,
+		sSeat: 1963,
+		sNormal: 0,
+		sDigital2: 14,
+		sDigital3: 4,
+		sDigital4: 0,
+		sDigitalImax: 0
+	}
+];
+
+
+export {typeData, mergeData, treeData, subData, formulaData};

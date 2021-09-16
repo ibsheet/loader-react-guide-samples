@@ -7,6 +7,7 @@ import Merge from 'samples/Merge';
 import SubSum from 'samples/SubSum';
 import Tree from 'samples/Tree';
 import ServerPaging from 'samples/ServerPaging';
+import Formula from 'samples/Formula';
 
 const AppRouter = () => {
   return (
@@ -20,6 +21,7 @@ const AppRouter = () => {
           <Route exact path="/subsum" component={SubSum} />
           <Route exact path="/tree" component={Tree} />
           <Route exact path="/serverpaging" component={ServerPaging} />
+          <Route exact path="/formula" component={Formula} />
         </>
       </Switch>
     </Router>
