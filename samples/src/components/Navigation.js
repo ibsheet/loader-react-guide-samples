@@ -20,6 +20,9 @@ const Navigation = () => {
         <li>
           <Link to="/tree">Tree Sample</Link>
         </li>
+        <li>
+          <Link to="/serverpaging">ServerPaging Sample</Link>
+        </li>
       </ul>
     </nav>
   )
