@@ -1,10 +1,20 @@
-### IBSheet React Samples
+## 👋IBSheet React Samples
 
-1. npm install / yarn
-2. public/lib/ 밑에 assets 폴더를 넣어주세요. (public/lib/assets/ibsheet.js)
-3. npm run start / yarn start
-4. `App.js`에서 시작하시면 됩니다. 메인 페이지 입니다.
-5. `SheetCreate.js` 에서 리액트에서 사용할 수 있도록 시트 태그 형태를 제공하는 기능 있음.
-6. `react-router-dom`을 이용하여 각 샘플 페이지로 연결 (`Navigation.js`, `Router.js` 참고)
-7. `Content.js` 에서 샘플 상세페이지 생성, 시트를 생성합니다. 해당 컴포넌트의props로 시트 옵션을 전달해주어야합니다.
-8. `samples` 폴더 밑에 시트 샘플 페이지들이 있음.
+### 사용기술
+
+👉 `Javascript, Jsx, (FortAwesome, React-Icons) 둘 중 원하는 것을 쓰세용. Material-UI, React`
+
+### ✨설치방법
+
+1. `clone` 을 받는다.
+2. `yarn` or `npm install`
+3. `sheet-loader` 버전을 확인해보고, 필요한 로더 버전으로 업데이트한다.
+4. `public/lib` 에 `ibsheet` 라이브러리가 들어있는 `assets` 폴더를 넣어줍니다. (config 에서 파일위치는 변경할 수 있음.)
+5. `yarn start` or `npm start`
+
+### 🚀폴더구조�
+
+1. `App.js` 는 메인 페이지입니다.
+2. `<IBSheet8 />` 컴포넌트는 `Content` 컴포넌트에서 사용합니다.
+3. `SheetCreate.js` 에서 시트의 공통 생성코드가 있습니다.
+4. `samples` 폴더에 각 샘플에 시트 컴포넌트를 제공합니다.
