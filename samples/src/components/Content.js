@@ -9,26 +9,19 @@ const Content = ({ title, subTitle, func, sheet }) => {
     content: {
       fontFamily: 'Noto Sans CJK KR,sans-serif;',
       margin: '0px auto',
-      maxWidth: '960px'
+      maxWidth: '1200px',
+      paddingLeft: '0px',
+      paddingRight: '0px' 
     },
     title: {
 
     },
     subTitle: {
-      color: '#4c4c57'
+      color: '#4c4c57',
     }
   }));
 
   const classes = useStyles();
-
-  // 우선 추가되어야할 컴포넌트로는 button, select
-  // 이 구간에서 이벤트에 사용할 함수를 받아와 실행 할 수 있는지??..
-  // const funcResult = [];
-  // if (func) {
-  //   if (func.button) {
-  //     funcResult.push((func.button.map((obj, index) => <Button key={ index } id={ obj.id }>{ obj.val }</Button>)));
-  //   }
-  // }
 
   return (
     <>

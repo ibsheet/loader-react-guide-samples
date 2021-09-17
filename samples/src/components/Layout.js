@@ -2,12 +2,13 @@ import React from 'react';
 import { BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import Navigation  from 'components/Navigation';
 import AppBar from '@material-ui/core/AppBar';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import StyleLink from '@material-ui/core/Link';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTable } from "@fortawesome/free-solid-svg-icons";
 
 function Copyright() {
   return (
@@ -24,14 +25,14 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   icon: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(0.5),
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
   bar: {
-    // backgroundColor: '#fff'
+    backgroundColor: 'cornflowerblue'
   }
 }));
 
@@ -44,10 +45,10 @@ const Layout = () => {
         <CssBaseline />
         <AppBar position="relative">
           <Toolbar className={ classes.bar }>
-            <CameraIcon className={ classes.icon } />
-              <Typography variant="h6" color="inherit" noWrap>
-                IBSheet8
-              </Typography>
+            <FontAwesomeIcon icon={ faTable } className={ classes.icon } />
+            <Typography variant="h6" color="inherit" noWrap>
+              IBSheet8
+            </Typography>
           </Toolbar>
         </AppBar>
         <main>

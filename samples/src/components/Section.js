@@ -1,9 +1,12 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTable } from "@fortawesome/free-solid-svg-icons";
+import { FaGithub } from "react-icons/fa";
+import { CgComponents } from "react-icons/cg";
 
 const Section = ({ title, subTitle, func }) => {
   const useStyles = makeStyles((theme) => ({
@@ -18,16 +21,47 @@ const Section = ({ title, subTitle, func }) => {
     content: {
       backgroundColor: 'rgb(247, 247, 247)',
       borderBottom: '1px solid rgb(229, 229, 229)',
-      padding: theme.spacing(8, 0, 6),
+      padding: theme.spacing(6, 0, 3),
       fontFamily: 'Noto Sans CJK KR,sans-serif',
-
     },
     button: {
       marginTop: theme.spacing(4),
     },
     header: {
-      maxWidth: '900px',
+      maxWidth: '1140px',
       margin: '0px auto'
+    },
+    icon: {
+      marginRight: theme.spacing(0.5),
+      color: 'cornflowerblue'
+    },
+    btnDiv: {
+      paddingTop: '20px'
+    },
+    btnDivChild1: {
+      marginRight: '12px',
+      width: '140px',
+      height: '42px',
+      backgroundColor: '#a777e3',
+      color: '#fff'
+    },
+    btnDivChild2: {
+      marginRight: '12px',
+      width: '140px',
+      height: '42px',
+      backgroundColor: '#000'
+    },
+    gitp1: {
+      paddingLeft: '10px',
+      color: '#fff',
+      fontWeight: 'bold',
+      fontFamily: 'Noto Sans CJK KR,sans-serif',
+    },
+    gitp2: {
+      paddingLeft: '10px',
+      color: '#fff',
+      fontWeight: 'bold',
+      fontFamily: 'Noto Sans CJK KR,sans-serif',
     }
   }));
 
@@ -38,12 +72,27 @@ const Section = ({ title, subTitle, func }) => {
       <div className={classes.content}>
         <Container>
           <div className={ classes.header }>
+            <FontAwesomeIcon icon={ faTable } className={ classes.icon } size={ '3x' } />
             <span className={ classes.title }>
               { title }
             </span>
             <p className={ classes.subTitle }>
               { subTitle }
             </p>
+            <div className={ classes.btnDiv }>
+              <Button variant="contained" className={ classes.btnDivChild1 }>
+                <CgComponents size='24' color='#fff' />
+                <p className={ classes.gitp1 }>
+                  Source
+                </p>
+              </Button>
+              <Button variant="contained" className={ classes.btnDivChild2 }>
+                <FaGithub size='24' color='#fff'/>
+                <p className={ classes.gitp2 }>
+                  GitHub
+                </p>
+              </Button>
+            </div>
           </div>
         </Container>
         <div className={classes.button}>
