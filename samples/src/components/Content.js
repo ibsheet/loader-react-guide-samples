@@ -4,8 +4,7 @@ import Section from 'components/Section';
 import { makeStyles } from '@material-ui/core/styles';
 import IBSheet8 from 'components/SheetCreate';
 
-const Content = ({ title, subTitle, func, options }) => {
-  console.log(func);
+const Content = ({ title, subTitle, func, sheet }) => {
   const useStyles = makeStyles((props) => ({
     content: {
       fontFamily: 'Arial'
@@ -33,7 +32,7 @@ const Content = ({ title, subTitle, func, options }) => {
     <>
       <Section title={ title } subTitle={ subTitle } func={ func }></Section>
       <Container maxWidth="lg" component="main" className={ classes.content }>
-        { options && <IBSheet8 id="sheet" el="sheetDiv" width="100%" height="100%" options={ options } />}
+        { sheet && <IBSheet8 id= { sheet.id } el={ sheet.el } width={ sheet.width } height={ sheet.height } options={ sheet.options } />}
       </Container>
     </>
   )

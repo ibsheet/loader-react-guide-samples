@@ -93,9 +93,17 @@ const Tree = () => {
     }
   };
 
+  const sheet = {
+    id: 'sheet',
+    el: 'sheetDiv',
+    height: '100%',
+    width: '100%',
+    options: options
+  };
+
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } description={ description } func={ func } options={ options }/>
+      <Content title={ title } subTitle={ subTitle } description={ description } func={ func } sheet={ sheet }/>
     </>
   );
 }

@@ -83,16 +83,24 @@ const Merge = () => {
     {
       text: '머지1',
       func: mergeFunc
-    }, 
+    },
     {
       text: '머지2',
       func: btnFunc
     }
   ];
 
+  const sheet = {
+    id: 'sheet',
+    el: 'sheetDiv',
+    height: '100%',
+    width: '100%',
+    options: options
+  };
+
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } description={ description } func={ funcArr } options={ options }/>
+      <Content title={ title } subTitle={ subTitle } description={ description } func={ funcArr } sheet={ sheet }/>
     </>
   );
 }

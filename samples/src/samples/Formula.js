@@ -103,9 +103,17 @@ const Formula = () => {
     }
   };
 
+  const sheet = {
+    id: 'sheet',
+    el: 'sheetDiv',
+    height: '100%',
+    width: '100%',
+    options: options
+  };
+
   return (
   <>
-    <Content title = { title } func = { func } options = { options }/>
+    <Content title = { title } func = { func } sheet = { sheet }/>
   </>
   );
 }
