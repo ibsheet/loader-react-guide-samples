@@ -1,10 +1,8 @@
 ## 👋IBSheet React Samples
 
-React와 Sheet
-
 ### 사용기술
 
-`Javascript, Jsx, FortAwesome, Material-UI, React`
+👉 `Javascript, Jsx, FortAwesome, Material-UI, React`
 
 ### ✨설치방법
 
