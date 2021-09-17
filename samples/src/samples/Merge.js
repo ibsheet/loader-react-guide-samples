@@ -4,7 +4,7 @@ import React, { useCallback } from 'react';
 import Content from 'components/Content';
 import { mergeData } from 'data/samplesData';
 
-const Type = () => {
+const Merge = () => {
   const title = '자동 머지 기능';
   const subTitle = '헤더, 데이터 영역의 각 셀들의 값이 같은 경우 자동으로 병합시킬 수 있습니다.';
   const description = '머지를 하려면, HeaderMerge, DataMerge, PrevColumnMerge를 설정하세요.';
@@ -97,4 +97,4 @@ const Type = () => {
   );
 }
 
-export default Type;
+export default Merge;
