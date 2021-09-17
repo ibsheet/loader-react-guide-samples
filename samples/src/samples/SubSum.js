@@ -7,7 +7,6 @@ import { subData } from 'data/samplesData';
 const SubSum = () => {
   const title = '소계 기능';
   const subTitle = '특정 컬럼을 기준으로, 지정한 컬럼들에 대한 소계 값을 보여주는 기능입니다.';
-  const description = 'makeSubTotal 메소드를 통해 소계행을 생성할 수 있습니다.';
   const func = {};
 
   const options = {
@@ -118,7 +117,7 @@ const SubSum = () => {
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } description={ description } func={ func } sheet={ sheet }/>
+      <Content title={ title } subTitle={ subTitle } func={ func } sheet={ sheet }/>
     </>
   );
 }

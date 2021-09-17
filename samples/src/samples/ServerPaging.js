@@ -6,7 +6,6 @@ import Content from 'components/Content';
 const ServerPaging = () => {
   const title = '서버 스크롤 페이징';
   const subTitle = '세로 스크롤바를 최하단으로 내릴때 마다 다음 데이터를 append 하는 형식으로 지원합니다.';
-  const description = '꺄';
   const func = {};
 
   const options = {
@@ -103,7 +102,7 @@ const ServerPaging = () => {
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } description={ description } func={ func } sheet={ sheet }/>
+      <Content title={ title } subTitle={ subTitle } func={ func } sheet={ sheet }/>
     </>
   );
 }

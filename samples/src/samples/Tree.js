@@ -7,7 +7,6 @@ import { treeData } from 'data/samplesData';
 const Tree = () => {
   const title = '트리 예제';
   const subTitle = '트리 관련 예제 입니다.';
-  const description = '부모/자식 관계로 시트의 모양을 나타낼 수 있습니다.';
   const func = {};
 
   const options = {
@@ -103,7 +102,7 @@ const Tree = () => {
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } description={ description } func={ func } sheet={ sheet }/>
+      <Content title={ title } subTitle={ subTitle } func={ func } sheet={ sheet }/>
     </>
   );
 }
