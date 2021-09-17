@@ -2,7 +2,7 @@
 
 ### 사용기술
 
-👉 `Javascript, Jsx, (FortAwesome, React-Icons) 둘 중 원하는 것을 쓰에용. Material-UI, React`
+👉 `Javascript, Jsx, (FortAwesome, React-Icons) 둘 중 원하는 것을 쓰세용. Material-UI, React`
 
 ### ✨설치방법
 
