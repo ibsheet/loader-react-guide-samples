@@ -7,7 +7,9 @@ import IBSheet8 from 'components/SheetCreate';
 const Content = ({ title, subTitle, func, sheet }) => {
   const useStyles = makeStyles((props) => ({
     content: {
-      fontFamily: 'Arial'
+      fontFamily: 'Noto Sans CJK KR,sans-serif;',
+      margin: '0px auto',
+      maxWidth: '960px'
     },
     title: {
 
