@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
+  bar: {
+    // backgroundColor: '#fff'
+  }
 }));
 
 const Layout = () => {
@@ -40,8 +43,8 @@ const Layout = () => {
       <BrowserRouter>
         <CssBaseline />
         <AppBar position="relative">
-          <Toolbar>
-            <CameraIcon className={classes.icon} />
+          <Toolbar className={ classes.bar }>
+            <CameraIcon className={ classes.icon } />
               <Typography variant="h6" color="inherit" noWrap>
                 IBSheet8
               </Typography>

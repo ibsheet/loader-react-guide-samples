@@ -16,9 +16,11 @@ const Section = ({ title, subTitle, func }) => {
       fontSize: '18px'
     },
     content: {
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: 'rgb(247, 247, 247)',
+      borderBottom: '1px solid rgb(229, 229, 229)',
       padding: theme.spacing(8, 0, 6),
-      fontFamily: 'Noto Sans CJK KR,sans-serif'
+      fontFamily: 'Noto Sans CJK KR,sans-serif',
+
     },
     button: {
       marginTop: theme.spacing(4),
