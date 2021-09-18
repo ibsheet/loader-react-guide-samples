@@ -16,7 +16,7 @@ import {} from "@fortawesome/free-solid-svg-icons";
 const Main = () => {
   const title = 'IBSheet8';
   const subTitle = 
-    'IBSheet8 is powerful data load, high degree of freedom, and partial rendering provide fast rendering in the React environment.';
+    'Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 React 환경에서 제공합니다.';
   const func = [];
   const route = ['type', 'merge', 'tree', 'serverpaging', 'subsum', 'formula', 'form', 'multiple', 'dialog'];
   const f = ['기본기능', '기본기능', '기본기능', '기본기능', '고급기능', '고급기능', '실무예제', '실무예제', '실무예제'];

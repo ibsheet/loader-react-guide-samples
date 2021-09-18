@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 import { FaGithub } from "react-icons/fa";
 import { CgComponents } from "react-icons/cg";
+import StyleLink from '@material-ui/core/Link';
 
 const Section = ({ title, subTitle, func }) => {
   const useStyles = makeStyles((theme) => ({
@@ -80,18 +81,20 @@ const Section = ({ title, subTitle, func }) => {
               { subTitle }
             </p>
             <div className={ classes.btnDiv }>
-              <Button variant="contained" className={ classes.btnDivChild1 }>
+              <Button variant='contained' className={ classes.btnDivChild1 }>
                 <CgComponents size='24' color='#fff' />
                 <p className={ classes.gitp1 }>
                   Source
                 </p>
               </Button>
-              <Button variant="contained" className={ classes.btnDivChild2 }>
-                <FaGithub size='24' color='#fff'/>
-                <p className={ classes.gitp2 }>
-                  GitHub
-                </p>
-              </Button>
+              <StyleLink underline="none" color="inherit" href="https://github.com/ibsheet/loader-react-guide-samples/tree/main/samples">
+                <Button variant='contained' className={ classes.btnDivChild2 }>
+                  <FaGithub size='24' color='#fff'/>
+                  <p className={ classes.gitp2 }>
+                    GitHub
+                  </p>
+                </Button>
+              </StyleLink>
             </div>
           </div>
         </Container>
