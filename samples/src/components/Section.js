@@ -3,10 +3,10 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTable } from "@fortawesome/free-solid-svg-icons";
-import { FaGithub } from "react-icons/fa";
-import { CgComponents } from "react-icons/cg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTable } from '@fortawesome/free-solid-svg-icons';
+import { FaGithub } from 'react-icons/fa';
+import { CgComponents } from 'react-icons/cg';
 import StyleLink from '@material-ui/core/Link';
 
 const Section = ({ title, subTitle, func }) => {
@@ -87,7 +87,7 @@ const Section = ({ title, subTitle, func }) => {
                   Source
                 </p>
               </Button>
-              <StyleLink underline="none" color="inherit" href="https://github.com/ibsheet/loader-react-guide-samples/tree/main/samples">
+              <StyleLink underline='none' color='inherit' href='https://github.com/ibsheet/loader-react-guide-samples/tree/main/samples'>
                 <Button variant='contained' className={ classes.btnDivChild2 }>
                   <FaGithub size='24' color='#fff'/>
                   <p className={ classes.gitp2 }>
@@ -99,11 +99,11 @@ const Section = ({ title, subTitle, func }) => {
           </div>
         </Container>
         <div className={classes.button}>
-          <Grid container spacing={2} justify="center">
+          <Grid container spacing={2} justify='center'>
             {/* {
               func && func.map((v, i) =>
               <Grid item>
-                <Button variant="contained" color="primary" onClick={v.func}>{v.text}</Button>
+                <Button variant='contained' color='primary' onClick={v.func}>{v.text}</Button>
               </Grid>)
             } */}
           </Grid>

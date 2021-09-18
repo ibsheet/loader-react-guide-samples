@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import ex from 'image/ex.png';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {} from '@fortawesome/free-solid-svg-icons';
 
 // 여기에 Rounter 설정
 const Main = () => {
@@ -95,21 +95,21 @@ const Main = () => {
   return (
     <>
     <Content title={ title } subTitle={ subTitle } func={ func }/>
-    <Container className={ classes.cardGrid } maxWidth="md">
+    <Container className={ classes.cardGrid } maxWidth='md'>
         {/* 샘플 리스트 영역 */}
         <Grid container spacing={4}>
           {samples.map((card, index) => (
             <Grid item key={ card } xs={ 12 } sm={ 6 } md={ 4 }>
               <Card className={ classes.card }>
                 <CardContent className={ classes.cardContent }>
-                  <Link underline="none" to={"/" + route[index]}>
-                    <img src={ ex } alt="ex" className={ classes.imgs } />
+                  <Link underline='none' to={'/' + route[index]}>
+                    <img src={ ex } alt='ex' className={ classes.imgs } />
                   </Link>
                   <div>
-                    <Typography gutterBottom variant="body1" component="span" className={ returnStyleName(f[index]) }>
+                    <Typography gutterBottom variant='body1' component='span' className={ returnStyleName(f[index]) }>
                       { f[index] }
                     </Typography>
-                    <Typography gutterBottom variant="body2" component="span" className={ classes.bodyspan }>
+                    <Typography gutterBottom variant='body2' component='span' className={ classes.bodyspan }>
                       { samples[index] }
                     </Typography>
                   </div>

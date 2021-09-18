@@ -7,14 +7,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import StyleLink from '@material-ui/core/Link';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTable, faBook } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTable, faBook } from '@fortawesome/free-solid-svg-icons';
 
 const Copyright = () => {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant='body2' color='textSecondary' align='center'>
       {'Copyright © '}
-      <StyleLink color="inherit" href="https://www.ibsheet.com/">
+      <StyleLink color='inherit' href='https://www.ibsheet.com/'>
         IBSheet8
       </StyleLink>{' '}
       {new Date().getFullYear()}
@@ -69,10 +69,10 @@ const Layout = () => {
     <>
       <BrowserRouter>
         <CssBaseline />
-        <AppBar position="relative">
+        <AppBar position='relative'>
           <Toolbar className={ classes.bar }>
             <FontAwesomeIcon icon={ faTable } className={ classes.icon } />
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography variant='h6' color='inherit' noWrap>
               IBSheet8
             </Typography>
           </Toolbar>
@@ -92,7 +92,7 @@ const Layout = () => {
             <ul>
               <li>
                 <span className= { classes.spContent1 }>
-                  <StyleLink color="inherit" href="https://www.ibsheet.com/">
+                  <StyleLink color='inherit' href='https://www.ibsheet.com/'>
                     Package
                   </StyleLink>
                 </span>
@@ -102,7 +102,7 @@ const Layout = () => {
               </li>
               <li>
                 <span className= { classes.spContent1 }>
-                  <StyleLink color="inherit" href="https://github.com/ibsheet/loader">
+                  <StyleLink color='inherit' href='https://github.com/ibsheet/loader'>
                     Loader
                   </StyleLink>
                 </span>
@@ -112,7 +112,7 @@ const Layout = () => {
               </li>
               <li>
                 <span className= { classes.spContent1 }>
-                  <StyleLink color="inherit" href="https://ibsheet.github.io/loader-manual/">
+                  <StyleLink color='inherit' href='https://ibsheet.github.io/loader-manual/'>
                     IBSheet Loader Manual
                   </StyleLink>
                 </span>
@@ -122,7 +122,7 @@ const Layout = () => {
               </li>
               <li>
                 <span className= { classes.spContent1 }>
-                  <StyleLink color="inherit" href="https://docs.ibleaders.com/ibsheet/v8/manual/#docs/intro/feature">
+                  <StyleLink color='inherit' href='https://docs.ibleaders.com/ibsheet/v8/manual/#docs/intro/feature'>
                     IBSheet8 Manual
                   </StyleLink>
                 </span>
@@ -132,7 +132,7 @@ const Layout = () => {
               </li>
               <li>
                 <span className= { classes.spContent1 }>
-                  <StyleLink color="inherit" href="https://demo.ibleaders.com/ibsheet/v8/samples/customer-sample/html/main.html">
+                  <StyleLink color='inherit' href='https://demo.ibleaders.com/ibsheet/v8/samples/customer-sample/html/main.html'>
                     IBSheet8 Sample
                   </StyleLink>
                 </span>
@@ -141,7 +141,7 @@ const Layout = () => {
                 </span>
               </li>
             </ul>
-            <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+            <Typography variant='subtitle1' align='center' color='textSecondary' component='p'>
               &copy; {new Date().getFullYear()} IBSheet8 React Guide Sample
             </Typography>
             <Copyright />

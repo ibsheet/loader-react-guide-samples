@@ -1,5 +1,5 @@
 // Main.
-import Layout from "components/Layout";
+import Layout from 'components/Layout';
 import IBSheetLoader from '@ibsheet/loader';
 
 const App = () => {
@@ -10,16 +10,16 @@ const App = () => {
       {
         name: 'ibsheet',
         baseUrl: './lib/assets', // ibsheet 라이브러리 위치
-        locales: ["en","ko"],
+        locales: ['en','ko'],
         plugins: [
-          "dialog",
-          "common",
-          "excel",
+          'dialog',
+          'common',
+          'excel',
         ]
       }
     ]
   });
-  
+
   return (
     <>
       <Layout />

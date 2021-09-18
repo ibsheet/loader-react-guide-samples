@@ -26,7 +26,7 @@ const Content = ({ title, subTitle, func, sheet }) => {
   return (
     <>
       <Section title={ title } subTitle={ subTitle } func={ func }></Section>
-      <Container maxWidth="lg" component="main" className={ classes.content }>
+      <Container maxWidth='lg' component='main' className={ classes.content }>
         { sheet && <IBSheet8 id= { sheet.id } el={ sheet.el } width={ sheet.width } height={ sheet.height } options={ sheet.options } />}
       </Container>
     </>

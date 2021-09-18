@@ -47,14 +47,14 @@ const Merge = () => {
         Format: '#,##0'
       },
       {
-        Header: ["제품","가격"],
+        Header: ['제품','가격'],
         Type: 'Text',
         Name: 'price',
         Width: 120,
         Format: '#,##0 원'
       },
       {
-        Header: ["제품","상세설명"],
+        Header: ['제품','상세설명'],
         Type: 'Text',
         Name: 'etc',
         Width: 180,
@@ -71,11 +71,11 @@ const Merge = () => {
 
   // func 기능 구현
   const mergeFunc = useCallback(() => {
-    console.log("mergeFunc");
+    console.log('mergeFunc');
   }, []);
 
   const btnFunc = useCallback(() => {
-    console.log("btnFunc");
+    console.log('btnFunc');
   }, []);
 
   const funcArr = [
