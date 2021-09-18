@@ -59,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.25rem',
     fontWeight: '400',
     lineHeight: '1.6'
+  },
+  footfloor: {
+    paddingTop: '48px'
   }
 }));
 
@@ -91,60 +94,62 @@ const Layout = () => {
             </span>
             <ul>
               <li>
-                <span className= { classes.spContent1 }>
+                <span className={ classes.spContent1 }>
                   <StyleLink color='inherit' href='https://www.ibsheet.com/'>
                     Package
                   </StyleLink>
                 </span>
-                <span className= { classes.spContent2 }>
+                <span className={ classes.spContent2 }>
                   { ': 해당 프로젝트를 실행하려면 ibsheet 라이브러리가 포함된 패키지가 필요합니다.' }
                 </span>
               </li>
               <li>
-                <span className= { classes.spContent1 }>
+                <span className={ classes.spContent1 }>
                   <StyleLink color='inherit' href='https://github.com/ibsheet/loader'>
                     Loader
                   </StyleLink>
                 </span>
-                <span className= { classes.spContent2 }>
+                <span className={ classes.spContent2 }>
                   { ': SPA 환경에서 IBSheet8을 사용하기 위한 라이브러리입니다.' }
                 </span>
               </li>
               <li>
-                <span className= { classes.spContent1 }>
+                <span className={ classes.spContent1 }>
                   <StyleLink color='inherit' href='https://ibsheet.github.io/loader-manual/'>
                     IBSheet Loader Manual
                   </StyleLink>
                 </span>
-                <span className= { classes.spContent2 }>
+                <span className={ classes.spContent2 }>
                   { ': IBSheet-Loader를 사용하기 위한 매뉴얼 안내입니다.' }
                 </span>
               </li>
               <li>
-                <span className= { classes.spContent1 }>
+                <span className={ classes.spContent1 }>
                   <StyleLink color='inherit' href='https://docs.ibleaders.com/ibsheet/v8/manual/#docs/intro/feature'>
                     IBSheet8 Manual
                   </StyleLink>
                 </span>
-                <span className= { classes.spContent2 }>
+                <span className={ classes.spContent2 }>
                   { ': IBSheet8 의 다양한 기능을 쉽게 사용할 수 있도록 매뉴얼을 제공합니다.' }
                 </span>
               </li>
               <li>
-                <span className= { classes.spContent1 }>
+                <span className={ classes.spContent1 }>
                   <StyleLink color='inherit' href='https://demo.ibleaders.com/ibsheet/v8/samples/customer-sample/html/main.html'>
                     IBSheet8 Sample
                   </StyleLink>
                 </span>
-                <span className= { classes.spContent2 }>
+                <span className={ classes.spContent2 }>
                   { ': 더 다양한 샘플이 모여있는 IBSheet8 Demo Sample 을 제공한다.' }
                 </span>
               </li>
             </ul>
-            <Typography variant='subtitle1' align='center' color='textSecondary' component='p'>
-              &copy; {new Date().getFullYear()} IBSheet8 React Guide Sample
-            </Typography>
-            <Copyright />
+            <div className={ classes.footfloor }>
+              <Typography variant='subtitle1' align='center' color='textSecondary' component='p'>
+                &copy; {new Date().getFullYear()} IBSheet8 React Guide Sample
+              </Typography>
+              <Copyright />
+            </div>
           </div>
         </footer>
       </BrowserRouter>

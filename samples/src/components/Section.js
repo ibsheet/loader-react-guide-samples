@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,8 +8,15 @@ import { faTable } from '@fortawesome/free-solid-svg-icons';
 import { FaGithub } from 'react-icons/fa';
 import { CgComponents } from 'react-icons/cg';
 import StyleLink from '@material-ui/core/Link';
+import Modal from '@material-ui/core/Modal';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
 const Section = ({ title, subTitle, func }) => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const useStyles = makeStyles((theme) => ({
     title: {
       fontSize: '40px',
@@ -63,6 +70,15 @@ const Section = ({ title, subTitle, func }) => {
       color: '#fff',
       fontWeight: 'bold',
       fontFamily: 'Noto Sans CJK KR,sans-serif',
+    },
+    mcontent: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: '400px',
+      backgroundColor: '#fff',
+      border: '2px solid #000',
     }
   }));
 
@@ -81,12 +97,30 @@ const Section = ({ title, subTitle, func }) => {
               { subTitle }
             </p>
             <div className={ classes.btnDiv }>
-              <Button variant='contained' className={ classes.btnDivChild1 }>
+              <Button variant='contained' className={ classes.btnDivChild1 } onClick={ handleOpen }>
                 <CgComponents size='24' color='#fff' />
                 <p className={ classes.gitp1 }>
                   Source
                 </p>
               </Button>
+              <Modal
+                open={ open }
+                onClose={ handleClose }
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box className={ classes.mcontent }>
+                  <Typography id="modal-modal-title" variant="h6" component="h2">
+                    여기에 시트 Create 소스 제목
+                  </Typography>
+                  <Typography id="modal-modal-description">
+                    시트 Create 소스
+                  </Typography>
+                  <Button variant='contained'>
+                    Copy
+                  </Button>
+                </Box>
+              </Modal>
               <StyleLink underline='none' color='inherit' href='https://github.com/ibsheet/loader-react-guide-samples/tree/main/samples'>
                 <Button variant='contained' className={ classes.btnDivChild2 }>
                   <FaGithub size='24' color='#fff'/>
