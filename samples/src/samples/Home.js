@@ -21,6 +21,7 @@ const Main = () => {
   const route = ['type', 'merge', 'tree', 'serverpaging', 'subsum', 'formula', 'form', 'multiple', 'dialog'];
   const f = ['기본기능', '기본기능', '기본기능', '기본기능', '고급기능', '고급기능', '실무예제', '실무예제', '실무예제'];
   const samples = ['컬럼 타입', '자동 머지', '트리 기능', '서버스크롤페이징', '소계 기능', '포뮬러 기능', 'Form 요소를 이용한 상세보기', '여러 개의 시트', '시트 + 다이얼로그'];
+  const [mouseOver, setMouserOver] = useState(false);
 
   const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -33,17 +34,35 @@ const Main = () => {
     },
     cardHover: {
       height: '100%',
-      background: '#000'
+      left: '0',
+      position: 'absolute',
+      top: '0',
+      width: '100%',
+      zIndex: 2,
+      opacity: 0,
+      backgroundColor: 'rgba(0,0,0,.5)',
+      padding: '20px 20px 0 20px',
+      boxSizing: 'border-box',
+      '&:hover': {
+        opacity: 1,
+        transition: 'opacity 350ms ease',
+        transform: 'translate3d(0,0,0)',
+      }
     },
     cardContent: {
       padding: '10px',
       paddingBottom: '13px !important'
     },
     imgs: {
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      color: '#FFF',
+      position: 'relative',
       width: '100%',
-      // hegiht: '100%'
-      objectFit: 'fill',
-      paddingBottom: '10px'
+      height: '200px',
+      cursor: 'pointer',
+      backgroundImage: `url(${ex})`,
+      marginBottom: '10px'
     },
     basicfunc: {
       fontSize: '1.0rem',
@@ -92,6 +111,8 @@ const Main = () => {
     }
   }
 
+  const toggleOver = () => setMouserOver((prev) => !prev);
+
   return (
     <>
     <Content title={ title } subTitle={ subTitle } func={ func }/>
@@ -103,7 +124,12 @@ const Main = () => {
               <Card className={ classes.card }>
                 <CardContent className={ classes.cardContent }>
                   <Link underline='none' to={'/' + route[index]}>
-                    <img src={ ex } alt='ex' className={ classes.imgs } />
+                    <div className={ classes.imgs } 
+                      onMouseEnter={ toggleOver }
+                      onMouseLeave={ toggleOver }
+                    >
+                      {mouseOver ? <div className={ classes.cardHover } ></div> : <></>}
+                    </div>
                   </Link>
                   <div>
                     <Typography gutterBottom variant='body1' component='span' className={ returnStyleName(f[index]) }>
