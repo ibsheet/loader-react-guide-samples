@@ -1,5 +1,5 @@
 // Main.
-import Layout from "components/Layout";
+import Layout from 'components/Layout';
 
 const App = () => {
   return (

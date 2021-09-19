@@ -7,7 +7,6 @@ import { typeData } from 'data/samplesData';
 const Type = () => {
   const title = '컬럼 별 타입';
   const subTitle = '각 컬럼별 설정 가능한 Type에 대한 예제입니다.';
-  const description = 'Text, Enum, Button, Int, Float, Date 등 다양한 Type을 지원합니다.';
 
   const options = {
     Cfg: {
@@ -107,9 +106,17 @@ const Type = () => {
     }
   };
 
+  const sheet = {
+    id: 'sheet',
+    el: 'sheetDiv',
+    height: '100%',
+    width: '100%',
+    options: options
+  };
+
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } description={ description } options={ options }/>
+      <Content title={ title } subTitle={ subTitle } sheet={ sheet }/>
     </>
   );
 }

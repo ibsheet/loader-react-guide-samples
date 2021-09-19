@@ -7,13 +7,14 @@ import { formulaData } from 'data/samplesData';
 const Formula = () => {
 
   const title = '포뮬러 기능';
+  const subTitle = '포뮬러를 이용하여 자동값 계산 또는 속성을 설정할 수 있습니다.'
   const func = {};
 
   const options = {
     Def: {
       Row: {
         CanFormula: 1,
-        CalcOrder: 'sTheaterTextColor,sSeatTextColor,sNormalTextColor,sDigital2TextColor,sDigital4TextColor'
+        CalcOrder: 'sTheaterColor,sSeatColor,sNormalColor,sDigital2Color,sDigital4TextColor,sDigital4Color,sNote'
       }
     },
     Cfg: {
@@ -39,7 +40,7 @@ const Formula = () => {
         Header: '영화상영관수',
         Name: 'sTheater',
         Type: 'Int',
-        TextColorFormula: 'Value > 20 ? \'Red\' : \'\'',
+        ColorFormula: 'Value < 10 ? \'Green\' : \'\'',
         Width: 100
       },
       {
@@ -52,21 +53,21 @@ const Formula = () => {
         Header: '좌석수',
         Name: 'sSeat',
         Type: 'Int',
-        TextColorFormula: 'Value > 20000 ? \'Gray\' : \'\'',
+        ColorFormula: 'Value > 5000 ? \'Gray\' : \'\'',
         Width: 150
       },
       {
         Header: '일반',
         Name: 'sNormal',
         Type: 'Int',
-        TextColorFormula: 'Value > 10 ? \'Purple\' : \'\'',
+        ColorFormula: 'Value > 10 ? \'Purple\' : \'\'',
         Width: 100
       },
       {
         Header: 'Digital 2D',
         Name: 'sDigital2',
         Type: 'Int',
-        TextColorFormula: 'Value > 100 ? \'Red\' : \'\'',
+        ColorFormula: 'Value > 100 ? \'Red\' : \'\'',
         Width: 100
       },
       {
@@ -79,7 +80,8 @@ const Formula = () => {
         Header: 'Digital 4D',
         Name: 'sDigital4',
         Type: 'Int',
-        TextColorFormula: 'Value > 1 ? \'Green\' : \'\'',
+        ColorFormula: 'Value > 1 ? \'Black\' : \'\'',
+        TextColorFormula: 'Value > 1 ? \'Yellow\' : \'\'',
         Width: 100
       },
       {
@@ -89,10 +91,11 @@ const Formula = () => {
         Width: 100
       },
       {
-        Header: '비고',
+        Header: '전체 합계',
         Name: 'sNote',
         Type: 'Text',
-        RelWidth: 1
+        RelWidth: 1,
+        Formula: fr => fr.Row.sTheater + fr.Row.sScreen + fr.Row.sSeat + fr.Row.sNormal + fr.Row.sDigital2 + fr.Row.sDigital3 + fr.Row.sDigital4 + fr.Row.sDigitalImax
       }
     ],
     Events: {
@@ -103,9 +106,17 @@ const Formula = () => {
     }
   };
 
+  const sheet = {
+    id: 'sheet',
+    el: 'sheetDiv',
+    height: '100%',
+    width: '100%',
+    options: options
+  };
+
   return (
   <>
-    <Content title = { title } func = { func } options = { options }/>
+    <Content title = { title } subTitle={ subTitle } func = { func } sheet = { sheet }/>
   </>
   );
 }
