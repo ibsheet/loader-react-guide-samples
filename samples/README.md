@@ -12,7 +12,7 @@
 4. `public/lib` 에 `ibsheet` 라이브러리가 들어있는 `assets` 폴더를 넣어줍니다. (config 에서 파일위치는 변경할 수 있음.)
 5. `yarn start` or `npm start`
 
-### 🚀폴더구조�
+### 🚀폴더구조
 
 1. `App.js` 는 메인 페이지입니다.
 2. `<IBSheet8 />` 컴포넌트는 `Content` 컴포넌트에서 사용합니다.

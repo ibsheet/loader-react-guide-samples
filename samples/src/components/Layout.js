@@ -9,63 +9,65 @@ import { makeStyles } from '@material-ui/core/styles';
 import StyleLink from '@material-ui/core/Link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTable, faBook } from '@fortawesome/free-solid-svg-icons';
-
-const Copyright = () => {
-  return (
-    <Typography variant='body2' color='textSecondary' align='center'>
-      {'Copyright © '}
-      <StyleLink color='inherit' href='https://www.ibsheet.com/'>
-        IBSheet8
-      </StyleLink>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(0.5)
-  },
-  footIcon: {
-    marginRight: theme.spacing(0.5),
-    color: 'cornflowerblue'
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
-  bar: {
-    backgroundColor: 'cornflowerblue'
-  },
-  infooter: {
-    maxWidth: '1140px',
-    margin: '0px auto'
-  },
-  footdesc: {
-    fontSize: '18px'
-  },
-  footTitle: {
-    fontSize: '40px',
-    fontWeight: 'bold',
-    color: '#000'
-  },
-  spContent1: {
-    fontSize: '1.4rem',
-    fontWeight: 'bold',
-    lineHeight: '1.6'
-  },
-  spContent2: {
-    fontSize: '1.25rem',
-    fontWeight: '400',
-    lineHeight: '1.6'
-  },
-  footfloor: {
-    paddingTop: '48px'
-  }
-}));
+import Section from 'components/Section';
 
 const Layout = () => {
+  // 화면에 뿌려질 API
+  const Copyright = () => {
+    return (
+      <Typography variant='body2' color='textSecondary' align='center'>
+        {'Copyright © '}
+        <StyleLink color='inherit' href='https://www.ibsheet.com/'>
+          IBSheet8
+        </StyleLink>{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    );
+  }
+
+  const useStyles = makeStyles((theme) => ({
+    icon: {
+      marginRight: theme.spacing(0.5)
+    },
+    footIcon: {
+      marginRight: theme.spacing(0.5),
+      color: 'cornflowerblue'
+    },
+    footer: {
+      backgroundColor: theme.palette.background.paper,
+      padding: theme.spacing(6),
+    },
+    bar: {
+      backgroundColor: 'cornflowerblue'
+    },
+    infooter: {
+      maxWidth: '1140px',
+      margin: '0px auto'
+    },
+    footdesc: {
+      fontSize: '18px'
+    },
+    footTitle: {
+      fontSize: '40px',
+      fontWeight: 'bold',
+      color: '#000'
+    },
+    spContent1: {
+      fontSize: '1.4rem',
+      fontWeight: 'bold',
+      lineHeight: '1.6'
+    },
+    spContent2: {
+      fontSize: '1.25rem',
+      fontWeight: '400',
+      lineHeight: '1.6'
+    },
+    footfloor: {
+      paddingTop: '48px'
+    }
+  }));
+
   const classes = useStyles();
 
   return (
@@ -81,10 +83,11 @@ const Layout = () => {
           </Toolbar>
         </AppBar>
         <main>
-        <Switch>
-          <Route exact path='/:name' render={(props) => <Navigation {...props}/>}></Route>
-          <Route exact path='/' render={(props) => <Navigation {...props}/>}></Route>
-        </Switch>
+          <Section />
+          <Switch>
+            <Route exact path='/:name' render={(props) => <Navigation {...props}/>}></Route>
+            <Route exact path='/' render={(props) => <Navigation {...props}/>}></Route>
+          </Switch>
         </main>
         <footer className={ classes.footer }>
           <div className={ classes.infooter }>

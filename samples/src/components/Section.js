@@ -12,10 +12,14 @@ import Modal from '@material-ui/core/Modal';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 
-const Section = ({ title, subTitle, func }) => {
+const Section = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const title = 'IBSheet8';
+  const subTitle = 
+    'Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 React 환경에서 제공합니다.';
 
   const useStyles = makeStyles((theme) => ({
     title: {
@@ -100,20 +104,20 @@ const Section = ({ title, subTitle, func }) => {
               <Button variant='contained' className={ classes.btnDivChild1 } onClick={ handleOpen }>
                 <CgComponents size='24' color='#fff' />
                 <p className={ classes.gitp1 }>
-                  Source
+                  Create
                 </p>
               </Button>
               <Modal
                 open={ open }
                 onClose={ handleClose }
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
+                aria-labelledby='modal-modal-title'
+                aria-describedby='modal-modal-description'
               >
                 <Box className={ classes.mcontent }>
-                  <Typography id="modal-modal-title" variant="h6" component="h2">
+                  <Typography id='modal-modal-title' variant='h6' component='h2'>
                     여기에 시트 Create 소스 제목
                   </Typography>
-                  <Typography id="modal-modal-description">
+                  <Typography id='modal-modal-description'>
                     시트 Create 소스
                   </Typography>
                   <Button variant='contained'>
@@ -132,16 +136,6 @@ const Section = ({ title, subTitle, func }) => {
             </div>
           </div>
         </Container>
-        <div className={classes.button}>
-          <Grid container spacing={2} justify='center'>
-            {/* {
-              func && func.map((v, i) =>
-              <Grid item>
-                <Button variant='contained' color='primary' onClick={v.func}>{v.text}</Button>
-              </Grid>)
-            } */}
-          </Grid>
-        </div>
       </div>
     </>
   );
