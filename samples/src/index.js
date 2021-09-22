@@ -10,16 +10,16 @@ IBSheetLoader.config({
   registry: [
     {
       name: 'ibsheet',
-      baseUrl: './lib/assets', // ibsheet 라이브러리 위치
-      locales: ["en","ko"],
+      baseUrl: './lib/assets', // ibsheet 라이브러리 위치, '<publicpath>/ibsheet'
+      locales: ['en','ko'],
       plugins: [
-        "dialog",
-        "common",
-        "excel",
+        'dialog',
+        'common',
+        'excel',
       ]
     }
   ]
-})
+});
 
 ReactDOM.render(
   <React.StrictMode>
