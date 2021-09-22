@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import ex from 'image/ex.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import {} from '@fortawesome/free-solid-svg-icons';
 
 // 여기에 Rounter 설정
@@ -20,6 +21,10 @@ const Main = () => {
   const [mouseOver, setMouserOver] = useState(false);
 
   const useStyles = makeStyles((theme) => ({
+    icon: {
+      verticalAlign: 'middle',
+      display: 'inline-flex'
+    },
     cardGrid: {
       paddingTop: theme.spacing(8),
       paddingBottom: theme.spacing(8),
@@ -56,7 +61,6 @@ const Main = () => {
       position: 'relative',
       width: '100%',
       height: '200px',
-      cursor: 'pointer',
       backgroundImage: `url(${ex})`,
       marginBottom: '10px'
     },
@@ -119,14 +123,16 @@ const Main = () => {
             <Grid item key={ card } xs={ 12 } sm={ 6 } md={ 4 }>
               <Card className={ classes.card }>
                 <CardContent className={ classes.cardContent }>
-                  <Link underline='none' to={'/' + route[index]}>
-                    <div className={ classes.imgs } 
-                      onMouseEnter={ toggleOver }
-                      onMouseLeave={ toggleOver }
-                    >
-                      {mouseOver ? <div className={ classes.cardHover } ></div> : <></>}
+                    <div className={ classes.imgs } onMouseEnter={ toggleOver } onMouseLeave={ toggleOver }>
+                      {mouseOver ? (
+                        <div className={ classes.cardHover } >
+                          <Link underline='none' to={'/' + route[index]}>
+                            <FontAwesomeIcon icon={ faSearch } className={ classes.icon } size={ '3x' } />
+                          </Link>
+                        </div> 
+                      )
+                      : <></>}
                     </div>
-                  </Link>
                   <div>
                     <Typography gutterBottom variant='body1' component='span' className={ returnStyleName(f[index]) }>
                       { f[index] }
