@@ -110,14 +110,14 @@ const Section = () => {
               <Modal
                 open={ open }
                 onClose={ handleClose }
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
+                aria-labelledby='modal-modal-title'
+                aria-describedby='modal-modal-description'
               >
                 <Box className={ classes.mcontent }>
-                  <Typography id="modal-modal-title" variant="h6" component="h2">
+                  <Typography id='modal-modal-title' variant='h6' component='h2'>
                     여기에 시트 Create 소스 제목
                   </Typography>
-                  <Typography id="modal-modal-description">
+                  <Typography id='modal-modal-description'>
                     시트 Create 소스
                   </Typography>
                   <Button variant='contained'>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
-import Section from 'components/Section';
 import { makeStyles } from '@material-ui/core/styles';
 import IBSheet8 from 'components/SheetCreate';
 import Box from '@material-ui/core/Box';
@@ -41,15 +40,14 @@ const Content = ({ title, subTitle, func, sheet }) => {
       <Container maxWidth='lg' component='main' className={ classes.content }>
         { sheet &&
           <Box sx={{ width: '100%', typography: 'body1' }}>
-            <TabContext value={value}>
+            <TabContext value={ value }>
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList onChange={ handleChange } aria-label="Tabs">
-                  <Tab label="GRID" value="1" />
-                  <Tab label="SOURCE" value="2" />
-                  <Tab label="Item Three" value="3" />
+                <TabList onChange={ handleChange } aria-label='Tabs'>
+                  <Tab label='GRID' value='1' />
+                  <Tab label='SOURCE' value='2' />
                 </TabList>
               </Box>
-              <TabPanel value="1">
+              <TabPanel value='1'>
                 <div>
                   <span className={ classes.title }>
                     { title }
@@ -60,8 +58,7 @@ const Content = ({ title, subTitle, func, sheet }) => {
                 </div>
                 <IBSheet8 id= { sheet.id } el={ sheet.el } width={ sheet.width } height={ sheet.height } options={ sheet.options } />
               </TabPanel>
-              <TabPanel value="2">Item Two</TabPanel>
-              <TabPanel value="3">Item Three</TabPanel>
+              <TabPanel value='2'>Item Two</TabPanel>
             </TabContext>
           </Box>
         }
