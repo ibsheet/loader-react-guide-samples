@@ -14,10 +14,6 @@ import {} from '@fortawesome/free-solid-svg-icons';
 
 // 여기에 Rounter 설정
 const Main = () => {
-  const title = 'IBSheet8';
-  const subTitle = 
-    'Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 React 환경에서 제공합니다.';
-  const func = [];
   const route = ['type', 'merge', 'tree', 'serverpaging', 'subsum', 'formula', 'form', 'multiple', 'dialog'];
   const f = ['기본기능', '기본기능', '기본기능', '기본기능', '고급기능', '고급기능', '실무예제', '실무예제', '실무예제'];
   const samples = ['컬럼 타입', '자동 머지', '트리 기능', '서버스크롤페이징', '소계 기능', '포뮬러 기능', 'Form 요소를 이용한 상세보기', '여러 개의 시트', '시트 + 다이얼로그'];
@@ -94,7 +90,7 @@ const Main = () => {
 
   return (
     <>
-    <Content title={ title } subTitle={ subTitle } func={ func }/>
+    <Content/>
     <Container className={ classes.cardGrid } maxWidth='md'>
         {/* 샘플 리스트 영역 */}
         <Grid container spacing={4}>
