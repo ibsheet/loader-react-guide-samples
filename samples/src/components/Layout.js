@@ -31,7 +31,7 @@ const Layout = () => {
       marginRight: theme.spacing(0.5)
     },
     footIcon: {
-      marginRight: theme.spacing(0.5),
+      marginRight: theme.spacing(1.0),
       color: 'cornflowerblue'
     },
     footer: {

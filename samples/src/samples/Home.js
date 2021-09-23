@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import ex from 'image/ex.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import {} from '@fortawesome/free-solid-svg-icons';
 
 // 여기에 Rounter 설정
 const Main = () => {
@@ -16,6 +19,17 @@ const Main = () => {
   const samples = ['컬럼 타입', '자동 머지', '트리 기능', '대용량 조회', '소계 기능', '포뮬러 기능', 'Form 요소를 이용한 상세보기', '여러 개의 시트', '시트 + 다이얼로그'];
 
   const useStyles = makeStyles((theme) => ({
+    icon: {
+      position: 'absolute',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      color: '#FFFFFF',
+      opacity: 0.8
+    },
+    iconWrap: {
+      display: 'flex',
+      justifyContent: 'center'
+    },
     cardGrid: {
       paddingTop: theme.spacing(8),
       paddingBottom: theme.spacing(8),
@@ -26,16 +40,34 @@ const Main = () => {
     },
     cardHover: {
       height: '100%',
-      background: '#000'
+      left: '0',
+      position: 'absolute',
+      top: '0',
+      width: '100%',
+      zIndex: 2,
+      opacity: 0,
+      backgroundColor: 'rgba(0,0,0,.5)',
+      padding: '20px 20px 0 20px',
+      boxSizing: 'border-box',
+      '&:hover': {
+        opacity: 1,
+        transition: 'opacity 350ms ease',
+        transform: 'translate3d(0,0,0)',
+      }
     },
     cardContent: {
       padding: '10px',
       paddingBottom: '13px !important'
     },
     imgs: {
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      color: '#FFF',
+      position: 'relative',
       width: '100%',
-      objectFit: 'fill',
-      paddingBottom: '10px'
+      height: '200px',
+      backgroundImage: `url(${ex})`,
+      marginBottom: '10px'
     },
     basicfunc: {
       fontSize: '1.0rem',
@@ -94,9 +126,15 @@ const Main = () => {
             <Grid item key={ card } xs={ 12 } sm={ 6 } md={ 4 }>
               <Card className={ classes.card }>
                 <CardContent className={ classes.cardContent }>
-                  <Link underline='none' to={'/' + route[index]}>
-                    <img src={ ex } alt='ex' className={ classes.imgs } />
-                  </Link>
+                    <div className={ classes.imgs } >
+                      <div className={ classes.cardHover } >
+                        <Link underline='none' to={'/' + route[index]}>
+                          <div className={ classes.iconWrap }>
+                            <FontAwesomeIcon icon={ faSearch } className={ classes.icon }  size={ '4x' } />
+                          </div>
+                        </Link>
+                      </div> 
+                    </div>
                   <div>
                     <Typography gutterBottom variant='body1' component='span' className={ returnStyleName(f[index]) }>
                       { f[index] }
