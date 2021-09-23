@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Content from 'components/Content';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
@@ -9,14 +8,12 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import ex from 'image/ex.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {} from '@fortawesome/free-solid-svg-icons';
 
 // 여기에 Rounter 설정
 const Main = () => {
-  const route = ['type', 'merge', 'tree', 'serverpaging', 'subsum', 'formula', 'form', 'multiple', 'dialog'];
+  const route = ['type', 'merge', 'tree', 'dataload', 'subsum', 'formula', 'form', 'multiple', 'dialog'];
   const f = ['기본기능', '기본기능', '기본기능', '기본기능', '고급기능', '고급기능', '실무예제', '실무예제', '실무예제'];
-  const samples = ['컬럼 타입', '자동 머지', '트리 기능', '서버스크롤페이징', '소계 기능', '포뮬러 기능', 'Form 요소를 이용한 상세보기', '여러 개의 시트', '시트 + 다이얼로그'];
+  const samples = ['컬럼 타입', '자동 머지', '트리 기능', '대용량 조회', '소계 기능', '포뮬러 기능', 'Form 요소를 이용한 상세보기', '여러 개의 시트', '시트 + 다이얼로그'];
 
   const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -37,7 +34,6 @@ const Main = () => {
     },
     imgs: {
       width: '100%',
-      // hegiht: '100%'
       objectFit: 'fill',
       paddingBottom: '10px'
     },

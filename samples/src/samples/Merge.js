@@ -99,7 +99,7 @@ const Merge = () => {
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } func={ funcArr } sheet={ sheet }/>
+      <Content title={ title } subTitle={ subTitle } func={ funcArr } sheet={ [sheet] }/>
     </>
   );
 }

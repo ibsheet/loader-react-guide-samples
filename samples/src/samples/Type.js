@@ -116,7 +116,7 @@ const Type = () => {
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } sheet={ sheet }/>
+      <Content title={ title } subTitle={ subTitle } sheet={ [sheet] }/>
     </>
   );
 }

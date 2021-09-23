@@ -116,7 +116,7 @@ const Formula = () => {
 
   return (
   <>
-    <Content title = { title } subTitle={ subTitle } func = { func } sheet = { sheet }/>
+    <Content title = { title } subTitle={ subTitle } func = { func } sheet = { [sheet] }/>
   </>
   );
 }
