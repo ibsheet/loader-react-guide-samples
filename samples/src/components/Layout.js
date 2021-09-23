@@ -28,7 +28,11 @@ const Layout = () => {
 
   const useStyles = makeStyles((theme) => ({
     icon: {
-      marginRight: theme.spacing(0.5)
+      marginRight: theme.spacing(0.8)
+    },
+    homeLink: {
+      color: 'inherit',
+      textDecoration: 'inherit'
     },
     footIcon: {
       marginRight: theme.spacing(1.0),
@@ -77,9 +81,11 @@ const Layout = () => {
         <AppBar position='relative'>
           <Toolbar className={ classes.bar }>
             <FontAwesomeIcon icon={ faTable } className={ classes.icon } />
-            <Typography variant='h6' color='inherit' noWrap>
-              IBSheet8
-            </Typography>
+            <Link className={ classes.homeLink } to='/'>
+              <Typography variant='h6' color='inherit' noWrap>
+                IBSheet8
+              </Typography>
+            </Link>
           </Toolbar>
         </AppBar>
         <main>
