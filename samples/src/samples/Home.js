@@ -18,12 +18,18 @@ const Main = () => {
   const route = ['type', 'merge', 'tree', 'serverpaging', 'subsum', 'formula', 'form', 'multiple', 'dialog'];
   const f = ['기본기능', '기본기능', '기본기능', '기본기능', '고급기능', '고급기능', '실무예제', '실무예제', '실무예제'];
   const samples = ['컬럼 타입', '자동 머지', '트리 기능', '서버스크롤페이징', '소계 기능', '포뮬러 기능', 'Form 요소를 이용한 상세보기', '여러 개의 시트', '시트 + 다이얼로그'];
-  const [mouseOver, setMouserOver] = useState(false);
 
   const useStyles = makeStyles((theme) => ({
     icon: {
-      verticalAlign: 'middle',
-      display: 'inline-flex'
+      position: 'absolute',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      color: '#FFFFFF',
+      opacity: 0.8
+    },
+    iconWrap: {
+      display: 'flex',
+      justifyContent: 'center'
     },
     cardGrid: {
       paddingTop: theme.spacing(8),
@@ -111,8 +117,6 @@ const Main = () => {
     }
   }
 
-  const toggleOver = () => setMouserOver((prev) => !prev);
-
   return (
     <>
     <Content/>
@@ -123,15 +127,14 @@ const Main = () => {
             <Grid item key={ card } xs={ 12 } sm={ 6 } md={ 4 }>
               <Card className={ classes.card }>
                 <CardContent className={ classes.cardContent }>
-                    <div className={ classes.imgs } onMouseEnter={ toggleOver } onMouseLeave={ toggleOver }>
-                      {mouseOver ? (
-                        <div className={ classes.cardHover } >
-                          <Link underline='none' to={'/' + route[index]}>
-                            <FontAwesomeIcon icon={ faSearch } className={ classes.icon } size={ '3x' } />
-                          </Link>
-                        </div> 
-                      )
-                      : <></>}
+                    <div className={ classes.imgs } >
+                      <div className={ classes.cardHover } >
+                        <Link underline='none' to={'/' + route[index]}>
+                          <div className={ classes.iconWrap }>
+                            <FontAwesomeIcon icon={ faSearch } className={ classes.icon }  size={ '4x' } />
+                          </div>
+                        </Link>
+                      </div> 
                     </div>
                   <div>
                     <Typography gutterBottom variant='body1' component='span' className={ returnStyleName(f[index]) }>
