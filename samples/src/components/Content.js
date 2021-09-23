@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,6 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
+import Formcmpo from 'components/FormComponent';
 
 // 각 샘플 컴포넌트에서 title, subTitle, func 받아오는 것은 sheet 컴포넌트 쪽 탭을 만들어서 사용함.
 const Content = ({ title, subTitle, func, sheet }) => {
@@ -15,13 +17,16 @@ const Content = ({ title, subTitle, func, sheet }) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const form = title && title.indexOf('Form') > -1 ? true : false;
+
   const useStyles = makeStyles((props) => ({
     content: {
       fontFamily: 'Noto Sans CJK KR,sans-serif;',
       margin: '0px auto',
       maxWidth: '1200px',
       paddingLeft: '0px',
-      paddingRight: '0px' 
+      paddingRight: '0px'
     },
     title: {
       fontSize: '1.1rem',
@@ -29,7 +34,10 @@ const Content = ({ title, subTitle, func, sheet }) => {
       color: '#000'
     },
     subTitle: {
-      color: '#4c4c57',
+      color: '#4c4c57'
+    },
+    divRow: {
+      display: 'flex'
     }
   }));
 
@@ -54,9 +62,20 @@ const Content = ({ title, subTitle, func, sheet }) => {
                   </span>
                   <p className={ classes.subTitle }>
                     { subTitle }
-                  </p>  
+                  </p>
                 </div>
-                <IBSheet8 id= { sheet.id } el={ sheet.el } width={ sheet.width } height={ sheet.height } options={ sheet.options } />
+                <div className={ classes.divRow }>
+                  {
+                    sheet.map((grid, index) => {
+                      return (
+                        <IBSheet8 key={ index } id={ grid.id } el={ grid.el } width={ grid.width } height={ grid.height } options={ grid.options } />
+                      );
+                    })
+                  }
+                  { form &&
+                    <Formcmpo />
+                  }
+                </div>
               </TabPanel>
               <TabPanel value='2'>Item Two</TabPanel>
             </TabContext>

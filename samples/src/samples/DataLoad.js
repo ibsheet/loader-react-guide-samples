@@ -2,23 +2,25 @@
 // 기본 옵션.
 import React, { useState, useEffect } from 'react';
 import Content from 'components/Content';
+import { bigData } from 'data/samplesData';
 
-const ServerPaging = () => {
-  const title = '서버 스크롤 페이징';
-  const subTitle = '세로 스크롤바를 최하단으로 내릴때 마다 다음 데이터를 append 하는 형식으로 지원합니다.';
+const DataLoad = () => {
+  const title = '대용량 조회';
+  const subTitle = 'IBSheet8 은 새로운 렌더방식을 이용해, 대용량 데이터 조회/조작을 사용할 수 있습니다.';
   const func = {};
 
   const options = {
     Cfg: {
-      SearchMode: 3,
-      PageLength: 50,
-      CustomScroll: 1
+      SearchMode: 0,
+      CustomScroll: 1,
+      DataMerge: 3
     },
     LeftCols: [
       {
         Header: ['No', 'No'],
         Type: 'Int',
-        Name: 'SEQ'
+        Name: 'SEQ',
+        Width: 80
       }
     ],
     Cols: [
@@ -76,18 +78,7 @@ const ServerPaging = () => {
     Events: {
       onRenderFirstFinish: (evt) => {
         // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        // const res = fetch().
-        // then(res => {
-        //   debugger;
-        // });
-        // evt.sheet.doSearchPaging({
-        //   url: `components/data/${path}`,
-        //   param: 'data=50&total=10000&searchMode=' + evt.sheet.SearchMode,
-        //   method: 'GET',
-        //   callback: success => {
-
-        //   }
-        // });
+        evt.sheet.loadSearchData(bigData(100000));
       }
     }
   };
@@ -102,9 +93,9 @@ const ServerPaging = () => {
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } func={ func } sheet={ sheet }/>
+      <Content title={ title } subTitle={ subTitle } func={ func } sheet={ [sheet] }/>
     </>
   );
 }
 
-export default ServerPaging;
+export default DataLoad;

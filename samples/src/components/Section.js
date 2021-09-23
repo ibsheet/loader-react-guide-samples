@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -18,7 +17,7 @@ const Section = () => {
   const handleClose = () => setOpen(false);
 
   const title = 'IBSheet8';
-  const subTitle = 
+  const subTitle =
     'Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 React 환경에서 제공합니다.';
 
   const useStyles = makeStyles((theme) => ({

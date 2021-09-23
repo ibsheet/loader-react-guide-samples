@@ -8,12 +8,12 @@ const IBSheet8 = (props) => {
   const el = props.el || 'sheetDiv';
   const options = props.options || {};
   const basicStyle = {
-    width: '100%',
+    width: props.width || '100%',
     height: 'calc(100vh - 300px)'
   }
   const elStyle = {
-    width: props.width || basicStyle.width,
-    height: props.height || basicStyle.height
+    width: '100%',
+    height: props.height || basicStyle.height,
   }
 
   useEffect(() => {
