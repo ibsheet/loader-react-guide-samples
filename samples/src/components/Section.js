@@ -44,7 +44,7 @@ const Section = () => {
       margin: '0px auto'
     },
     icon: {
-      marginRight: theme.spacing(0.5),
+      marginRight: theme.spacing(1.0),
       color: 'cornflowerblue'
     },
     btnDiv: {
