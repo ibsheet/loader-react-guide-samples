@@ -7,6 +7,7 @@ import Tree from 'samples/Tree';
 import DataLoad from 'samples/DataLoad';
 import Formula from 'samples/Formula';
 import Form from 'samples/Form';
+import Multi from 'samples/Multi';
 
 class Navigation extends Component {
 
@@ -29,6 +30,8 @@ class Navigation extends Component {
         return <Formula></Formula>
       case 'form':
         return <Form></Form>
+      case 'multiple':
+        return <Multi></Multi>
 
       default:
         return <Home></Home>;

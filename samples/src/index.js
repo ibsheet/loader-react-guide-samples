@@ -22,6 +22,11 @@ IBSheetLoader.config({
   ]
 });
 
+// 라이브러리를 로드되었을 때 발생.
+IBSheetLoader.once('loaded', (evt) => {
+  console.log('loaded', evt);
+});
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
