@@ -22,7 +22,7 @@ const IBSheet8 = (props) => {
       el: el,
       options: options
     })
-    .then(function(sheet) {
+    .then((sheet) => {
       // 시트 객체가 만들어졌는지 확인.
       // 여기서 객체가 만들어졌다고, 시트가 그려진것은 아님.
       console.log('createSheet', sheet.id);
