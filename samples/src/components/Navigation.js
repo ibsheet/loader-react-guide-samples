@@ -8,6 +8,7 @@ import DataLoad from 'samples/DataLoad';
 import Formula from 'samples/Formula';
 import Form from 'samples/Form';
 import Multi from 'samples/Multi';
+import Dialog from 'samples/Dialog';
 
 class Navigation extends Component {
 
@@ -32,6 +33,8 @@ class Navigation extends Component {
         return <Form></Form>
       case 'multiple':
         return <Multi></Multi>
+      case 'dialog':
+        return <Dialog></Dialog>
 
       default:
         return <Home></Home>;

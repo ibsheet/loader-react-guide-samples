@@ -2355,5 +2355,7 @@ const multiData3 = [
 	},
 ];
 
+const DialogData = formData;
 
-export {typeData, mergeData, treeData, subData, formulaData, bigData, formData, multiData1, multiData2, multiData3};
+
+export {typeData, mergeData, treeData, subData, formulaData, bigData, formData, multiData1, multiData2, multiData3, DialogData};

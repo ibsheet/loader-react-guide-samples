@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -10,11 +10,17 @@ import StyleLink from '@material-ui/core/Link';
 import Modal from '@material-ui/core/Modal';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import createStr from 'data/createStr';
 
 const Section = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const textElem = useRef();
+  const copyHandler = () => {
+    textElem.current.select();
+    document.execCommand('copy');
+  }
 
   const title = 'IBSheet8';
   const subTitle =
@@ -79,9 +85,24 @@ const Section = () => {
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      width: '400px',
+      width: '600px',
       backgroundColor: '#fff',
       border: '2px solid #000',
+    },
+    modalTitle: {
+      textAlign: 'center'
+    },
+    copyContent: {
+      width: '100%'
+    },
+    copyArea: {
+      width: '100%',
+      height: '600px'
+    },
+    copyBtn: {
+      width: '100%',
+      backgroundColor: '#4c4c57',
+      color: '#fff'
     }
   }));
 
@@ -113,13 +134,13 @@ const Section = () => {
                 aria-describedby='modal-modal-description'
               >
                 <Box className={ classes.mcontent }>
-                  <Typography id='modal-modal-title' variant='h6' component='h2'>
-                    여기에 시트 Create 소스 제목
+                  <Typography id='modal-modal-title' variant='h6' component='h2' className={ classes.modalTitle }>
+                    SheetCreate.js
                   </Typography>
-                  <Typography id='modal-modal-description'>
-                    시트 Create 소스
-                  </Typography>
-                  <Button variant='contained'>
+                  <div className={ classes.copyContent }>
+                      <textarea ref={ textElem } className= { classes.copyArea } value={ createStr }/>
+                  </div>
+                  <Button variant='contained' className= { classes.copyBtn } onClick={ copyHandler }>
                     Copy
                   </Button>
                 </Box>
