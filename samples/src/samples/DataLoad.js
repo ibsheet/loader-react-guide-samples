@@ -12,8 +12,7 @@ const DataLoad = () => {
   const options = {
     Cfg: {
       SearchMode: 0,
-      CustomScroll: 1,
-      DataMerge: 3
+      CustomScroll: 1
     },
     LeftCols: [
       {
