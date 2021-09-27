@@ -10,14 +10,15 @@ import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
 import Formcmpo from 'components/FormComponent';
 import Button from '@material-ui/core/Button';
+import DialogSheet from 'components/DialogSheet';
+import Select from 'react-select';
 
 // 각 샘플 컴포넌트에서 title, subTitle, func 받아오는 것은 sheet 컴포넌트 쪽 탭을 만들어서 사용함.
-const Content = ({ title, subTitle, func, sheet }) => {
+const Content = ({ title, subTitle, func, sheet, dialog }) => {
   const [value, setValue] = useState('1');
   const textElem = useRef();
-  const useMemoTitle = useMemo(() => title, [title]); 
-  const useMemosubTitle = useMemo(() => subTitle, [subTitle]); 
-
+  const useMemoTitle = useMemo(() => title, [title]);
+  const useMemosubTitle = useMemo(() => subTitle, [subTitle]);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -43,7 +44,11 @@ const Content = ({ title, subTitle, func, sheet }) => {
       color: '#000'
     },
     subTitle: {
-      color: '#4c4c57'
+      color: '#4c4c57',
+      fontSize: '1rem'
+    },
+    subDiv: {
+      paddingBottom: '15px'
     },
     divRow: {
       display: 'flex'
@@ -55,6 +60,12 @@ const Content = ({ title, subTitle, func, sheet }) => {
       backgroundColor: '#4c4c57',
       color: '#fff'
     },
+    divMerge: {
+      display: 'flex'
+    },
+    mergeSelect: {
+      flex: 1
+    }
   }));
 
   const listItems = sheet && sheet.map((grid) => {
@@ -62,6 +73,25 @@ const Content = ({ title, subTitle, func, sheet }) => {
   });
 
   const classes = useStyles();
+
+  // const mergeResult = func.map((obj, index) => {
+  //   const option = useMemo(() =>
+  //     [
+  //       { value: '0', label: obj.name + ': 0' },
+  //       { value: '1', label: obj.name + ': 1' },
+  //       { value: '2', label: obj.name + ': 2' },
+  //       { value: '3', label: obj.name + ': 3' },
+  //       { value: '4', label: obj.name + ': 4' },
+  //       { value: '5', label: obj.name + ': 5' },
+  //       { value: '6', label: obj.name + ': 6' }
+  //     ], []
+  //   );
+  //   return (
+  //     <>
+  //       <Select key={ obj.id } options={ option } defaultValue={ option[0] } className={ classes.mergeSelect }/>
+  //     </>
+  //   )
+  // });
 
   return (
     <>
@@ -77,12 +107,17 @@ const Content = ({ title, subTitle, func, sheet }) => {
               </Box>
               <TabPanel value='1'>
                 <div>
-                  <span className={ classes.title }>
+                  <p className={ classes.title }>
                     { useMemoTitle }
-                  </span>
-                  <p className={ classes.subTitle }>
-                    { useMemosubTitle }
                   </p>
+                  <div className={ classes.subDiv }>
+                    <span className={ classes.subTitle }>
+                      { useMemosubTitle }
+                    </span>
+                    {
+                      (dialog && <DialogSheet dialog={ dialog } />)
+                    }
+                  </div>
                 </div>
                 <div className={ classes.divRow }>
                   {

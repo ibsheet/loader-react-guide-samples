@@ -70,9 +70,17 @@ const Dialog = () => {
     options: options
   };
 
+  const dialog = {
+    id: 'sheetDialog',
+    el: 'sheetDiaDiv',
+    height: '100%',
+    width: '100%',
+    options: options
+  };
+
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } sheet={ [sheet] }/>
+      <Content title={ title } subTitle={ subTitle } sheet={ [sheet] } dialog={ dialog }/>
     </>
   );
 }
