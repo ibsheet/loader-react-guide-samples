@@ -11,17 +11,13 @@ import Modal from '@material-ui/core/Modal';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import createStr from 'data/createStr';
+import createImg from 'image/sheetcreate.png';
+import CopyToClipboard from 'components/Copy'
 
 const Section = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const textElem = useRef();
-  const copyHandler = () => {
-    textElem.current.select();
-    document.execCommand('copy');
-  }
-
   const title = 'IBSheet8';
   const subTitle =
     'Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 React 환경에서 제공합니다.';
@@ -85,24 +81,21 @@ const Section = () => {
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      width: '600px',
+      width: '400px',
       backgroundColor: '#fff',
       border: '2px solid #000',
     },
     modalTitle: {
-      textAlign: 'center'
+      textAlign: 'center',
+      backgroundColor: '#fff',
+      borderBottom: '1px solid black'
     },
     copyContent: {
-      width: '100%'
-    },
-    copyArea: {
-      width: '100%',
-      height: '600px'
-    },
-    copyBtn: {
-      width: '100%',
-      backgroundColor: '#4c4c57',
-      color: '#fff'
+      backgroundImage: `url(${ createImg })`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      height: '70vh'
     }
   }));
 
@@ -137,12 +130,8 @@ const Section = () => {
                   <Typography id='modal-modal-title' variant='h6' component='h2' className={ classes.modalTitle }>
                     SheetCreate.js
                   </Typography>
-                  <div className={ classes.copyContent }>
-                      <textarea ref={ textElem } className= { classes.copyArea } value={ createStr }/>
-                  </div>
-                  <Button variant='contained' className= { classes.copyBtn } onClick={ copyHandler }>
-                    Copy
-                  </Button>
+                  <div className={ classes.copyContent } />
+                  <CopyToClipboard text={ createStr } />
                 </Box>
               </Modal>
               <StyleLink underline='none' color='inherit' href='https://github.com/ibsheet/loader-react-guide-samples/tree/main/samples'>
