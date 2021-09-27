@@ -5,6 +5,7 @@ import { CgComponents } from 'react-icons/cg';
 
 const ClipboardCopy = ({text}) => {
   const textElem = useRef();
+  const btnElem = useRef();
   const [copyStr, setCopyStr] = useState('COPY');
   const useStyles = makeStyles((theme) => ({
     copyBtn: {
@@ -27,7 +28,8 @@ const ClipboardCopy = ({text}) => {
     textElem.current.value = text;
     textElem.current.select();
     document.execCommand("copy");
-    setCopyStr('COPY Success!')
+    btnElem.current.style.backgroundColor = '#00b400';
+    setCopyStr('COPY Success!');
   };
 
   const classes = useStyles();
@@ -35,7 +37,7 @@ const ClipboardCopy = ({text}) => {
   return (
     <>
       <textarea className={ classes.textStyle } ref={ textElem }></textarea>
-      <Button variant='contained' className= { classes.copyBtn } onClick={ () => doCopy(text) }>
+      <Button ref={ btnElem } variant='contained' className= { classes.copyBtn } onClick={ () => doCopy(text) }>
         { copyStr }
       </Button>
     </>
