@@ -1,59 +1,17 @@
 /* eslint-disable */
-// IBSheet를 태그 형태로 제공합니다. CreateSheet.
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import loader from '@ibsheet/loader';
 import { DialogData as data } from 'data/samplesData';
 
-const SheetDialog = () => {
-  const id = 'sheetDialog';
-  const el = 'sheetDialogDiv'
+const SheetDialog = ({ options }) => {
 
-  const dialogOptions = {
-    Cfg: {
-      SearchMode: 0,
-      CustomScroll: 1
-    },
-    LeftCols: [
-      {
-        Header: 'No',
-        Type: 'Int',
-        Name: 'SEQ',
-        Width: 80
-      }
-    ],
-    Cols: [
-      {
-        Header: '이름',
-        Type: 'Text',
-        MinWidth: 100,
-        Name: 'sName'
-      },
-      {
-        Header: '나이',
-        Type: 'Int',
-        MinWidth: 80,
-        Name: 'sAge'
-      },
-      {
-        Header: '직책',
-        Type: 'Text',
-        MinWidth: 100,
-        Name: 'sPosi'
-      },
-      {
-        Header: '월급',
-        Type: 'Int',
-        MinWidth: 100,
-        Name: 'sPrice'
-      },
-      {
-        Header: '부서',
-        Type: 'Text',
-        RelWidth: 1,
-        Name: 'sDepart'
-      }
-    ]
-  }; 
+  const getId = id => id;
+  const getEl = el => el;
+  const getOpt = opt => opt;
+
+  const useMemoId = useMemo(() => getId(options.id), [options.id]);
+  const useMemoEl = useMemo(() => getEl(options.el), [options.el]);
+  const useMemoOpt = useMemo(() => getOpt(options.options), [options.options]);
 
   const elStyle = ({ height }) => {
     return {
@@ -64,22 +22,22 @@ const SheetDialog = () => {
 
   useEffect(() => {
     loader.createSheet({
-      id: id,
-      el: el,
-      options: dialogOptions,
+      id: useMemoId,
+      el: useMemoEl,
+      options: useMemoOpt,
       data: data
     })
     .then((sheet) => {
       console.log('createSheet', sheet.id);
     });
     return () => {
-      loader.removeSheet(id);
+      loader.removeSheet(useMemoId);
     }
   }, []);
 
   return (
     <>
-      <div id={ el } style={ elStyle('100%') }></div>
+      <div id={ useMemoEl } style={ elStyle('100%') }></div>
     </>
   );
 }

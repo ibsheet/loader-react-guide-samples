@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import SheetDialog from 'samples/Dialog/dialogCreate';
+import dialogOptions from 'samples/Dialog/opts';
 
 const DialogSheet = () => {
   const [open, setOpen] = useState(false);
@@ -56,7 +57,7 @@ const DialogSheet = () => {
           </Typography>
           <div>
             {
-              <SheetDialog />
+              <SheetDialog options={ dialogOptions }/>
             }
           </div>
         </Box>
