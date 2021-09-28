@@ -13,6 +13,7 @@ import DialogSheet from 'components/DialogSheet';
 import MergeFunction from '../samples/Merge/function';
 import LoadFunction from '../samples/DataLoad/function';
 import SubSumFunction from '../samples/SubSum/function';
+import FormDiv from '../samples/Form/component';
 import { useSelector } from 'react-redux';
 
 
@@ -107,8 +108,10 @@ const Content = () => {
                 </div>
                 <div className={ classes.divRow }>
                   {
-                    sheet &&
-                    <IBSheet8 />
+                    (sheet && <IBSheet8 />)
+                  }
+                  {
+                    (name === 'Form' && <FormDiv />)
                   }
                 </div>
               </TabPanel>

@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Content from 'components/Content';
-import { mergeData } from 'data/samplesData';
+import { mergeData as data } from 'data/samplesData';
 import { createSample, removeSample } from 'modules';
 
 const Merge = () => {
@@ -68,7 +68,7 @@ const Merge = () => {
     Events: {
       onRenderFirstFinish: (evt) => {
         // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(mergeData);
+        evt.sheet.loadSearchData(data);
       }
     }
   };
@@ -89,7 +89,7 @@ const Merge = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, data));
     // 아래와 같은 방식으로 시트 여러개 생성가능
     // dispatch({ type: 'CREATE_SAMPLE', name, title, subTitle, options: options2});
     return () => {

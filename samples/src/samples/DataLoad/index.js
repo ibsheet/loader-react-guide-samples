@@ -2,7 +2,7 @@
 // 기본 옵션.
 import React, { useEffect } from 'react';
 import Content from 'components/Content';
-import { bigData } from 'data/samplesData';
+import { bigData as data } from 'data/samplesData';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from 'modules';
 
@@ -11,7 +11,6 @@ const DataLoad = () => {
   const name = 'DataLoad'
   const title = '대용량 조회';
   const subTitle = 'IBSheet8 은 새로운 렌더방식을 이용해, 대용량 데이터 조회/조작을 사용할 수 있습니다.';
-  const data = bigData;
 
   const sheetOptions = {
     Cfg: {

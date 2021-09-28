@@ -2,7 +2,7 @@
 // 기본 옵션.
 import React, { useState, useEffect } from 'react';
 import Content from 'components/Content';
-import { subData } from 'data/samplesData';
+import { subData as data } from 'data/samplesData';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from 'modules';
 
@@ -11,7 +11,6 @@ const SubSum = () => {
   const name = 'SubSum'
   const title = '소계 기능';
   const subTitle = '특정 컬럼을 기준으로, 지정한 컬럼들에 대한 소계 값을 보여주는 기능입니다.';
-  const data = subData;
 
   const sheetOptions = {
     Cfg: {

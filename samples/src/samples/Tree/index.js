@@ -2,7 +2,7 @@
 // 기본 옵션.
 import React, { useState, useEffect } from 'react';
 import Content from 'components/Content';
-import { treeData } from 'data/samplesData';
+import { treeData as data } from 'data/samplesData';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from 'modules';
 
@@ -11,7 +11,6 @@ const Tree = () => {
   const name = 'Tree';
   const title = '트리 예제';
   const subTitle = '트리 관련 예제 입니다.';
-  const data = treeData;
 
   const sheetOptions = {
     Cfg: {

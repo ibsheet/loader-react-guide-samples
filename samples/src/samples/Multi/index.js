@@ -3,12 +3,16 @@
 import React, { useCallback } from 'react';
 import Content from 'components/Content';
 import { multiData1, multiData2, multiData3 } from 'data/samplesData';
+import { useDispatch } from 'react-redux';
+import { createSample, removeSample } from 'modules';
 
 const Multi = () => {
+  const dispatch = useDispatch();
+  const name = 'Multi';
   const title = '여러 개의 시트';
   const subTitle = '여러 개의 시트를 각 컴포넌트 별로 생성할 수 있습니다.';
 
-  const options1 = {
+  const sheetOptions1 = {
     Cfg: {
       SearchMode: 0,
       CustomScroll: 1
@@ -55,7 +59,7 @@ const Multi = () => {
       }
     }
   };
-  const options2 = {
+  const sheetOptions2 = {
     Cfg: {
       SearchMode: 0,
       CustomScroll: 1
@@ -103,7 +107,7 @@ const Multi = () => {
     }
   };
 
-  const options3 = {
+  const sheetOptions3 = {
     Cfg: {
       SearchMode: 0,
       CustomScroll: 1
@@ -151,33 +155,43 @@ const Multi = () => {
     }
   };
 
-  const sheet1 = {
+  const options1 = {
     id: 'sheet1',
     el: 'sheetDiv1',
     height: '100%',
     width: '33%',
-    options: options1
+    options: sheetOptions1
   };
 
-  const sheet2 = {
+  const options2 = {
     id: 'sheet2',
     el: 'sheetDiv2',
     height: '100%',
     width: '33%',
-    options: options2
+    options: sheetOptions2
   };
 
-  const sheet3 = {
+  const options3 = {
     id: 'sheet3',
     el: 'sheetDiv3',
     height: '100%',
     width: '33%',
-    options: options3
+    options: sheetOptions3
   };
+
+  useEffect(() => {
+    dispatch(createSample(name, title, subTitle, options1));
+    // 아래와 같은 방식으로 시트 여러개 생성가능
+    dispatch({ type: 'CREATE_SAMPLE', name, title, subTitle, options: options2});
+    dispatch({ type: 'CREATE_SAMPLE', name, title, subTitle, options: options3});
+    return () => {
+      dispatch(removeSample());
+    }
+  }, []);
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } sheet={ [sheet1, sheet2, sheet3] }/>
+      <Content />
     </>
   );
 }

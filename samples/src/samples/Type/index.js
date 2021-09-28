@@ -2,7 +2,7 @@
 // 기본 옵션.
 import React, { useState, useEffect } from 'react';
 import Content from 'components/Content';
-import { typeData } from 'data/samplesData';
+import { typeData as data } from 'data/samplesData';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from 'modules';
 
@@ -11,7 +11,6 @@ const Type = () => {
   const name = 'Type';
   const title = '컬럼 별 타입';
   const subTitle = '각 컬럼별 설정 가능한 Type에 대한 예제입니다.';
-  const data = typeData;
 
   const sheetOptions = {
     Cfg: {

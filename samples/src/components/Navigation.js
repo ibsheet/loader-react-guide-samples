@@ -5,10 +5,10 @@ import Merge from 'samples/Merge/index';
 import Tree from 'samples/Tree/index';
 import SubSum from 'samples/SubSum/index';
 import DataLoad from 'samples/DataLoad/index';
-import Formula from 'samples/Formula';
-import Form from 'samples/Form';
-import Multi from 'samples/Multi';
-import Dialog from 'samples/Dialog';
+import Formula from 'samples/Formula/index';
+import Form from 'samples/Form/index';
+import Multi from 'samples/Multi/index';
+import Dialog from 'samples/Dialog/index';
 
 class Navigation extends Component {
 
