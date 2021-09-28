@@ -10,7 +10,7 @@ const Dialog = () => {
   const dispatch = useDispatch();
   const name = 'Dialog';
   const title = '시트 + 다이얼로그';
-  const subTitle = '다이얼로그, 모달 창 위에 시트를 띄웁니다.';
+  const subTitle = '다양한 다이얼로그, 모달 창 위에 시트를 띄웁니다. (Material-ui, BootStrap, SweetAlert2)';
 
   const sheetOptions = {
     Cfg: {

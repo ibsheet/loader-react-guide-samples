@@ -37,8 +37,6 @@ const createSheet = (sheet) => {
 }
 
 const reducer = (state = initalState, action) => {
-  debugger;
-  console.log('reducer', state, action, action.type);
   switch (action.type) {
     case CREATE_SHEET:
       return {

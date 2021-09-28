@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from 'components/App';
 import reportWebVitals from './reportWebVitals';
 import IBSheetLoader from '@ibsheet/loader';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './modules';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 // 로더 config
 IBSheetLoader.config({
