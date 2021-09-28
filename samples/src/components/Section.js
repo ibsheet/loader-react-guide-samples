@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Grid from '@material-ui/core/Grid';
+import React, { useRef, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -11,14 +10,16 @@ import StyleLink from '@material-ui/core/Link';
 import Modal from '@material-ui/core/Modal';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import createStr from 'data/createStr';
+import createImg from 'image/sheetcreate.png';
+import CopyToClipboard from 'components/Copy'
 
 const Section = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
   const title = 'IBSheet8';
-  const subTitle = 
+  const subTitle =
     'Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 React 환경에서 제공합니다.';
 
   const useStyles = makeStyles((theme) => ({
@@ -83,6 +84,18 @@ const Section = () => {
       width: '400px',
       backgroundColor: '#fff',
       border: '2px solid #000',
+    },
+    modalTitle: {
+      textAlign: 'center',
+      backgroundColor: '#fff',
+      borderBottom: '1px solid black'
+    },
+    copyContent: {
+      backgroundImage: `url(${ createImg })`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      height: '70vh'
     }
   }));
 
@@ -114,15 +127,11 @@ const Section = () => {
                 aria-describedby='modal-modal-description'
               >
                 <Box className={ classes.mcontent }>
-                  <Typography id='modal-modal-title' variant='h6' component='h2'>
-                    여기에 시트 Create 소스 제목
+                  <Typography id='modal-modal-title' variant='h6' component='h2' className={ classes.modalTitle }>
+                    SheetCreate.js
                   </Typography>
-                  <Typography id='modal-modal-description'>
-                    시트 Create 소스
-                  </Typography>
-                  <Button variant='contained'>
-                    Copy
-                  </Button>
+                  <div className={ classes.copyContent } />
+                  <CopyToClipboard text={ createStr } />
                 </Box>
               </Modal>
               <StyleLink underline='none' color='inherit' href='https://github.com/ibsheet/loader-react-guide-samples/tree/main/samples'>

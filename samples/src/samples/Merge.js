@@ -70,22 +70,18 @@ const Merge = () => {
   };
 
   // func 기능 구현
-  const mergeFunc = useCallback(() => {
-    console.log('mergeFunc');
-  }, []);
-
-  const btnFunc = useCallback(() => {
-    console.log('btnFunc');
-  }, []);
-
   const funcArr = [
     {
-      text: '머지1',
-      func: mergeFunc
+      id: 'dataMerge',
+      name: '데이터 머지',
     },
     {
-      text: '머지2',
-      func: btnFunc
+      id: 'headerMerge',
+      name: '헤더 머지',
+    },
+    {
+      id: 'prevColumnMerge',
+      name: '앞 컬럼 기준',
     }
   ];
 
@@ -99,7 +95,7 @@ const Merge = () => {
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } func={ funcArr } sheet={ sheet }/>
+      <Content title={ title } subTitle={ subTitle } func={ funcArr } sheet={ [sheet] }/>
     </>
   );
 }

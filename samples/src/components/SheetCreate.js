@@ -8,12 +8,12 @@ const IBSheet8 = (props) => {
   const el = props.el || 'sheetDiv';
   const options = props.options || {};
   const basicStyle = {
-    width: '100%',
+    width: props.width || '100%',
     height: 'calc(100vh - 300px)'
   }
   const elStyle = {
-    width: props.width || basicStyle.width,
-    height: props.height || basicStyle.height
+    width: '100%',
+    height: props.height || basicStyle.height,
   }
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const IBSheet8 = (props) => {
       el: el,
       options: options
     })
-    .then(function(sheet) {
+    .then((sheet) => {
       // 시트 객체가 만들어졌는지 확인.
       // 여기서 객체가 만들어졌다고, 시트가 그려진것은 아님.
       console.log('createSheet', sheet.id);

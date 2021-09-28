@@ -24,7 +24,7 @@ const Type = () => {
         Header: '문자열(Text)',
         Type: 'Text',
         Name: 'TextData',
-        Width: 150,
+        Width: 130,
         Align: 'Center',
       },
       {
@@ -49,7 +49,7 @@ const Type = () => {
         Header: '정수(Int)',
         Type: 'Int',
         Name: 'IntData',
-        Width: 120,
+        Width: 90,
         Align: 'Right',
         Format: '#,##0'
       },
@@ -57,7 +57,7 @@ const Type = () => {
         Header: '실수(Float)',
         Type: 'Float',
         Name: 'FloatData',
-        Width: 120,
+        Width: 110,
         Align: 'Right',
         Format: '#,##0.######'
       },
@@ -65,7 +65,7 @@ const Type = () => {
         Header: '날짜(Date)',
         Type: 'Date',
         Name: 'DateData',
-        Width: 180,
+        Width: 170,
         Align: 'Center',
         EmptyValue: '날짜를 입력해주세요'
       },
@@ -95,7 +95,7 @@ const Type = () => {
         Name: 'CheckData',
         Align: 'Center',
         CanEdit: 1,
-        RelWidth: 1
+        Width: 100
       }
     ],
     Events: {
@@ -116,7 +116,7 @@ const Type = () => {
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } sheet={ sheet }/>
+      <Content title={ title } subTitle={ subTitle } sheet={ [sheet] }/>
     </>
   );
 }
