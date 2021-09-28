@@ -6,7 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const Function = () => {
   const sheet = useSelector(state => state.sheet);
-  const bigData = useSelector(state => state.data);
+  const options = useSelector(state => state.options);
+  const bigData = options[0].data;
 
   const [count, setCount] = useState(100000);
 

@@ -100,12 +100,7 @@ const Formula = () => {
         Formula: fr => fr.Row.sTheater + fr.Row.sScreen + fr.Row.sSeat + fr.Row.sNormal + fr.Row.sDigital2 + fr.Row.sDigital3 + fr.Row.sDigital4 + fr.Row.sDigitalImax
       }
     ],
-    Events: {
-      onRenderFirstFinish: (evt) => {
-        // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(data);
-      }
-    }
+    Events: {}
   };
 
   const options = {
@@ -113,11 +108,12 @@ const Formula = () => {
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
-    options: sheetOptions
+    options: sheetOptions,
+    data: data
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options, data));
+    dispatch(createSample(name, title, subTitle, options));
     return () => {
       dispatch(removeSample());
     }

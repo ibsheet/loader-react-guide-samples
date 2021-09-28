@@ -6,8 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createSheet } from 'modules';
 
 const IBSheet8 = () => {
+  const name = useSelector(state => state.name);
   const options = useSelector(state => state.options);
-  const data = useSelector(state => state.data);
+  // focus 이벤트에 바인딩 할 요소들을 가져왔는데 시점이 문제발생..
+  // const fname = useSelector(state => state.fname);
+  // const fage = useSelector(state => state.fage);
+  // const fposition = useSelector(state => state.fposition);
+  // const fsalary = useSelector(state => state.fsalary);
+  // const fdepartment = useSelector(state => state.fdepartment);
   const dispatch = useDispatch();
 
   const basicStyle = ({ width }) => {
@@ -21,16 +27,16 @@ const IBSheet8 = () => {
       width: '100%',
       height: height || 'inherit',
     }
-  }
+  };
 
   useEffect(() => {
     if (options.length > 0) {
-      options.map((val, index) => {
+      options.map((sheet, index) => {
+        eventBinding(name, sheet);
         loader.createSheet({
-          id: val.id,
-          el: val.el,
-          options: val.options,
-          // data: data
+          id: sheet.id,
+          el: sheet.el,
+          options: sheet.options
         })
         .then((sheet) => {
           // 시트 객체가 만들어졌는지 확인.
@@ -41,19 +47,37 @@ const IBSheet8 = () => {
       });
     }
     return () => {
-      options.map((val, index) => {
-        loader.removeSheet(val.id);
+      options.map((sheet, index) => {
+        loader.removeSheet(sheet.id);
       });
     }
   }, [options]);
 
+  // 이벤트 바인딩
+  const eventBinding = (name, sheet) => {
+    switch(name) {
+      case 'Type':
+      case 'Formula':
+      case 'Merge':
+      case 'Tree':
+      case 'SubSum':
+      case 'Multi':
+      case 'Dialog':
+      case 'Form':
+        sheet.options.Events.onRenderFirstFinish = evt => {
+          evt.sheet.loadSearchData(sheet.data);
+        }
+        return sheet;
+    }
+  };
+
   return (
     <>
       { options.length > 0 &&
-        options.map((val, index) => {
+        options.map((sheet, index) => {
           return (
-            <div style={ basicStyle(val.width) }>
-              <div id={ val.el } style={ elStyle(val.height) }></div>
+            <div style={ basicStyle(sheet.width) } key={ sheet.id }>
+              <div id={ sheet.el } style={ elStyle(sheet.height) } key={ index }></div>
             </div>
           )
         })

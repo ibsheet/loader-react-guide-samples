@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import Content from 'components/Content';
 import { formData as data } from 'data/samplesData';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createSample, removeSample } from 'modules';
 
 const Form = () => {
@@ -57,12 +57,7 @@ const Form = () => {
         Name: 'sDepart'
       }
     ],
-    Events: {
-      onRenderFirstFinish: (evt) => {
-        // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(data);
-      }
-    }
+    Events: {}
   };
 
   const options = {
@@ -70,11 +65,12 @@ const Form = () => {
     el: 'sheetDiv',
     height: '100%',
     width: '70%',
-    options: sheetOptions
+    options: sheetOptions,
+    data: data
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options, data));
+    dispatch(createSample(name, title, subTitle, options));
     return () => {
       dispatch(removeSample());
     }

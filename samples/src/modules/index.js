@@ -2,6 +2,7 @@
 export const CREATE_SHEET = 'CREATE_SHEET';
 export const CREATE_SAMPLE = 'CREATE_SAMPLE';
 export const REMOVE_SAMPLE = 'REMOVE_SAMPLE';
+export const Create_FormState = 'CREATE_FORMSTATE';
 
 const initalState = {
   title: '',
@@ -9,29 +10,43 @@ const initalState = {
   name: '',
   sheet: [],
   options: [],
-  data: []
+  fname: '',
+  fage: '',
+  fposition: '',
+  fsalary: '',
+  fdepartment: ''
 };
 
-const createSample = (name, title, subTitle, options, data) => {
+const createFormState = (fname, fage, fposition, fsalary, fdepartment) => {
   return {
-    type: 'CREATE_SAMPLE',
+    type: Create_FormState,
+    fname,
+    fage,
+    fposition,
+    fsalary,
+    fdepartment
+  }
+};
+
+const createSample = (name, title, subTitle, options) => {
+  return {
+    type: CREATE_SAMPLE,
     name,
     title,
     subTitle,
-    options,
-    data
+    options
   }
 };
 
 const removeSample = () => {
   return {
-    type: 'REMOVE_SAMPLE'
+    type: REMOVE_SAMPLE
   }
 };
 
 const createSheet = (sheet) => {
   return {
-    type: 'CREATE_SHEET',
+    type: CREATE_SHEET,
     sheet
   }
 }
@@ -49,8 +64,7 @@ const reducer = (state = initalState, action) => {
         name: action.name,
         title: action.title,
         subTitle: action.subTitle,
-        options: [...state.options, action.options],
-        data: action.data
+        options: [...state.options, action.options]
       };
     case REMOVE_SAMPLE:
       return {
@@ -58,9 +72,17 @@ const reducer = (state = initalState, action) => {
         name: null,
         title: null,
         subTitle: null,
-        data: [],
         options: [],
         sheet: []
+      };
+    case Create_FormState:
+      return {
+        ...state,
+        fname: action.fname,
+        fage: action.fage,
+        fposition: action.fposition,
+        fsalary: action.fsalary,
+        fdepartment: action.fdepartment
       };
     default:
       return state;
@@ -68,4 +90,4 @@ const reducer = (state = initalState, action) => {
 }
 
 export default reducer;
-export { createSample, removeSample, createSheet };
+export { createSample, removeSample, createSheet, createFormState };

@@ -75,8 +75,9 @@ const DataLoad = () => {
         Type: 'Text',
         Name: 'sComment',
         RelWidth: 1
-      },
-    ]
+      }
+    ],
+    Events: {}
   };
 
   const options = {
@@ -84,11 +85,12 @@ const DataLoad = () => {
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
-    options: sheetOptions
+    options: sheetOptions,
+    data: data
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options, data));
+    dispatch(createSample(name, title, subTitle, options));
     return () => {
       dispatch(removeSample());
     }

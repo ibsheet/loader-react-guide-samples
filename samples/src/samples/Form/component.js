@@ -1,7 +1,18 @@
+import React, { useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { createFormState } from 'modules';
 
 const FormDiv = () => {
+  const dispatch = useDispatch();
+  const fname = useRef();
+  const fage = useRef();
+  const fposition = useRef();
+  const fsalary = useRef();
+  const fdepartment = useRef();
+
+  dispatch(createFormState(fname, fage, fposition, fsalary, fdepartment));
 
   const useStyles = makeStyles((theme) => ({
     divCol: {
@@ -47,19 +58,19 @@ const FormDiv = () => {
         </div>
         <div className={ classes.divContent }>
           <div className={ classes.divComp }>
-            <TextField id='sbasic-1' label='이름' variant='standard' className={ classes.textfield } />
+            <TextField ref={ fname } InputProps={{ readOnly: true }} id='name' label='이름' variant='standard' className={ classes.textfield } />
           </div>
           <div className={ classes.divComp }>
-            <TextField id='sbasic-2' label='나이' variant='standard' className={ classes.textfield } />
+            <TextField ref={ fage } InputProps={{ readOnly: true }} id='age' label='나이' variant='standard' className={ classes.textfield } />
           </div>
           <div className={ classes.divComp }>
-            <TextField id='sbasic-3' label='직책' variant='standard' className={ classes.textfield } />
+            <TextField ref={ fposition } InputProps={{ readOnly: true }} id='position' label='직책' variant='standard' className={ classes.textfield } />
           </div>
           <div className={ classes.divComp }>
-            <TextField id='sbasic-4' label='월급' variant='standard' className={ classes.textfield } />
+            <TextField ref={ fsalary } InputProps={{ readOnly: true }} id='salary' label='월급' variant='standard' className={ classes.textfield } />
           </div>
           <div className={ classes.divComp }>
-            <TextField id='sbasic-5' label='부서' variant='standard' className={ classes.textfield } />
+            <TextField ref={ fdepartment } InputProps={{ readOnly: true }} id='department' label='부서' variant='standard' className={ classes.textfield } />
           </div>
         </div>
       </div>

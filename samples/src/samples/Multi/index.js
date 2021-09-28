@@ -52,12 +52,7 @@ const Multi = () => {
         Width: 70
       },
     ],
-    Events: {
-      onRenderFirstFinish: (evt) => {
-        // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(multiData1);
-      }
-    }
+    Events: {}
   };
   const sheetOptions2 = {
     Cfg: {
@@ -99,12 +94,7 @@ const Multi = () => {
         Width: 70
       }
     ],
-    Events: {
-      onRenderFirstFinish: (evt) => {
-        // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(multiData2);
-      }
-    }
+    Events: {}
   };
 
   const sheetOptions3 = {
@@ -147,12 +137,7 @@ const Multi = () => {
         Width: 70
       }
     ],
-    Events: {
-      onRenderFirstFinish: (evt) => {
-        // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(multiData3);
-      }
-    }
+    Events: {}
   };
 
   const options1 = {
@@ -160,7 +145,8 @@ const Multi = () => {
     el: 'sheetDiv1',
     height: '100%',
     width: '33%',
-    options: sheetOptions1
+    options: sheetOptions1,
+    data: multiData1
   };
 
   const options2 = {
@@ -168,7 +154,8 @@ const Multi = () => {
     el: 'sheetDiv2',
     height: '100%',
     width: '33%',
-    options: sheetOptions2
+    options: sheetOptions2,
+    data: multiData2
   };
 
   const options3 = {
@@ -176,7 +163,8 @@ const Multi = () => {
     el: 'sheetDiv3',
     height: '100%',
     width: '33%',
-    options: sheetOptions3
+    options: sheetOptions3,
+    data: multiData3
   };
 
   useEffect(() => {
