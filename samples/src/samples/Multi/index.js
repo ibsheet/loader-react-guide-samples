@@ -1,6 +1,6 @@
 /* eslint-disable */
 // 기본 옵션.
-import React, { useCallback } from 'react';
+import React, { useEffect } from 'react';
 import Content from 'components/Content';
 import { multiData1, multiData2, multiData3 } from 'data/samplesData';
 import { useDispatch } from 'react-redux';
@@ -181,9 +181,8 @@ const Multi = () => {
 
   useEffect(() => {
     dispatch(createSample(name, title, subTitle, options1));
-    // 아래와 같은 방식으로 시트 여러개 생성가능
-    dispatch({ type: 'CREATE_SAMPLE', name, title, subTitle, options: options2});
-    dispatch({ type: 'CREATE_SAMPLE', name, title, subTitle, options: options3});
+    dispatch(createSample(name, title, subTitle, options2));
+    dispatch(createSample(name, title, subTitle, options3));
     return () => {
       dispatch(removeSample());
     }

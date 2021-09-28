@@ -156,19 +156,19 @@ const Function = () => {
 
   return (
     <div className={ classes.divStyle }>
-      <Button value="subsum" className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
+      <Button value='subsum' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
         단일 컬럼 소계
       </Button>
-      <Button value="cumulate" className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
+      <Button value='cumulate' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
         단일 컬럼 소계/누계
       </Button>
-      <Button value="multisubsum" className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
+      <Button value='multisubsum' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
         다중 컬럼 소계
       </Button>
-      <Button value="multicumulate" className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
+      <Button value='multicumulate' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
         다중 컬럼 소계/누계
       </Button>
-      <Button value="remove" className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
+      <Button value='remove' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
         소계행 삭제
       </Button>
     </div>

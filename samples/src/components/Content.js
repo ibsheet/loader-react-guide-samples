@@ -9,11 +9,11 @@ import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
 import Button from '@material-ui/core/Button';
-import DialogSheet from 'components/DialogSheet';
-import MergeFunction from '../samples/Merge/function';
-import LoadFunction from '../samples/DataLoad/function';
-import SubSumFunction from '../samples/SubSum/function';
-import FormDiv from '../samples/Form/component';
+import DialogSheet from 'samples/Dialog/component';
+import MergeFunction from 'samples/Merge/function';
+import LoadFunction from 'samples/DataLoad/function';
+import SubSumFunction from 'samples/SubSum/function';
+import FormDiv from 'samples/Form/component';
 import { useSelector } from 'react-redux';
 
 
@@ -103,7 +103,7 @@ const Content = () => {
                       (name === 'Merge' && <MergeFunction />) ||
                       (name === 'DataLoad' && <LoadFunction />) ||
                       (name === 'SubSum' && <SubSumFunction />) ||
-                      (name === 'Dialog' && <DialogSheet dialog={ dialog } />)
+                      (name === 'Dialog' && <DialogSheet />)
                     }
                 </div>
                 <div className={ classes.divRow }>

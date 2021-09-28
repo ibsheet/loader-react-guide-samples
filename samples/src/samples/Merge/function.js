@@ -52,8 +52,8 @@ const Function = () => {
     <div className={ classes.divStyle }>
       <Select
         className={ classes.selectStyle }
-        labelId="header-merge-label"
-        id="header-merge-label"
+        labelId='header-merge-label'
+        id='header-merge-label'
         name='headerMerge'
         value={ headerMerge }
         onChange={ changeHandler }
@@ -68,8 +68,8 @@ const Function = () => {
       </Select>
       <Select
         className={ classes.selectStyle }
-        labelId="data-merge-label"
-        id="data-merge-label"
+        labelId='data-merge-label'
+        id='data-merge-label'
         name='dataMerge'
         value={ dataMerge }
         onChange={ changeHandler }
@@ -84,8 +84,8 @@ const Function = () => {
       </Select>
       <Select
         className={ classes.selectStyle }
-        labelId="prev-column-merge-label"
-        id="prev-column-merge-select"
+        labelId='prev-column-merge-label'
+        id='prev-column-merge-select'
         name='prevColumnMerge'
         value={ prevColumnMerge }
         onChange={ changeHandler }

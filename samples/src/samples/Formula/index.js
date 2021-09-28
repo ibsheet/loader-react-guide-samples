@@ -119,7 +119,6 @@ const Formula = () => {
   useEffect(() => {
     dispatch(createSample(name, title, subTitle, options, data));
     return () => {
-      console.log('Remove Merge Samples')
       dispatch(removeSample());
     }
   }, []);

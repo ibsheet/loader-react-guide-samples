@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -26,7 +26,7 @@ const ClipboardCopy = ({text}) => {
   const doCopy = text => {
     textElem.current.value = text;
     textElem.current.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
     btnElem.current.style.backgroundColor = '#00b400';
     setCopyStr('COPY Success!');
   };

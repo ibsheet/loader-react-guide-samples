@@ -10,7 +10,7 @@ const Dialog = () => {
   const dispatch = useDispatch();
   const name = 'Dialog';
   const title = '시트 + 다이얼로그';
-  const subTitle = '다이얼로그 위에 시트를 띄웁니다.';
+  const subTitle = '다이얼로그, 모달 창 위에 시트를 띄웁니다.';
 
   const sheetOptions = {
     Cfg: {
@@ -73,18 +73,8 @@ const Dialog = () => {
     options: sheetOptions
   };
 
-  const dialog = {
-    id: 'sheetDialog',
-    el: 'sheetDiaDiv',
-    height: '100%',
-    width: '100%',
-    options: options
-  };
-
   useEffect(() => {
     dispatch(createSample(name, title, subTitle, options, data));
-    // 아래와 같은 방식으로 시트 여러개 생성가능
-    // dispatch({ type: 'CREATE_SAMPLE', name, title, subTitle, options: options2});
     return () => {
       dispatch(removeSample());
     }
@@ -92,7 +82,7 @@ const Dialog = () => {
 
   return (
     <>
-      <Content dialog={ dialog }/>
+      <Content/>
     </>
   );
 }

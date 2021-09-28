@@ -37,8 +37,8 @@ const Function = () => {
       조회 건 수:
       <Select
         className={ classes.selectStyle }
-        labelId="data-load"
-        id="data-load"
+        labelId='data-load'
+        id='data-load'
         name='dataload'
         value={ count }
         onChange={ changeHandler }

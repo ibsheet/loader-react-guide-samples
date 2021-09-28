@@ -47,19 +47,19 @@ const FormDiv = () => {
         </div>
         <div className={ classes.divContent }>
           <div className={ classes.divComp }>
-            <TextField id="sbasic-1" label="이름" variant="standard" className={ classes.textfield } />
+            <TextField id='sbasic-1' label='이름' variant='standard' className={ classes.textfield } />
           </div>
           <div className={ classes.divComp }>
-            <TextField id="sbasic-2" label="나이" variant="standard" className={ classes.textfield } />
+            <TextField id='sbasic-2' label='나이' variant='standard' className={ classes.textfield } />
           </div>
           <div className={ classes.divComp }>
-            <TextField id="sbasic-3" label="직책" variant="standard" className={ classes.textfield } />
+            <TextField id='sbasic-3' label='직책' variant='standard' className={ classes.textfield } />
           </div>
           <div className={ classes.divComp }>
-            <TextField id="sbasic-4" label="월급" variant="standard" className={ classes.textfield } />
+            <TextField id='sbasic-4' label='월급' variant='standard' className={ classes.textfield } />
           </div>
           <div className={ classes.divComp }>
-            <TextField id="sbasic-5" label="부서" variant="standard" className={ classes.textfield } />
+            <TextField id='sbasic-5' label='부서' variant='standard' className={ classes.textfield } />
           </div>
         </div>
       </div>

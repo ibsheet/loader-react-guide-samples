@@ -81,7 +81,7 @@ const SubSum = () => {
     Events: {
       onRenderFirstFinish: (evt) => {
         // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(subData);
+        evt.sheet.loadSearchData(data);
       }
     }
   };
@@ -97,7 +97,6 @@ const SubSum = () => {
   useEffect(() => {
     dispatch(createSample(name, title, subTitle, options, data));
     return () => {
-      console.log('Remove Merge Samples')
       dispatch(removeSample());
     }
   }, []);

@@ -16,16 +16,14 @@ const IBSheet8 = () => {
       height: 'calc(100vh - 300px)'
     }
   }
-  const elStyle = ({ heigth }) => {
+  const elStyle = ({ height }) => {
     return {
       width: '100%',
-      height: heigth || 'inherit',
+      height: height || 'inherit',
     }
   }
 
   useEffect(() => {
-    console.log('createSheet-useEffect', options);
-
     if (options.length > 0) {
       options.map((val, index) => {
         loader.createSheet({

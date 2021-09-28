@@ -80,18 +80,9 @@ const Merge = () => {
     width: '100%',
     options: sheetOptions
   };
-  const options2 = {
-    id: 'sheet2',
-    el: 'sheetDiv2',
-    height: '100%',
-    width: '100%',
-    options: sheetOptions
-  };
 
   useEffect(() => {
     dispatch(createSample(name, title, subTitle, options, data));
-    // 아래와 같은 방식으로 시트 여러개 생성가능
-    // dispatch({ type: 'CREATE_SAMPLE', name, title, subTitle, options: options2});
     return () => {
       dispatch(removeSample());
     }

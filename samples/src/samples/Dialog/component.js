@@ -1,19 +1,25 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import IBSheet8 from 'components/SheetCreate';
+import SheetDialog from 'samples/Dialog/dialogCreate';
 
-const DialogSheet = ({ dialog }) => {
+const DialogSheet = () => {
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  debugger;
 
   const useStyles = makeStyles((theme) => ({
+    divStyle: {
+      display: 'flex',
+      paddingBottom: '10px'
+    },
     btnStyle: {
+      backgroundColor: '#4c4c57',
+      color: '#fff',
       float: 'right',
       height: '30px'
     },
@@ -21,11 +27,13 @@ const DialogSheet = ({ dialog }) => {
       textAlign: 'center'
     },
     mcontent: {
+      height: '400px',
+      width: '80vh',
       position: 'absolute',
       top: '50%',
       left: '50%',
+      overflow: 'auto',
       transform: 'translate(-50%, -50%)',
-      width: '600px',
       backgroundColor: '#fff',
       border: '2px solid #000',
     },
@@ -34,8 +42,8 @@ const DialogSheet = ({ dialog }) => {
   const classes = useStyles();
 
   return (
-    <>
-      <Button variant='contained' onClick={ handleOpen } className={ classes.btnStyle }>Dialog</Button>
+    <div className={ classes.divStyle }>
+      <Button variant='contained' onClick={ handleOpen } className={ classes.btnStyle }>material UI</Button>
       <Modal
       open={ open }
       onClose={ handleClose }
@@ -47,11 +55,13 @@ const DialogSheet = ({ dialog }) => {
             Sheet-Dialog
           </Typography>
           <div>
-            <IBSheet8 id={ dialog.id } el={ dialog.el } width={ dialog.width } height={ dialog.height } options={ dialog.options } />
+            {
+              <SheetDialog />
+            }
           </div>
         </Box>
       </Modal>
-    </>
+    </div>
   );
 }
 

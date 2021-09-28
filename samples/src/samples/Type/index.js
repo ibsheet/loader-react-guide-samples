@@ -119,10 +119,8 @@ const Type = () => {
   };
 
   useEffect(() => {
-    console.log(name, title, subTitle, options, data);
     dispatch(createSample(name, title, subTitle, options, data));
     return () => {
-      console.log('Remove Merge Samples')
       dispatch(removeSample());
     }
   }, []);
