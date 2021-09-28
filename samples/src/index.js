@@ -4,6 +4,9 @@ import './index.css';
 import App from 'components/App';
 import reportWebVitals from './reportWebVitals';
 import IBSheetLoader from '@ibsheet/loader';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './modules';
 
 // 로더 config
 IBSheetLoader.config({
@@ -27,9 +30,13 @@ IBSheetLoader.once('loaded', (evt) => {
   console.log('loaded', evt);
 });
 
+const store = createStore(rootReducer);
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

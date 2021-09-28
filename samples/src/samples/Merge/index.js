@@ -1,14 +1,17 @@
 /* eslint-disable */
 // 기본 옵션.
-import React, { useCallback } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Content from 'components/Content';
 import { mergeData } from 'data/samplesData';
+import { createSample, removeSample } from 'modules';
 
 const Merge = () => {
+  const dispatch = useDispatch();
+  const name = 'Merge';
   const title = '자동 머지 기능';
   const subTitle = '헤더, 데이터 영역의 각 셀들의 값이 같은 경우 자동으로 병합시킬 수 있습니다.';
-
-  const options = {
+  const sheetOptions = {
     Cfg: {
       SearchMode: 0,
       CustomScroll: 1
@@ -69,33 +72,35 @@ const Merge = () => {
     }
   };
 
-  // func 기능 구현
-  const funcArr = [
-    {
-      id: 'dataMerge',
-      name: '데이터 머지',
-    },
-    {
-      id: 'headerMerge',
-      name: '헤더 머지',
-    },
-    {
-      id: 'prevColumnMerge',
-      name: '앞 컬럼 기준',
-    }
-  ];
-
-  const sheet = {
+  const options = {
     id: 'sheet',
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
-    options: options
+    options: sheetOptions
   };
+  const options2 = {
+    id: 'sheet2',
+    el: 'sheetDiv2',
+    height: '100%',
+    width: '100%',
+    options: sheetOptions
+  };
+
+  useEffect(() => {
+    console.log('Merge', name, title, subTitle, options);
+    dispatch(createSample(name, title, subTitle, options));
+    // 아래와 같은 방식으로 시트 여러개 생성가능
+    // dispatch({ type: 'CREATE_SAMPLE', name, title, subTitle, options: options2});
+    return () => {
+      console.log('Remove Merge Samples')
+      dispatch(removeSample());
+    }
+  }, []);
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } func={ funcArr } sheet={ [sheet] }/>
+      <Content/>
     </>
   );
 }

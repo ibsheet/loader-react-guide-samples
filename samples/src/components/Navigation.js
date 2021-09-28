@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from 'samples/Home';
 import Type from 'samples/Type';
-import Merge from 'samples/Merge';
+import Merge from 'samples/Merge/index';
 import SubSum from 'samples/SubSum';
 import Tree from 'samples/Tree';
 import DataLoad from 'samples/DataLoad';

@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import IBSheet8 from 'components/SheetCreate';
@@ -8,17 +8,21 @@ import Tab from '@material-ui/core/Tab';
 import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
-import Formcmpo from 'components/FormComponent';
 import Button from '@material-ui/core/Button';
 import DialogSheet from 'components/DialogSheet';
-import Select from 'react-select';
+import MergeFunction from '../samples/Merge/function';
+import { useSelector } from 'react-redux';
+
 
 // 각 샘플 컴포넌트에서 title, subTitle, func 받아오는 것은 sheet 컴포넌트 쪽 탭을 만들어서 사용함.
-const Content = ({ title, subTitle, func, sheet, dialog }) => {
+const Content = () => {
+  const title = useSelector((state) => state.title);
+  const subTitle = useSelector((state) => state.subTitle);
+  const name = useSelector((state) => state.name);
+  const sheet = useSelector((state) => state.sheet);
   const [value, setValue] = useState('1');
   const textElem = useRef();
-  const useMemoTitle = useMemo(() => title, [title]);
-  const useMemosubTitle = useMemo(() => subTitle, [subTitle]);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -27,8 +31,6 @@ const Content = ({ title, subTitle, func, sheet, dialog }) => {
     textElem.current.select();
     document.execCommand('copy');
   };
-
-  const form = title && title.indexOf('Form') > -1 ? true : false;
 
   const useStyles = makeStyles((props) => ({
     content: {
@@ -68,7 +70,8 @@ const Content = ({ title, subTitle, func, sheet, dialog }) => {
     }
   }));
 
-  const listItems = sheet && sheet.map((grid) => {
+  const listItems = sheet && sheet.length > 0 && sheet.map((grid) => {
+    
     return grid.id + '= ' + JSON.stringify(grid.options, null, '\t')
   });
 
@@ -96,7 +99,7 @@ const Content = ({ title, subTitle, func, sheet, dialog }) => {
   return (
     <>
       <Container maxWidth='lg' component='main' className={ classes.content }>
-        { sheet &&
+      { 
           <Box sx={{ width: '100%', typography: 'body1' }}>
             <TabContext value={ value }>
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -107,43 +110,38 @@ const Content = ({ title, subTitle, func, sheet, dialog }) => {
               </Box>
               <TabPanel value='1'>
                 <div>
-                  <p className={ classes.title }>
-                    { useMemoTitle }
+                  <span className={ classes.title }>
+                    { title }
+                  </span>
+                  <p className={ classes.subTitle }>
+                    { subTitle }
                   </p>
-                  <div className={ classes.subDiv }>
-                    <span className={ classes.subTitle }>
-                      { useMemosubTitle }
-                    </span>
                     {
-                      (dialog && <DialogSheet dialog={ dialog } />)
+                      // (dialog && <DialogSheet dialog={ dialog } />)
+                      name == 'Dialog' && <DialogSheet dialog={ dialog } />
                     }
-                  </div>
+                    {/* 여기서 Sample 별 Function 작성 */}
+                    {
+                      name == 'Merge' && <MergeFunction />
+                    }
                 </div>
                 <div className={ classes.divRow }>
                   {
-                    value === '1' &&
-                    sheet.map((grid, index) => {
-                      return (
-                        <IBSheet8 key={ grid.id } id={ grid.id } el={ grid.el } width={ grid.width } height={ grid.height } options={ grid.options } />
-                      );
-                    })
-                  }
-                  { form &&
-                    <Formcmpo />
+                    sheet && 
+                    <IBSheet8 />
                   }
                 </div>
               </TabPanel>
               <TabPanel value='2'>
                 <div>
                   <span className={ classes.title }>
-                    { useMemoTitle }
+                    { title }
                   </span>
                   <p className={ classes.subTitle }>
-                    { useMemosubTitle }
+                    { subTitle }
                   </p>
                 </div>
-                {
-                  value === '2' &&
+                { sheet.length > 0 && value === '2' &&
                   <div>
                     <Button variant='contained' className={ classes.btnDivChild1 } onClick={ copyHandler }>
                       Copy
