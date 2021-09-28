@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Content from 'components/Content';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
@@ -125,7 +124,6 @@ const Main = () => {
 
   return (
     <>
-    <Content/>
     <Container className={ classes.cardGrid } maxWidth='md'>
         {/* 샘플 리스트 영역 */}
         <Grid container spacing={4}>
@@ -140,7 +138,7 @@ const Main = () => {
                             <FontAwesomeIcon icon={ faSearch } className={ classes.icon }  size={ '4x' } />
                           </div>
                         </Link>
-                      </div> 
+                      </div>
                     </div>
                   <div>
                     <Typography gutterBottom variant='body1' component='span' className={ returnStyleName(f[index]) }>

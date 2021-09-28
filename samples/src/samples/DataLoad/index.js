@@ -1,15 +1,19 @@
 /* eslint-disable */
 // 기본 옵션.
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Content from 'components/Content';
 import { bigData } from 'data/samplesData';
+import { useDispatch } from 'react-redux';
+import { createSample, removeSample } from 'modules';
 
 const DataLoad = () => {
+  const dispatch = useDispatch();
+  const name = 'DataLoad'
   const title = '대용량 조회';
   const subTitle = 'IBSheet8 은 새로운 렌더방식을 이용해, 대용량 데이터 조회/조작을 사용할 수 있습니다.';
-  const func = {};
+  const data = bigData;
 
-  const options = {
+  const sheetOptions = {
     Cfg: {
       SearchMode: 0,
       CustomScroll: 1
@@ -73,26 +77,28 @@ const DataLoad = () => {
         Name: 'sComment',
         RelWidth: 1
       },
-    ],
-    Events: {
-      onRenderFirstFinish: (evt) => {
-        // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(bigData(100000));
-      }
-    }
+    ]
   };
 
-  const sheet = {
+  const options = {
     id: 'sheet',
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
-    options: options
+    options: sheetOptions
   };
+
+  useEffect(() => {
+    dispatch(createSample(name, title, subTitle, options, data));
+    return () => {
+      console.log('Remove Merge Samples')
+      dispatch(removeSample());
+    }
+  }, []);
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } func={ func } sheet={ [sheet] }/>
+      <Content />
     </>
   );
 }

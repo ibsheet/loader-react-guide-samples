@@ -3,12 +3,17 @@
 import React, { useState, useEffect } from 'react';
 import Content from 'components/Content';
 import { typeData } from 'data/samplesData';
+import { useDispatch } from 'react-redux';
+import { createSample, removeSample } from 'modules';
 
 const Type = () => {
+  const dispatch = useDispatch();
+  const name = 'Type';
   const title = '컬럼 별 타입';
   const subTitle = '각 컬럼별 설정 가능한 Type에 대한 예제입니다.';
+  const data = typeData;
 
-  const options = {
+  const sheetOptions = {
     Cfg: {
       SearchMode: 0,
       CustomScroll: 1
@@ -101,22 +106,31 @@ const Type = () => {
     Events: {
       onRenderFirstFinish: (evt) => {
         // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(typeData);
+        evt.sheet.loadSearchData(data);
       }
     }
   };
 
-  const sheet = {
+  const options = {
     id: 'sheet',
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
-    options: options
+    options: sheetOptions,
   };
+
+  useEffect(() => {
+    console.log(name, title, subTitle, options, data);
+    dispatch(createSample(name, title, subTitle, options, data));
+    return () => {
+      console.log('Remove Merge Samples')
+      dispatch(removeSample());
+    }
+  }, []);
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } sheet={ [sheet] }/>
+      <Content />
     </>
   );
 }

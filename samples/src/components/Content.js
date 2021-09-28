@@ -11,6 +11,8 @@ import TabPanel from '@material-ui/lab/TabPanel';
 import Button from '@material-ui/core/Button';
 import DialogSheet from 'components/DialogSheet';
 import MergeFunction from '../samples/Merge/function';
+import LoadFunction from '../samples/DataLoad/function';
+import SubSumFunction from '../samples/SubSum/function';
 import { useSelector } from 'react-redux';
 
 
@@ -71,35 +73,15 @@ const Content = () => {
   }));
 
   const listItems = sheet && sheet.length > 0 && sheet.map((grid) => {
-    
     return grid.id + '= ' + JSON.stringify(grid.options, null, '\t')
   });
 
   const classes = useStyles();
 
-  // const mergeResult = func.map((obj, index) => {
-  //   const option = useMemo(() =>
-  //     [
-  //       { value: '0', label: obj.name + ': 0' },
-  //       { value: '1', label: obj.name + ': 1' },
-  //       { value: '2', label: obj.name + ': 2' },
-  //       { value: '3', label: obj.name + ': 3' },
-  //       { value: '4', label: obj.name + ': 4' },
-  //       { value: '5', label: obj.name + ': 5' },
-  //       { value: '6', label: obj.name + ': 6' }
-  //     ], []
-  //   );
-  //   return (
-  //     <>
-  //       <Select key={ obj.id } options={ option } defaultValue={ option[0] } className={ classes.mergeSelect }/>
-  //     </>
-  //   )
-  // });
-
   return (
     <>
       <Container maxWidth='lg' component='main' className={ classes.content }>
-      { 
+      {
           <Box sx={{ width: '100%', typography: 'body1' }}>
             <TabContext value={ value }>
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -117,17 +99,15 @@ const Content = () => {
                     { subTitle }
                   </p>
                     {
-                      // (dialog && <DialogSheet dialog={ dialog } />)
-                      name == 'Dialog' && <DialogSheet dialog={ dialog } />
-                    }
-                    {/* 여기서 Sample 별 Function 작성 */}
-                    {
-                      name == 'Merge' && <MergeFunction />
+                      (name === 'Merge' && <MergeFunction />) ||
+                      (name === 'DataLoad' && <LoadFunction />) ||
+                      (name === 'SubSum' && <SubSumFunction />) ||
+                      (name === 'Dialog' && <DialogSheet dialog={ dialog } />)
                     }
                 </div>
                 <div className={ classes.divRow }>
                   {
-                    sheet && 
+                    sheet &&
                     <IBSheet8 />
                   }
                 </div>

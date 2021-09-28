@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Home from 'samples/Home';
-import Type from 'samples/Type';
+import Type from 'samples/Type/index';
 import Merge from 'samples/Merge/index';
-import SubSum from 'samples/SubSum';
-import Tree from 'samples/Tree';
-import DataLoad from 'samples/DataLoad';
+import Tree from 'samples/Tree/index';
+import SubSum from 'samples/SubSum/index';
+import DataLoad from 'samples/DataLoad/index';
 import Formula from 'samples/Formula';
 import Form from 'samples/Form';
 import Multi from 'samples/Multi';

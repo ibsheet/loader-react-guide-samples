@@ -16,6 +16,7 @@ IBSheetLoader.config({
       baseUrl: 'https://demo.ibleaders.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/', // ibsheet 라이브러리 위치, '<publicpath>/ibsheet'
       // baseUrl: './lib/assets', // ibsheet 라이브러리 위치, '<publicpath>/ibsheet'
       locales: ['en','ko'],
+      theme: "default",
       plugins: [
         'dialog',
         'common',
@@ -34,7 +35,7 @@ const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={ store }>
       <App />
     </Provider>
   </React.StrictMode>,

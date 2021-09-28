@@ -8,26 +8,28 @@ const initalState = {
   subTitle: '',
   name: '',
   sheet: [],
-  options: []
+  options: [],
+  data: []
 };
 
-export const createSample = (name, title, subTitle, options) => {
+const createSample = (name, title, subTitle, options, data) => {
   return {
     type: 'CREATE_SAMPLE',
     name,
     title,
     subTitle,
-    options
+    options,
+    data
   }
 };
 
-export const removeSample = () => {
+const removeSample = () => {
   return {
     type: 'REMOVE_SAMPLE'
   }
 };
 
-export const createSheet = (sheet) => {
+const createSheet = (sheet) => {
   return {
     type: 'CREATE_SHEET',
     sheet
@@ -35,7 +37,7 @@ export const createSheet = (sheet) => {
 }
 
 const reducer = (state = initalState, action) => {
-  console.log(state, action, action.type);
+  console.log('reducer', state, action, action.type);
   switch (action.type) {
     case CREATE_SHEET:
       return {
@@ -49,14 +51,16 @@ const reducer = (state = initalState, action) => {
         title: action.title,
         subTitle: action.subTitle,
         options: [...state.options, action.options],
+        data: action.data
       };
     case REMOVE_SAMPLE:
       return {
         ...state,
         name: null,
-        title: null, 
+        title: null,
         subTitle: null,
-        options: [], 
+        data: [],
+        options: [],
         sheet: []
       };
     default:
@@ -65,4 +69,4 @@ const reducer = (state = initalState, action) => {
 }
 
 export default reducer;
-
+export { createSample, removeSample, createSheet };

@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createSheet } from 'modules';
 
 const IBSheet8 = () => {
-  const options = useSelector((state) => state.options);
+  const options = useSelector(state => state.options);
+  const data = useSelector(state => state.data);
   const dispatch = useDispatch();
 
   const basicStyle = ({ width }) => {
@@ -21,16 +22,17 @@ const IBSheet8 = () => {
       height: heigth || 'inherit',
     }
   }
-  
-  const isMount = useRef(false);
 
-  useEffect(() => {    
+  useEffect(() => {
+    console.log('createSheet-useEffect', options);
+
     if (options.length > 0) {
       options.map((val, index) => {
         loader.createSheet({
           id: val.id,
           el: val.el,
-          options: val.options
+          options: val.options,
+          // data: data
         })
         .then((sheet) => {
           // 시트 객체가 만들어졌는지 확인.
