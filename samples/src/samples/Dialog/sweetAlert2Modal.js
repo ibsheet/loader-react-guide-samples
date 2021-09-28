@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import SheetDialog from 'samples/Dialog/dialogCreate';
 import dialogOptions from 'samples/Dialog/dialogOption';
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const SweetAlert2Modal = () => {
   const MySwal = withReactContent(Swal);
@@ -13,7 +13,7 @@ const SweetAlert2Modal = () => {
     MySwal.fire({
       title: 'SweetAlert2',
       html: <SheetDialog options={ dialogOptions }/>,
-      confirmButtonText:"Close",
+      confirmButtonText:'Close',
     });
   }
 
