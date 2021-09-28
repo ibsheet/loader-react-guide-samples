@@ -2,7 +2,7 @@
 
 ### 사용기술
 
-👉 `Javascript, Jsx, (FortAwesome, React-Icons) 둘 중 원하는 것을 쓰세용. Material-UI, React`
+👉 `Javascript, React, JSX, Redux, Material-UI, BootStrap, SweetAlert2, FortAwesome, React-Icons`
 
 ### ✨설치방법
 
@@ -16,5 +16,6 @@
 
 1. `App.js` 는 메인 페이지입니다.
 2. `<IBSheet8 />` 컴포넌트는 `Content` 컴포넌트에서 사용합니다.
-3. `SheetCreate.js` 에서 시트의 공통 생성코드가 있습니다.
-4. `samples` 폴더에 각 샘플에 시트 컴포넌트를 제공합니다.
+3. `Redux` 를 사용하여 전역 객체를 상태 관리 합니다.
+4. `SheetCreate.js` 에서 시트의 공통 생성코드가 있습니다.
+5. `samples` 폴더에 각 샘플에 시트 컴포넌트를 제공합니다.
