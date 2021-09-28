@@ -24,12 +24,9 @@ const IBSheet8 = () => {
   
   const isMount = useRef(false);
 
-  useEffect(() => {
-    console.log('createSheet-useEffect', options);
-    
+  useEffect(() => {    
     if (options.length > 0) {
       options.map((val, index) => {
-        console.log('val', val.id, val.el, val.options);
         loader.createSheet({
           id: val.id,
           el: val.el,
@@ -54,7 +51,6 @@ const IBSheet8 = () => {
     <>
       { options.length > 0 &&
         options.map((val, index) => {
-          console.log('Sheet Dom Create', val)
           return (
             <div style={ basicStyle(val.width) }>
               <div id={ val.el } style={ elStyle(val.height) }></div>

@@ -88,12 +88,10 @@ const Merge = () => {
   };
 
   useEffect(() => {
-    console.log('Merge', name, title, subTitle, options);
     dispatch(createSample(name, title, subTitle, options));
     // 아래와 같은 방식으로 시트 여러개 생성가능
     // dispatch({ type: 'CREATE_SAMPLE', name, title, subTitle, options: options2});
     return () => {
-      console.log('Remove Merge Samples')
       dispatch(removeSample());
     }
   }, []);
