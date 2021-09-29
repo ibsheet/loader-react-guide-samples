@@ -55,9 +55,14 @@ const IBSheet8 = () => {
       case 'SubSum':
       case 'Multi':
       case 'Dialog':
+      case 'DataLoad':
       case 'Form':
-        sheet.options.Events.onRenderFirstFinish = evt => {
-          evt.sheet.loadSearchData(sheet.data);
+        sheet.options.Events = {
+          onRenderFirstFinish: evt => {
+            if (name !== 'DataLoad') evt.sheet.loadSearchData(sheet.data);
+          },
+          onDataLoad: evt => {},
+          onSearchFinish: evt => {}
         }
         return sheet;
     }

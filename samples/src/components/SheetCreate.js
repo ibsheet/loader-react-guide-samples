@@ -1,6 +1,6 @@
 /* eslint-disable */
 // IBSheet를 태그 형태로 제공합니다. CreateSheet.
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import loader from '@ibsheet/loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { createSheet } from 'modules';
@@ -34,7 +34,6 @@ const IBSheet8 = () => {
         })
         .then((sheet) => {
           // 시트 객체 생성, 시트 렌더링 x
-          console.log('createSheet', sheet.id);
           dispatch(createSheet(sheet));
         });
       });
@@ -62,12 +61,8 @@ const IBSheet8 = () => {
           onRenderFirstFinish: evt => {
             if (name !== 'DataLoad') evt.sheet.loadSearchData(sheet.data);
           },
-          onDataLoad: evt => {
-            console.log('onDataLoad', evt);
-          },
-          onSearchFinish: evt => {
-            console.log('onSearchFinish', evt);
-          }
+          onDataLoad: evt => {},
+          onSearchFinish: evt => {}
         }
         return sheet;
     }

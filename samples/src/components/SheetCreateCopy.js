@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import createStr from 'data/createStr';
+import createStr from 'etc/createStr';
 
 const ClipboardCopy = () => {
   const textElem = useRef();
