@@ -52,13 +52,6 @@ const TabCopy = () => {
     }
   }));
 
-  const doCopy = () => {
-    textElem.current.select();
-    document.execCommand('copy');
-    btnElem.current.style.backgroundColor = '#00b400';
-    setCopyStr('COPY Success!');
-  };
-
   const classes = useStyles();
 
   return (
