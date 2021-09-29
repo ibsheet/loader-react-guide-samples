@@ -2,30 +2,13 @@
 export const CREATE_SHEET = 'CREATE_SHEET';
 export const CREATE_SAMPLE = 'CREATE_SAMPLE';
 export const REMOVE_SAMPLE = 'REMOVE_SAMPLE';
-export const Create_FormState = 'CREATE_FORMSTATE';
 
 const initalState = {
   title: '',
   subTitle: '',
   name: '',
   sheet: [],
-  options: [],
-  fname: '',
-  fage: '',
-  fposition: '',
-  fsalary: '',
-  fdepartment: ''
-};
-
-const createFormState = (fname, fage, fposition, fsalary, fdepartment) => {
-  return {
-    type: Create_FormState,
-    fname,
-    fage,
-    fposition,
-    fsalary,
-    fdepartment
-  }
+  options: []
 };
 
 const createSample = (name, title, subTitle, options) => {
@@ -75,19 +58,10 @@ const reducer = (state = initalState, action) => {
         options: [],
         sheet: []
       };
-    case Create_FormState:
-      return {
-        ...state,
-        fname: action.fname,
-        fage: action.fage,
-        fposition: action.fposition,
-        fsalary: action.fsalary,
-        fdepartment: action.fdepartment
-      };
     default:
       return state;
   }
 }
 
 export default reducer;
-export { createSample, removeSample, createSheet, createFormState };
+export { createSample, removeSample, createSheet };

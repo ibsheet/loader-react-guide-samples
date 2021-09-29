@@ -8,12 +8,6 @@ import { createSheet } from 'modules';
 const IBSheet8 = () => {
   const name = useSelector(state => state.name);
   const options = useSelector(state => state.options);
-  // focus 이벤트에 바인딩 할 요소들을 가져왔는데 시점이 문제발생..
-  // const fname = useSelector(state => state.fname);
-  // const fage = useSelector(state => state.fage);
-  // const fposition = useSelector(state => state.fposition);
-  // const fsalary = useSelector(state => state.fsalary);
-  // const fdepartment = useSelector(state => state.fdepartment);
   const dispatch = useDispatch();
 
   const basicStyle = ({ width }) => {

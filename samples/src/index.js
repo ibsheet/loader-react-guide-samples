@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'components/App';
 import reportWebVitals from './reportWebVitals';
-import loader from '@ibsheet/loader';
+import IBSheetLoader from '@ibsheet/loader';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './modules';
@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 // 로더 config
-loader.config({
+IBSheetLoader.config({
   registry: [
     {
       name: 'ibsheet',
@@ -29,10 +29,10 @@ loader.config({
 });
 
 // 라이브러리를 로드되었을 때 발생.
-loader.once('loaded', (evt) => {
+IBSheetLoader.once('loaded', (evt) => {
   const target = evt.target;
   if (target.alias === 'ibsheet') {
-    let IBSheet = loader.getIBSheetStatic();
+    let IBSheet = IBSheetLoader.getIBSheetStatic();
     IBSheet.onRenderFirstFinishAll = (obj) => {
       console.log('onRenderFirstFinishAll', obj);
     }
