@@ -31,7 +31,7 @@ const IBSheet8 = () => {
 
   useEffect(() => {
     if (options.length > 0) {
-      options.map((sheet, index) => {
+      options.map(sheet => {
         eventBinding(name, sheet);
         loader.createSheet({
           id: sheet.id,
@@ -39,15 +39,14 @@ const IBSheet8 = () => {
           options: sheet.options
         })
         .then((sheet) => {
-          // 시트 객체가 만들어졌는지 확인.
-          // 여기서 객체가 만들어졌다고, 시트가 그려진것은 아님.
-          console.log('createSheet', sheet.id, sheet.Index);
+          // 시트 객체 생성, 시트 렌더링 x
+          console.log('createSheet', sheet.id);
           dispatch(createSheet(sheet));
         });
       });
     }
     return () => {
-      options.map((sheet, index) => {
+      options.map(sheet => {
         loader.removeSheet(sheet.id);
       });
     }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Select, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';

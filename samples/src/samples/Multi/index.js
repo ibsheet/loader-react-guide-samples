@@ -10,7 +10,7 @@ const Multi = () => {
   const dispatch = useDispatch();
   const name = 'Multi';
   const title = '여러 개의 시트';
-  const subTitle = '여러 개의 시트를 각 컴포넌트 별로 생성할 수 있습니다.';
+  const subTitle = '여러 개의 시트를 각 컴포넌트 별로 생성할 수 있습니다. onRenderFirstFinishAll 이벤트 에서 마지막에 생성된 시트 객체를 알 수 있습니다.';
 
   const sheetOptions1 = {
     Cfg: {

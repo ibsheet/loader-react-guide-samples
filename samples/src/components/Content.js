@@ -13,6 +13,7 @@ import DialogSheet from 'samples/Dialog/component';
 import MergeFunction from 'samples/Merge/function';
 import LoadFunction from 'samples/DataLoad/function';
 import SubSumFunction from 'samples/SubSum/function';
+import MultiFunction from 'samples/Multi/function';
 import FormDiv from 'samples/Form/component';
 import { useSelector } from 'react-redux';
 
@@ -103,6 +104,7 @@ const Content = () => {
                       (name === 'Merge' && <MergeFunction />) ||
                       (name === 'DataLoad' && <LoadFunction />) ||
                       (name === 'SubSum' && <SubSumFunction />) ||
+                      (name === 'Multi' && <MultiFunction />) ||
                       (name === 'Dialog' && <DialogSheet />)
                     }
                 </div>

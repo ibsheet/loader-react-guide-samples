@@ -137,7 +137,7 @@ const Function = () => {
   }
 
   const clickHandler = (e) => {
-    makeSubTotal(e.currentTarget.value)
+    makeSubTotal(e.currentTarget.value);
   }
 
   const useStyles = makeStyles((props) => ({

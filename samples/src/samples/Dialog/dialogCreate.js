@@ -27,8 +27,8 @@ const SheetDialog = ({ options }) => {
       options: useMemoOpt,
       data: data
     })
-    .then((sheet) => {
-      console.log('createSheet', sheet.id);
+    .then(sheet => {
+      console.log('create DialogSheet', sheet.id);
     });
     return () => {
       loader.removeSheet(useMemoId);
