@@ -8,27 +8,23 @@ const theme = 'material';
 const plugins = ['dialog', 'common', 'excel'];
 
 // 로더 config
-const LoaderConfig = () => {
-  IBSheetLoader.config({
-    registry: [
-      {
-        name: sheetjs,
-        baseUrl: url,
-        locales: locales,
-        theme: theme,
-        plugins: plugins
-      }
-    ]
-  });
-
-  // 로더 이벤트
-  IBSheetLoader.once('loaded', (evt) => {
-    const target = evt.target;
-    if (target.alias === sheetjs) {
-      let IBSheet = IBSheetLoader.getIBSheetStatic();
-      console.log('loaded', IBSheet);
+IBSheetLoader.config({
+  registry: [
+    {
+      name: sheetjs,
+      baseUrl: url,
+      locales: locales,
+      theme: theme,
+      plugins: plugins
     }
-  });
-}
+  ]
+});
 
-export default LoaderConfig;
+// 로더 이벤트
+IBSheetLoader.once('loaded', (evt) => {
+  const target = evt.target;
+  if (target.alias === sheetjs) {
+    let IBSheet = IBSheetLoader.getIBSheetStatic();
+    console.log('loaded', IBSheet);
+  }
+});
