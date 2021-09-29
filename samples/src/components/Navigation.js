@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Home from 'samples/Home';
-import Type from 'samples/Type';
-import Merge from 'samples/Merge';
-import SubSum from 'samples/SubSum';
-import Tree from 'samples/Tree';
-import DataLoad from 'samples/DataLoad';
-import Formula from 'samples/Formula';
-import Form from 'samples/Form';
-import Multi from 'samples/Multi';
-import Dialog from 'samples/Dialog';
+import Type from 'samples/Type/index';
+import Merge from 'samples/Merge/index';
+import Tree from 'samples/Tree/index';
+import SubSum from 'samples/SubSum/index';
+import DataLoad from 'samples/DataLoad/index';
+import Formula from 'samples/Formula/index';
+import Form from 'samples/Form/index';
+import Multi from 'samples/Multi/index';
+import Dialog from 'samples/Dialog/index';
 
 class Navigation extends Component {
 

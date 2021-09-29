@@ -2,14 +2,17 @@
 // 기본 옵션.
 import React, { useState, useEffect } from 'react';
 import Content from 'components/Content';
-import { DialogData } from 'data/samplesData';
+import { DialogData as data } from 'data/samplesData';
+import { useDispatch } from 'react-redux';
+import { createSample, removeSample } from 'modules';
 
 const Dialog = () => {
+  const dispatch = useDispatch();
+  const name = 'Dialog';
   const title = '시트 + 다이얼로그';
-  const subTitle = '다이얼로그 위에 시트를 띄웁니다.';
-  const func = {};
+  const subTitle = '다양한 다이얼로그, 모달 창 위에 시트를 띄웁니다. (Material-ui, BootStrap, SweetAlert2)';
 
-  const options = {
+  const sheetOptions = {
     Cfg: {
       SearchMode: 0,
       CustomScroll: 1
@@ -54,33 +57,28 @@ const Dialog = () => {
         Name: 'sDepart'
       }
     ],
-    Events: {
-      onRenderFirstFinish: (evt) => {
-        // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(DialogData);
-      }
-    }
+    Events: {}
   };
 
-  const sheet = {
+  const options = {
     id: 'sheet',
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
-    options: options
+    options: sheetOptions,
+    data: data
   };
 
-  const dialog = {
-    id: 'sheetDialog',
-    el: 'sheetDiaDiv',
-    height: '100%',
-    width: '100%',
-    options: options
-  };
+  useEffect(() => {
+    dispatch(createSample(name, title, subTitle, options));
+    return () => {
+      dispatch(removeSample());
+    }
+  }, []);
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } sheet={ [sheet] } dialog={ dialog }/>
+      <Content/>
     </>
   );
 }

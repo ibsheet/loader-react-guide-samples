@@ -2,14 +2,17 @@
 // 기본 옵션.
 import React, { useState, useEffect } from 'react';
 import Content from 'components/Content';
-import { treeData } from 'data/samplesData';
+import { treeData as data } from 'data/samplesData';
+import { useDispatch } from 'react-redux';
+import { createSample, removeSample } from 'modules';
 
 const Tree = () => {
+  const dispatch = useDispatch();
+  const name = 'Tree';
   const title = '트리 예제';
   const subTitle = '트리 관련 예제 입니다.';
-  const func = {};
 
-  const options = {
+  const sheetOptions = {
     Cfg: {
       SearchMode: 0,
       HeaderMerge: 3,
@@ -84,25 +87,28 @@ const Tree = () => {
         CanEdit: 0
       }
     ],
-    Events: {
-      onRenderFirstFinish: (evt) => {
-        // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(treeData);
-      }
-    }
+    Events: {}
   };
 
-  const sheet = {
+  const options = {
     id: 'sheet',
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
-    options: options
+    options: sheetOptions,
+    data: data
   };
+
+  useEffect(() => {
+    dispatch(createSample(name, title, subTitle, options));
+    return () => {
+      dispatch(removeSample());
+    }
+  }, []);
 
   return (
     <>
-      <Content title={ title } subTitle={ subTitle } func={ func } sheet={ [sheet] }/>
+      <Content />
     </>
   );
 }

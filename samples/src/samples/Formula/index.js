@@ -2,15 +2,17 @@
 // 기본 옵션.
 import React, { useState, useEffect } from 'react';
 import Content from 'components/Content';
-import { formulaData } from 'data/samplesData';
+import { formulaData as data } from 'data/samplesData';
+import { useDispatch } from 'react-redux';
+import { createSample, removeSample } from 'modules';
 
 const Formula = () => {
-
+  const dispatch = useDispatch();
+  const name = 'Formula';
   const title = '포뮬러 기능';
   const subTitle = '포뮬러를 이용하여 자동값 계산 또는 속성을 설정할 수 있습니다.'
-  const func = {};
 
-  const options = {
+  const sheetOptions = {
     Def: {
       Row: {
         CanFormula: 1,
@@ -98,25 +100,28 @@ const Formula = () => {
         Formula: fr => fr.Row.sTheater + fr.Row.sScreen + fr.Row.sSeat + fr.Row.sNormal + fr.Row.sDigital2 + fr.Row.sDigital3 + fr.Row.sDigital4 + fr.Row.sDigitalImax
       }
     ],
-    Events: {
-      onRenderFirstFinish: (evt) => {
-        // 시트가 처음 그려지면 발생하는 이벤트로 여기서 첫 데이터 로드를 할 수 있음.
-        evt.sheet.loadSearchData(formulaData);
-      }
-    }
+    Events: {}
   };
 
-  const sheet = {
+  const options = {
     id: 'sheet',
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
-    options: options
+    options: sheetOptions,
+    data: data
   };
+
+  useEffect(() => {
+    dispatch(createSample(name, title, subTitle, options));
+    return () => {
+      dispatch(removeSample());
+    }
+  }, []);
 
   return (
   <>
-    <Content title = { title } subTitle={ subTitle } func = { func } sheet = { [sheet] }/>
+    <Content />
   </>
   );
 }

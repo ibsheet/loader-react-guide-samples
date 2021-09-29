@@ -1,42 +1,80 @@
 /* eslint-disable */
 // IBSheet를 태그 형태로 제공합니다. CreateSheet.
-import React, { useEffect } from 'react';
-import loader from '@ibsheet/loader'
+import React, { useEffect, useRef } from 'react';
+import loader from '@ibsheet/loader';
+import { useDispatch, useSelector } from 'react-redux';
+import { createSheet } from 'modules';
 
-const IBSheet8 = (props) => {
-  const id = props.id || 'sheet';
-  const el = props.el || 'sheetDiv';
-  const options = props.options || {};
-  const basicStyle = {
-    width: props.width || '100%',
-    height: 'calc(100vh - 300px)'
+const IBSheet8 = () => {
+  const name = useSelector(state => state.name);
+  const options = useSelector(state => state.options);
+  const dispatch = useDispatch();
+
+  const basicStyle = ({ width }) => {
+    return {
+      width: width || '100%',
+      height: 'calc(100vh - 300px)'
+    }
   }
-  const elStyle = {
-    width: '100%',
-    height: props.height || basicStyle.height,
-  }
+  const elStyle = ({ height }) => {
+    return {
+      width: '100%',
+      height: height || 'inherit',
+    }
+  };
 
   useEffect(() => {
-    loader.createSheet({
-      id: id,
-      el: el,
-      options: options
-    })
-    .then((sheet) => {
-      // 시트 객체가 만들어졌는지 확인.
-      // 여기서 객체가 만들어졌다고, 시트가 그려진것은 아님.
-      console.log('createSheet', sheet.id);
-    });
-    return () => {
-      loader.removeSheet(id);
+    if (options.length > 0) {
+      options.map(sheet => {
+        eventBinding(name, sheet);
+        loader.createSheet({
+          id: sheet.id,
+          el: sheet.el,
+          options: sheet.options
+        })
+        .then((sheet) => {
+          // 시트 객체 생성, 시트 렌더링 x
+          console.log('createSheet', sheet.id);
+          dispatch(createSheet(sheet));
+        });
+      });
     }
-  }, []);
+    return () => {
+      options.map(sheet => {
+        loader.removeSheet(sheet.id);
+      });
+    }
+  }, [options]);
+
+  // 이벤트 바인딩
+  const eventBinding = (name, sheet) => {
+    switch(name) {
+      case 'Type':
+      case 'Formula':
+      case 'Merge':
+      case 'Tree':
+      case 'SubSum':
+      case 'Multi':
+      case 'Dialog':
+      case 'Form':
+        sheet.options.Events.onRenderFirstFinish = evt => {
+          evt.sheet.loadSearchData(sheet.data);
+        }
+        return sheet;
+    }
+  };
 
   return (
     <>
-      <div style={ basicStyle }>
-        <div id={ el } style={ elStyle }></div>
-      </div>
+      { options.length > 0 &&
+        options.map((sheet, index) => {
+          return (
+            <div style={ basicStyle(sheet.width) } key={ sheet.id }>
+              <div id={ sheet.el } style={ elStyle(sheet.height) } key={ index }></div>
+            </div>
+          )
+        })
+      }
     </>
   );
 }

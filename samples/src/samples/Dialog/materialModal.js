@@ -1,53 +1,70 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import IBSheet8 from 'components/SheetCreate';
+import SheetDialog from 'samples/Dialog/dialogCreate';
+import dialogOptions from 'samples/Dialog/dialogOption';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const DialogSheet = ({ dialog }) => {
+const MaterailModal = () => {
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  debugger;
 
   const useStyles = makeStyles((theme) => ({
     btnStyle: {
+      backgroundColor: '#007FFF',
+      color: '#fff',
       float: 'right',
-      height: '30px'
+      height: '30px',
+      marginRight: '14px'
     },
     modalTitle: {
-      textAlign: 'center'
+      textAlign: 'center',
+      margin: '16px'
     },
     mcontent: {
+      height: '600px',
+      width: '80vh',
       position: 'absolute',
       top: '50%',
       left: '50%',
+      overflow: 'auto',
       transform: 'translate(-50%, -50%)',
-      width: '600px',
       backgroundColor: '#fff',
       border: '2px solid #000',
+      zIndex: '1200'
     },
+    modalIcon: {
+      float: 'right',
+      marginTop: '5px',
+      cursor: 'pointer'
+    }
   }));
 
   const classes = useStyles();
 
   return (
     <>
-      <Button variant='contained' onClick={ handleOpen } className={ classes.btnStyle }>Dialog</Button>
+      <Button variant='contained' onClick={ handleOpen } className={ classes.btnStyle }>material UI</Button>
       <Modal
       open={ open }
-      onClose={ handleClose }
       aria-labelledby='modal-modal-title'
       aria-describedby='modal-modal-description'
       >
         <Box className={ classes.mcontent }>
           <Typography id='modal-modal-title' variant='h6' component='h2' className={ classes.modalTitle }>
-            Sheet-Dialog
+            Material Modal
+            <FontAwesomeIcon icon={ faTimes } className={ classes.modalIcon } onClick={ handleClose } />
           </Typography>
           <div>
-            <IBSheet8 id={ dialog.id } el={ dialog.el } width={ dialog.width } height={ dialog.height } options={ dialog.options } />
+            {
+              <SheetDialog options={ dialogOptions }/>
+            }
           </div>
         </Box>
       </Modal>
@@ -55,4 +72,4 @@ const DialogSheet = ({ dialog }) => {
   );
 }
 
-export default DialogSheet;
+export default MaterailModal;
