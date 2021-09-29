@@ -15,10 +15,10 @@ IBSheetLoader.config({
   registry: [
     {
       name: 'ibsheet',
-      // baseUrl: 'https://demo.ibleaders.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/', // ibsheet 라이브러리 위치, '<publicpath>/ibsheet'
-      baseUrl: './lib/assets', // ibsheet 라이브러리 위치, '<publicpath>/ibsheet'
+      baseUrl: 'https://demo.ibleaders.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/', // ibsheet 라이브러리 위치, '<publicpath>/ibsheet'
+      // baseUrl: './lib/assets', // ibsheet 라이브러리 위치, '<publicpath>/ibsheet'
       locales: ['en','ko'],
-      theme: "default",
+      theme: "material",
       plugins: [
         'dialog',
         'common',
@@ -32,10 +32,10 @@ IBSheetLoader.config({
 IBSheetLoader.once('loaded', (evt) => {
   const target = evt.target;
   if (target.alias === 'ibsheet') {
-    let IBSheet = IBSheetLoader.getIBSheetStatic();
-    IBSheet.onRenderFirstFinishAll = (obj) => {
-      console.log('onRenderFirstFinishAll', obj);
-    }
+    // let IBSheet = IBSheetLoader.getIBSheetStatic();
+    // IBSheet.onRenderFirstFinishAll = (obj) => {
+    //   console.log('onRenderFirstFinishAll', obj);
+    // }
   }
 });
 

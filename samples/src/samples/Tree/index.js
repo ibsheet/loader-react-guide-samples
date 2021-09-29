@@ -17,7 +17,8 @@ const Tree = () => {
       SearchMode: 0,
       HeaderMerge: 3,
       CustomScroll: 1,
-      MainCol: 'Sol'
+      MainCol: 'Sol',
+      Style: 'IBMR'
     },
     LeftCols: [
       {

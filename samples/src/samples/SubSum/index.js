@@ -15,7 +15,8 @@ const SubSum = () => {
   const sheetOptions = {
     Cfg: {
       SearchMode: 0,
-      CustomScroll: 1
+      CustomScroll: 1,
+      Style: 'IBMR'
     },
     LeftCols: [
       {
