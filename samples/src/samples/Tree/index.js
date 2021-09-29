@@ -1,6 +1,6 @@
 /* eslint-disable */
 // 기본 옵션.
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Content from 'components/Content';
 import { treeData as data } from 'data/samplesData';
 import { useDispatch } from 'react-redux';

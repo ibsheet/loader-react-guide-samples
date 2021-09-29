@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import IBSheet8 from 'components/SheetCreate';
@@ -13,6 +13,7 @@ import MergeFunction from 'samples/Merge/function';
 import LoadFunction from 'samples/DataLoad/function';
 import SubSumFunction from 'samples/SubSum/function';
 import MultiFunction from 'samples/Multi/function';
+import TreeFunction from 'samples/Tree/function';
 import FormDiv from 'samples/Form/component';
 import { useSelector } from 'react-redux';
 import TabCopy from 'components/SheetTabCopy'
@@ -84,6 +85,7 @@ const Content = () => {
                   </p>
                     {
                       (name === 'Merge' && <MergeFunction />) ||
+                      (name === 'Tree' && <TreeFunction />) ||
                       (name === 'DataLoad' && <LoadFunction />) ||
                       (name === 'SubSum' && <SubSumFunction />) ||
                       (name === 'Multi' && <MultiFunction />) ||
