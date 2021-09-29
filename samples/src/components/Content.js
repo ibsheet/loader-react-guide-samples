@@ -8,7 +8,6 @@ import Tab from '@material-ui/core/Tab';
 import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
-import Button from '@material-ui/core/Button';
 import DialogSheet from 'samples/Dialog/component';
 import MergeFunction from 'samples/Merge/function';
 import LoadFunction from 'samples/DataLoad/function';
@@ -16,7 +15,7 @@ import SubSumFunction from 'samples/SubSum/function';
 import MultiFunction from 'samples/Multi/function';
 import FormDiv from 'samples/Form/component';
 import { useSelector } from 'react-redux';
-
+import TabCopy from 'components/SheetTabCopy'
 
 // 각 샘플 컴포넌트에서 title, subTitle, func 받아오는 것은 sheet 컴포넌트 쪽 탭을 만들어서 사용함.
 const Content = () => {
@@ -25,15 +24,9 @@ const Content = () => {
   const name = useSelector((state) => state.name);
   const sheet = useSelector((state) => state.sheet);
   const [value, setValue] = useState('1');
-  const textElem = useRef();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  };
-
-  const copyHandler = () => {
-    textElem.current.select();
-    document.execCommand('copy');
   };
 
   const useStyles = makeStyles((props) => ({
@@ -59,13 +52,6 @@ const Content = () => {
     divRow: {
       display: 'flex'
     },
-    btnDivChild1: {
-      marginRight: '12px',
-      width: '140px',
-      height: '42px',
-      backgroundColor: '#4c4c57',
-      color: '#fff'
-    },
     divMerge: {
       display: 'flex'
     },
@@ -73,10 +59,6 @@ const Content = () => {
       flex: 1
     }
   }));
-
-  const listItems = sheet && sheet.length > 0 && sheet.map((grid) => {
-    return grid.id + '= ' + JSON.stringify(grid.options, null, '\t')
-  });
 
   const classes = useStyles();
 
@@ -127,12 +109,7 @@ const Content = () => {
                   </p>
                 </div>
                 { sheet.length > 0 && value === '2' &&
-                  <div>
-                    <Button variant='contained' className={ classes.btnDivChild1 } onClick={ copyHandler }>
-                      Copy
-                    </Button>
-                    <textarea ref={ textElem } readOnly style={ {width: '100%' , height: '750px'} } value={ listItems } />
-                  </div>
+                  <TabCopy />
                 }
               </TabPanel>
             </TabContext>
