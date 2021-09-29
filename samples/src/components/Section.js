@@ -7,12 +7,8 @@ import { faTable } from '@fortawesome/free-solid-svg-icons';
 import { FaGithub } from 'react-icons/fa';
 import { CgComponents } from 'react-icons/cg';
 import StyleLink from '@material-ui/core/Link';
-import Modal from '@material-ui/core/Modal';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import createStr from 'data/createStr';
-import createImg from 'image/sheetcreate.png';
-import CopyToClipboard from 'components/Copy'
+import Modal from 'react-bootstrap/Modal';
+import CopyToClipboard from 'components/SheetCreateCopy'
 
 const Section = () => {
   const [open, setOpen] = useState(false);
@@ -76,26 +72,20 @@ const Section = () => {
       fontWeight: 'bold',
       fontFamily: 'Noto Sans CJK KR,sans-serif',
     },
-    mcontent: {
-      position: 'absolute',
+    bcontent: {
+      position: 'fiexd',
       top: '50%',
       left: '50%',
+      overflow: 'auto',
       transform: 'translate(-50%, -50%)',
-      width: '400px',
-      backgroundColor: '#fff',
-      border: '2px solid #000',
     },
     modalTitle: {
       textAlign: 'center',
       backgroundColor: '#fff',
       borderBottom: '1px solid black'
     },
-    copyContent: {
-      backgroundImage: `url(${ createImg })`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      height: '70vh'
+    intitle: {
+      fontSize: '1.0rem'
     }
   }));
 
@@ -120,19 +110,15 @@ const Section = () => {
                   Create
                 </p>
               </Button>
-              <Modal
-                open={ open }
-                onClose={ handleClose }
-                aria-labelledby='modal-modal-title'
-                aria-describedby='modal-modal-description'
-              >
-                <Box className={ classes.mcontent }>
-                  <Typography id='modal-modal-title' variant='h6' component='h2' className={ classes.modalTitle }>
-                    SheetCreate.js
-                  </Typography>
-                  <div className={ classes.copyContent } />
-                  <CopyToClipboard text={ createStr } />
-                </Box>
+              <Modal show={ open } className= { classes.bcontent } centered>
+                <Modal.Header closeButton onHide={ handleClose } className={ classes.modalTitle }>
+                  <Modal.Title>시트 생성 모듈
+                    <span className={ classes.intitle }>(components/SheetCreate.js)</span>
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <CopyToClipboard />
+                </Modal.Body>
               </Modal>
               <StyleLink underline='none' color='inherit' href='https://github.com/ibsheet/loader-react-guide-samples/tree/main/samples'>
                 <Button variant='contained' className={ classes.btnDivChild2 }>

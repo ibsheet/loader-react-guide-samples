@@ -1,41 +1,84 @@
-
 const createStr =
-"import React, { useEffect } from 'react';\n" +
-"import loader from '@ibsheet/loader'\n" +
-"const IBSheet8 = (props) => {\n" + 
-  "\tconst id = props.id || 'sheet';\n" +
-  "\tconst el = props.el || 'sheetDiv';\n" +
-  "\tconst options = props.options || {};\n" +
-  "\tconst basicStyle = {\n" +
-    "\t\twidth: props.width || '100%',\n" +
-    "\t\theight: 'calc(100vh - 300px)'\n" +
-  "}\n" +
-  "\tconst elStyle = {\n" +
-    "\t\twidth: '100%',\n" +
-    "\t\theight: props.height || basicStyle.height,\n" +
-  "\t}\n" +
+`import React, { useEffect, useRef } from 'react';
+import loader from '@ibsheet/loader';
+import { useDispatch, useSelector } from 'react-redux';
+import { createSheet } from 'modules';
 
-  "\tuseEffect(() => {\n" +
-    "\t\tloader.createSheet({\n" +
-      "\t\t\tid: id,\n" +
-      "\t\t\tel: el,\n" +
-      "\t\t\toptions: options\n" +
-    "\t\t})\n" +
-    "\t\t.then((sheet) => {\n" +
-      "\t\t\tconsole.log('createSheet', sheet.id);\n" +
-    "\t\t});\n" +
-    "\t\treturn () => {\n" +
-      "\t\t\tloader.removeSheet(id);\n" +
-    "\t\t}\n" +
-  "\t}, []);\n" +
+const IBSheet8 = () => {
+  const name = useSelector(state => state.name);
+  const options = useSelector(state => state.options);
+  const dispatch = useDispatch();
 
-  "\treturn (\n" +
-    "\t\t<>\n" +
-      "\t\t\t<div style={ basicStyle }>\n" +
-        "\t\t\t\t<div id={ el } style={ elStyle }></div>\n" +
-      "\t\t\t</div>\n" +
-    "\t\t</>\n" +
-  "\t);\n" +
-"}";
+  const basicStyle = ({ width }) => {
+    return {
+      width: width || '100%',
+      height: 'calc(100vh - 300px)'
+    }
+  };
+  const elStyle = ({ height }) => {
+    return {
+      width: '100%',
+      height: height || 'inherit',
+    }
+  };
+
+  useEffect(() => {
+    if (options.length > 0) {
+      options.map(sheet => {
+        eventBinding(name, sheet);
+        loader.createSheet({
+          id: sheet.id,
+          el: sheet.el,
+          options: sheet.options
+        })
+        .then((sheet) => {
+          // 시트 객체 생성, 시트 렌더링 x
+          console.log('createSheet', sheet.id);
+          dispatch(createSheet(sheet));
+        });
+      });
+    }
+    return () => {
+      options.map(sheet => {
+        loader.removeSheet(sheet.id);
+      });
+    }
+  }, [options]);
+
+  // 이벤트 바인딩
+  const eventBinding = (name, sheet) => {
+    switch(name) {
+      case 'Type':
+      case 'Formula':
+      case 'Merge':
+      case 'Tree':
+      case 'SubSum':
+      case 'Multi':
+      case 'Dialog':
+      case 'Form':
+        sheet.options.Events.onRenderFirstFinish = evt => {
+          evt.sheet.loadSearchData(sheet.data);
+        }
+        return sheet;
+    }
+  };
+
+  return (
+    <>
+      { options.length > 0 &&
+        options.map((sheet, index) => {
+          return (
+            <div style={ basicStyle(sheet.width) } key={ sheet.id }>
+              <div id={ sheet.el } style={ elStyle(sheet.height) } key={ index }></div>
+            </div>
+          )
+        })
+      }
+    </>
+  );
+}
+
+export default IBSheet8;
+`
 
 export default createStr;

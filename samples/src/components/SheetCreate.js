@@ -15,7 +15,7 @@ const IBSheet8 = () => {
       width: width || '100%',
       height: 'calc(100vh - 300px)'
     }
-  }
+  };
   const elStyle = ({ height }) => {
     return {
       width: '100%',
