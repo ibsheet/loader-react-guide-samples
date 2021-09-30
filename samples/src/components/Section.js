@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -7,13 +7,8 @@ import { faTable } from '@fortawesome/free-solid-svg-icons';
 import { FaGithub } from 'react-icons/fa';
 import { CgComponents } from 'react-icons/cg';
 import StyleLink from '@material-ui/core/Link';
-import Modal from 'react-bootstrap/Modal';
-import CopyToClipboard from 'components/SheetCreateCopy'
 
 const Section = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const title = 'IBSheet8';
   const subTitle =
     'Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 React 환경에서 제공합니다.';
@@ -104,22 +99,12 @@ const Section = () => {
               { subTitle }
             </p>
             <div className={ classes.btnDiv }>
-              <Button variant='contained' className={ classes.btnDivChild1 } onClick={ handleOpen }>
+              <Button variant='contained' className={ classes.btnDivChild1 } href='https://codesandbox.io/s/github/ibsheet/loader-react-guide-samples/tree/main/samples?file=/src/index.js' target='_blank' >
                 <CgComponents size='24' color='#fff' />
                 <p className={ classes.gitp1 }>
                   Create
                 </p>
               </Button>
-              <Modal show={ open } className= { classes.bcontent } centered>
-                <Modal.Header closeButton onHide={ handleClose } className={ classes.modalTitle }>
-                  <Modal.Title>시트 생성 모듈
-                    <span className={ classes.intitle }>(components/SheetCreate.js)</span>
-                  </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <CopyToClipboard />
-                </Modal.Body>
-              </Modal>
               <StyleLink underline='none' color='inherit' href='https://github.com/ibsheet/loader-react-guide-samples/tree/main/samples'>
                 <Button variant='contained' className={ classes.btnDivChild2 }>
                   <FaGithub size='24' color='#fff'/>

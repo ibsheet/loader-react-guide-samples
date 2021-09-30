@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './reducer';
-import 'etc/config';
+import 'config/config';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
