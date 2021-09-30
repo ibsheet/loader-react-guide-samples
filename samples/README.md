@@ -2,7 +2,7 @@
 
 ### 사용기술
 
-👉 `@ibsheet/loader: 1.1.11`
+👉 `@ibsheet/loader: 1.1.11` <br/>
 👉 `Javascript, React, Redux, Material-UI, BootStrap, SweetAlert2, FortAwesome, React-Icons`
 
 ### ✨설치방법
