@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import MaterailModal from 'samples/Dialog/materialModal';
-import BootStrapModal from 'samples/Dialog/bootStrapModal';
-import SweetAlert2Modal from 'samples/Dialog/sweetAlert2Modal';
+import MaterailModal from 'samples/Dialog/Material/materialModal';
+import BootStrapModal from 'samples/Dialog/BootStrap/bootStrapModal';
+import SweetAlert2Modal from 'samples/Dialog/SweetAlert2/sweetAlert2Modal';
 
 const DialogSheet = () => {
   const useStyles = makeStyles((theme) => ({

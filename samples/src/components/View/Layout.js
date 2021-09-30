@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link} from 'react-router-dom';
-import Navigation  from 'components/Navigation';
+import Navigation  from 'components/Navigation/Navigation';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import StyleLink from '@material-ui/core/Link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTable, faBook } from '@fortawesome/free-solid-svg-icons';
-import Section from 'components/Section';
+import Section from 'components/View/Section';
 
 const Layout = () => {
   // 화면에 뿌려질 API

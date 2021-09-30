@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useEffect, useMemo } from 'react';
 import loader from '@ibsheet/loader';
-import data from './data';
+import data from '../data';
 
 const SheetDialog = ({ options }) => {
 

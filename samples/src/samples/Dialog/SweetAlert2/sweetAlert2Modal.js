@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import SheetDialog from 'samples/Dialog/dialogCreate';
-import dialogOptions from 'samples/Dialog/dialogOption';
+import SheetDialog from 'samples/Dialog/Common/dialogCreate';
+import dialogOptions from 'samples/Dialog/Common/dialogOption';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 

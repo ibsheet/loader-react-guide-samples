@@ -4,8 +4,8 @@ import Box from '@material-ui/core/Box';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import SheetDialog from 'samples/Dialog/dialogCreate';
-import dialogOptions from 'samples/Dialog/dialogOption';
+import SheetDialog from 'samples/Dialog/Common/dialogCreate';
+import dialogOptions from 'samples/Dialog/Common/dialogOption';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 

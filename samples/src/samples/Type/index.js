@@ -1,7 +1,7 @@
 /* eslint-disable */
 // 기본 옵션.
 import React, { useState, useEffect } from 'react';
-import Content from 'components/Content';
+import Content from 'components/View/Content';
 import data from './data';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from 'reducer';
