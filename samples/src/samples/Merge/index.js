@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Content from 'components/Content';
 import { mergeData as data } from 'data/samplesData';
-import { createSample, removeSample } from 'modules';
+import { createSample, removeSample } from 'reducer';
 
 const Merge = () => {
   const dispatch = useDispatch();

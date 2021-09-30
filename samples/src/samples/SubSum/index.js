@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Content from 'components/Content';
 import { subData as data } from 'data/samplesData';
 import { useDispatch } from 'react-redux';
-import { createSample, removeSample } from 'modules';
+import { createSample, removeSample } from 'reducer';
 
 const SubSum = () => {
   const dispatch = useDispatch();

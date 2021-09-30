@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import Content from 'components/Content';
 import { formData as data } from 'data/samplesData';
 import { useDispatch, useSelector } from 'react-redux';
-import { createSample, removeSample } from 'modules';
+import { createSample, removeSample } from 'reducer';
 
 const Form = () => {
   const dispatch = useDispatch();

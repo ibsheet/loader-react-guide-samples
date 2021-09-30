@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import Content from 'components/Content';
 import { bigData as data } from 'data/samplesData';
 import { useDispatch } from 'react-redux';
-import { createSample, removeSample } from 'modules';
+import { createSample, removeSample } from 'reducer';
 
 const DataLoad = () => {
   const dispatch = useDispatch();

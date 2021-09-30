@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import Content from 'components/Content';
 import { multiData1, multiData2, multiData3 } from 'data/samplesData';
 import { useDispatch } from 'react-redux';
-import { createSample, removeSample } from 'modules';
+import { createSample, removeSample } from 'reducer';
 
 const Multi = () => {
   const dispatch = useDispatch();

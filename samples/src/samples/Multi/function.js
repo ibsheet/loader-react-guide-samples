@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import loader from '@ibsheet/loader';
-import { createSheet } from 'modules';
+import { createSheet } from 'reducer';
 
 const Function = () => {
   const dispatch = useDispatch();
