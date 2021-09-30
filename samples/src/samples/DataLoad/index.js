@@ -2,7 +2,6 @@
 // 기본 옵션.
 import React, { useEffect } from 'react';
 import Content from 'components/Content';
-import { bigData as data } from 'data/samplesData';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from 'reducer';
 
@@ -86,8 +85,7 @@ const DataLoad = () => {
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
-    options: sheetOptions,
-    data: data
+    options: sheetOptions
   };
 
   useEffect(() => {

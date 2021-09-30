@@ -2,7 +2,7 @@
 // 기본 옵션.
 import React, { useEffect } from 'react';
 import Content from 'components/Content';
-import { multiData1, multiData2, multiData3 } from 'data/samplesData';
+import { multiData1, multiData2, multiData3 } from './data';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from 'reducer';
 

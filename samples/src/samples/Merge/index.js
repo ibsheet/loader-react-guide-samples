@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Content from 'components/Content';
-import { mergeData as data } from 'data/samplesData';
+import data from './data';
 import { createSample, removeSample } from 'reducer';
 
 const Merge = () => {

@@ -1,4 +1,4 @@
-// redux 적용
+// init
 export const CREATE_SHEET = 'CREATE_SHEET';
 export const CREATE_SAMPLE = 'CREATE_SAMPLE';
 export const REMOVE_SAMPLE = 'REMOVE_SAMPLE';
@@ -11,6 +11,7 @@ const initalState = {
   options: []
 };
 
+// sample, sheet action
 const createSample = (name, title, subTitle, options) => {
   return {
     type: CREATE_SAMPLE,
@@ -32,8 +33,9 @@ const createSheet = (sheet) => {
     type: CREATE_SHEET,
     sheet
   }
-}
+};
 
+// reducer
 const reducer = (state = initalState, action) => {
   switch (action.type) {
     case CREATE_SHEET:
@@ -61,7 +63,7 @@ const reducer = (state = initalState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default reducer;
 export { createSample, removeSample, createSheet };

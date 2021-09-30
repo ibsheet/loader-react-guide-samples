@@ -2,7 +2,7 @@
 // 기본 옵션.
 import React, { useEffect } from 'react';
 import Content from 'components/Content';
-import { treeData as data } from 'data/samplesData';
+import data from './data';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from 'reducer';
 

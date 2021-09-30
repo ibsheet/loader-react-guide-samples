@@ -3,12 +3,10 @@ import { useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { Select, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import setData from './data';
 
 const Function = () => {
   const sheet = useSelector(state => state.sheet);
-  const options = useSelector(state => state.options);
-  const bigData = options[0].data;
-
   const [count, setCount] = useState(100000);
 
   const changeHandler = (e) => {
@@ -16,7 +14,7 @@ const Function = () => {
   }
 
   const clickHandler = (e) => {
-    sheet[0].loadSearchData(bigData(count));
+    sheet[0].loadSearchData(setData(count));
   }
 
   const useStyles = makeStyles((props) => ({
