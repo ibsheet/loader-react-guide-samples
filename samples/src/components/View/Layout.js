@@ -32,7 +32,10 @@ const Layout = () => {
     },
     homeLink: {
       color: 'inherit',
-      textDecoration: 'inherit'
+      textDecoration: 'inherit',
+      '&:hover': {
+        color: 'inherit'
+      }
     },
     footIcon: {
       marginRight: theme.spacing(1.0),
