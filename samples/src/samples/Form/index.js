@@ -10,7 +10,7 @@ const Form = () => {
   const dispatch = useDispatch();
   const name = 'Form';
   const title = 'Form 요소를 이용한 상세보기';
-  const subTitle = '시트와 form 간의 연동을 통해 행 선택시 내용을 form 에서 상세하게 볼 수 있습니다.';
+  const subTitle = '시트와 form 간의 연동을 통해 행 선택시 내용을 form 에서 확인하고 form의 내용을 수정하여 시트의 반영할 수 있습니다.';
 
   const sheetOptions = {
     Cfg: {

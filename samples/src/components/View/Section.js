@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTable } from '@fortawesome/free-solid-svg-icons';
 import { FaGithub } from 'react-icons/fa';
-import { CgComponents } from 'react-icons/cg';
+import { GrCodeSandbox } from 'react-icons/gr';
 import StyleLink from '@material-ui/core/Link';
 
 const Section = () => {
@@ -46,7 +46,7 @@ const Section = () => {
       marginRight: '12px',
       width: '140px',
       height: '42px',
-      backgroundColor: '#a777e3',
+      backgroundColor: '#fff',
       color: '#fff'
     },
     btnDivChild2: {
@@ -57,7 +57,7 @@ const Section = () => {
     },
     gitp1: {
       paddingLeft: '10px',
-      color: '#fff',
+      color: '#000',
       fontWeight: 'bold',
       fontFamily: 'Noto Sans CJK KR,sans-serif',
     },
@@ -100,9 +100,9 @@ const Section = () => {
             </p>
             <div className={ classes.btnDiv }>
               <Button variant='contained' className={ classes.btnDivChild1 } href='https://codesandbox.io/s/github/ibsheet/loader-react-guide-samples/tree/main/samples?file=/src/index.js' target='_blank' >
-                <CgComponents size='24' color='#fff' />
+                <GrCodeSandbox size='24' color='#fff' />
                 <p className={ classes.gitp1 }>
-                  Create
+                  SandBox
                 </p>
               </Button>
               <StyleLink underline='none' color='inherit' href='https://github.com/ibsheet/loader-react-guide-samples/tree/main/samples'>
