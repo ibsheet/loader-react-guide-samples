@@ -7,12 +7,34 @@ const FormDiv = () => {
   const ibsheet = useSelector(state => state.sheet);
   const sheet = ibsheet[0];
   const mounted = useRef(false);
-
   const fname = useRef();
   const fage = useRef();
   const fposition = useRef();
   const fsalary = useRef();
   const fdepartment = useRef();
+  const refData = [fname, fage, fposition, fsalary, fdepartment];
+  const formId = [
+    {
+      id: 'formName',
+      name: 'sName'
+    },
+    {
+      id: 'formAge',
+      name: 'sAge'
+    },
+    {
+      id: 'formPosi',
+      name: 'sPosi'
+    },
+    {
+      id: 'formSal',
+      name: 'sPrice'
+    },
+    {
+      id: 'formDepart',
+      name: 'sDepart'
+    },
+  ];
 
   useEffect(() => {
     if (!mounted.current) {
@@ -20,10 +42,17 @@ const FormDiv = () => {
     } else {
       eventBind(sheet);
     }
-    return () => {
-
-    };
   }, [sheet]);
+
+  const onblurhandler = (e) => {
+    if (sheet) {
+      const frow = sheet.getFocusedRow();
+      const cellVal = sheet.getValue(frow, e.target.id);
+      if (cellVal !== e.target.value) {
+        sheet.setValue(frow, e.target.id, e.target.value);
+      }
+    }
+  };
 
   const eventBind = (sheet) => {
     sheet.bind('onFocus', evt => {
@@ -40,7 +69,7 @@ const FormDiv = () => {
       fsalary.current.lastChild.firstChild.value = '';
       fdepartment.current.lastChild.firstChild.value = '';
     });
-  }
+  };
 
   const useStyles = makeStyles((theme) => ({
     divCol: {
@@ -86,21 +115,15 @@ const FormDiv = () => {
           <label className={ classes.labelTitle }>상세보기</label>
         </div>
         <div className={ classes.divContent }>
-          <div className={ classes.divComp }>
-            <TextField ref={ fname } InputProps={{ readOnly: true }} id='name' variant='standard' className={ classes.textfield } />
-          </div>
-          <div className={ classes.divComp }>
-            <TextField ref={ fage } InputProps={{ readOnly: true }} id='age' variant='standard' className={ classes.textfield } />
-          </div>
-          <div className={ classes.divComp }>
-            <TextField ref={ fposition } InputProps={{ readOnly: true }} id='position' variant='standard' className={ classes.textfield } />
-          </div>
-          <div className={ classes.divComp }>
-            <TextField ref={ fsalary } InputProps={{ readOnly: true }} id='salary' variant='standard' className={ classes.textfield } />
-          </div>
-          <div className={ classes.divComp }>
-            <TextField ref={ fdepartment } InputProps={{ readOnly: true }} id='department' variant='standard' className={ classes.textfield } />
-          </div>
+          {
+            formId.map((obj, index) => {
+              return (
+                <div key={ obj.id } className={ classes.divComp }>
+                  <TextField key={ index.toString() } ref={ refData[index] } id={ obj.name } variant='standard' className={ classes.textfield } onBlur={ onblurhandler } />
+                </div>
+              )
+            })
+          }
         </div>
       </div>
     </div>
