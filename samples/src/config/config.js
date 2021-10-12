@@ -5,7 +5,8 @@ const ibsheetLib = {
   baseUrl: 'https://demo.ibleaders.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/',
   locales: ['en', 'ko'],
   theme: 'material',
-  plugins: ['excel', 'common', 'dialog']
+  plugins: ['excel', 'common', 'dialog'],
+  license: 'W2FtSztPKCZzaTYwYjJxbn9QKhMsHnQlOD0+PX9tLH4oaVt8A28BS34oZmE5UBZYDyQhBT9DNl4kPmdj'
 }
 
 // 로더 config
