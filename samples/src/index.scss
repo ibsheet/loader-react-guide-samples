@@ -1,0 +1,50 @@
+@mixin marin($top, $bottom, $left, $right, $all) {
+  @if ($top != null) {
+    margin-top: $top;
+  }
+  @if ($bottom != null) {
+    margin-bottom: $bottom;
+  }
+  @if ($left != null) {
+    margin-left: $left;
+  }
+  @if ($right != null) {
+    margin-top: $top;
+  }
+  @if ($all != null) {
+    margin: $all;
+  }
+}
+
+@mixin fontFamily($attr) {
+  $family: '';
+  @if $attr == 'body' {
+    $family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  } @else if $attr == 'code' {
+    $family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  } @else {
+    $family: sans-serif;
+  }
+  font-family: $family;
+}
+
+body {
+  @include marin(null, null, null, null, 0);
+  @include fontFamily('body');
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  @include fontFamily('code');
+}
+
+p {
+  @include marin(14px, 14px, null, null, null)
+}
+
+.swal2-modal {
+  height: 80vh;
+}
