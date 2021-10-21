@@ -55,6 +55,18 @@ const FormDiv = () => {
   };
 
   const eventBind = (sheet) => {
+    sheet.bind('onBeforeFocus', evt => {
+      switch (document.activeElement) {
+        case fname.current.lastChild.firstChild:
+        case fage.current.lastChild.firstChild:
+        case fposition.current.lastChild.firstChild:
+        case fsalary.current.lastChild.firstChild:
+        case fdepartment.current.lastChild.firstChild:
+          return document.activeElement.blur();
+        default:
+          // console.log('onBeforeFocus No blur');
+      }
+    });
     sheet.bind('onFocus', evt => {
       fname.current.lastChild.firstChild.value = evt.row['sName'];
       fage.current.lastChild.firstChild.value = evt.row['sAge'];
