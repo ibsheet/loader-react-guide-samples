@@ -23,7 +23,7 @@ const Multi = () => {
         Header: '상품',
         Type: 'Text',
         Name: 'goods',
-        Width: 80,
+        Width: 90,
         CanEdit: 0
       }
     ],
@@ -66,7 +66,7 @@ const Multi = () => {
         Header: '상품',
         Type: 'Text',
         Name: 'goods',
-        Width: 80,
+        Width: 90,
         CanEdit: 0
       }
     ],
@@ -110,7 +110,7 @@ const Multi = () => {
         Header: '상품',
         Type: 'Text',
         Name: 'goods',
-        Width: 80,
+        Width: 90,
         CanEdit: 0
       }
     ],

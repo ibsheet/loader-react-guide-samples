@@ -139,6 +139,83 @@ const data = [
 		sPrice: 5300000,
 		sDepart: '경영팀'
 	},
+	{
+		sName: '박재수',
+		sAge: 41,
+		sPosi: '과장',
+		sPrice: 5100000,
+		sDepart: '기획팀'
+	},
+	{
+		sName: '임조리',
+		sAge: 28,
+		sPosi: '사원',
+		sPrice: 3000000,
+		sDepart: '기획팀'
+	},
+	{
+		sName: '이재변',
+		sAge: 33,
+		sPosi: '사원',
+		sPrice: 3100000,
+		sDepart: '기획팀'
+	},
+	{
+		sName: '신리수',
+		sAge: 37,
+		sPosi: '대리',
+		sPrice: 3800000,
+		sDepart: '기획팀'
+	},
+	{
+		sName: '박채모',
+		sAge: 45,
+		sPosi: '차장',
+		sPrice: 7500000,
+		sDepart: '기획팀'
+	},
+	{
+		sName: '김청호',
+		sAge: 28,
+		sPosi: '사원',
+		sPrice: 3300000,
+		sDepart: '인사팀'
+	},
+	{
+		sName: '민청하',
+		sAge: 34,
+		sPosi: '대리',
+		sPrice: 3900000,
+		sDepart: '인사팀'
+	},
+	{
+		sName: '윤다헌',
+		sAge: 39,
+		sPosi: '과장',
+		sPrice: 5200000,
+		sDepart: '인사팀'
+	},
+	{
+		sName: '김태연',
+		sAge: 55,
+		sPosi: '이사',
+		sPrice: 7100000,
+		sDepart: '인사팀'
+	},
+	{
+		sName: '민대원',
+		sAge: 33,
+		sPosi: '대리',
+		sPrice: 4000000,
+		sDepart: '경영팀'
+	},
+	{
+		sName: '류태율',
+		sAge: 39,
+		sPosi: '과장',
+		sPrice: 5300000,
+		sDepart: '경영팀'
+	},
 ];
 
 export default data;
