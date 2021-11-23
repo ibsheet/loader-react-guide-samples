@@ -9,8 +9,9 @@ import Formula from 'samples/Formula/index';
 import Form from 'samples/Form/index';
 import Multi from 'samples/Multi/index';
 import Dialog from 'samples/Dialog/index';
+import MasterDetail from 'samples/MasterDetail/index';
 
-const route = ['type', 'merge', 'subsum', 'tree', 'dataload', 'formula', 'form', 'multiple', 'dialog'];
+const route = ['type', 'merge', 'subsum', 'tree', 'dataload', 'formula', 'form', 'multiple', 'dialog', 'masterDetail'];
 const matchRoute = (idx) => {
   switch (route[idx]) {
     case 'type':
@@ -22,15 +23,17 @@ const matchRoute = (idx) => {
     case 'tree':
       return <Tree></Tree>;
     case 'dataload':
-      return <DataLoad></DataLoad>
+      return <DataLoad></DataLoad>;
     case 'formula':
-      return <Formula></Formula>
+      return <Formula></Formula>;
     case 'form':
-      return <Form></Form>
+      return <Form></Form>;
     case 'multiple':
-      return <Multi></Multi>
+      return <Multi></Multi>;
     case 'dialog':
-      return <Dialog></Dialog>
+      return <Dialog></Dialog>;
+    case 'masterDetail':
+      return <MasterDetail></MasterDetail>;
     default:
       return <Home></Home>;
   }

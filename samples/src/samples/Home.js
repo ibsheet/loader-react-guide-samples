@@ -15,15 +15,16 @@ import formula from 'image/formula.png';
 import form from 'image/form.png';
 import multiple from 'image/multi.png';
 import dialog from 'image/dialog.png';
+import masterDetail from 'image/masterDetail.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 // 여기에 Rounter 설정
 const Main = () => {
-  const images = [type, merge, tree, dataload, subsum, formula, form, multiple, dialog];
-  const route = ['type', 'merge', 'tree', 'dataload', 'subsum', 'formula', 'form', 'multiple', 'dialog'];
-  const f = ['기본기능', '기본기능', '기본기능', '기본기능', '고급기능', '고급기능', '실무예제', '실무예제', '실무예제'];
-  const samples = ['컬럼 타입', '자동 머지', '트리 기능', '대용량 조회', '소계 기능', '포뮬러 기능', 'Form 형태를 이용한 상세보기', '여러 개의 시트', '시트 + 다이얼로그'];
+  const images = [type, merge, tree, dataload, subsum, formula, form, multiple, dialog, masterDetail];
+  const route = ['type', 'merge', 'tree', 'dataload', 'subsum', 'formula', 'form', 'multiple', 'dialog', 'masterDetail'];
+  const f = ['기본기능', '기본기능', '기본기능', '기본기능', '고급기능', '고급기능', '실무예제', '실무예제', '실무예제', '실무예제'];
+  const samples = ['컬럼 타입', '자동 머지', '트리 기능', '대용량 조회', '소계 기능', '포뮬러 기능', 'Form 형태를 이용한 상세보기', '여러 개의 시트', '시트 + 다이얼로그', '마스터 디테일 구조'];
 
   const useStyles = makeStyles((theme) => ({
     icon: {

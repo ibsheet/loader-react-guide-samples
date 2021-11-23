@@ -10,13 +10,13 @@ const IBSheet8 = () => {
   const options = useSelector(state => state.options);
   const dispatch = useDispatch();
 
-  const basicStyle = ({ width }) => {
+  const basicStyle = (width) => {
     return {
       width: width || '100%',
       height: '70vh'
     }
   };
-  const elStyle = ({ height }) => {
+  const elStyle = (height) => {
     return {
       width: '100%',
       height: height || 'inherit',
@@ -57,9 +57,44 @@ const IBSheet8 = () => {
       case 'Dialog':
       case 'DataLoad':
       case 'Form':
+      case 'MasterDetail':
         sheet.options.Events = {
           onRenderFirstFinish: evt => {
-            if (name !== 'DataLoad') evt.sheet.loadSearchData(sheet.data);
+            if (name !== 'DataLoad') {
+              const data = (name === 'MasterDetail' && sheet.id === 'sheet2') ? [] : sheet.data;
+              if (data.length) evt.sheet.loadSearchData(data);
+              if (name === 'MasterDetail' && sheet.id === 'sheet2') {
+                sheet1.bind('onFocus', sheet1Evt => {
+                  if (sheet1Evt.row !== sheet1Evt.orow) {
+                    const sigun = sheet1Evt.row.sSiGunGu;
+                    const data = sheet.data[0];
+
+                    switch (sigun) {
+                      case '관악구':
+                        sheet2.loadSearchData(data.gwanak);
+                        break;
+                      case '광진구':
+                        sheet2.loadSearchData(data.gwangjin);
+                        break;
+                      case '금천구':
+                        sheet2.loadSearchData(data.geumcheon);
+                        break;
+                      case '동작구':
+                        sheet2.loadSearchData(data.dongjak);
+                        break;
+                      case '서초구':
+                        sheet2.loadSearchData(data.seocho);
+                        break;
+                      case '송파구':
+                        sheet2.loadSearchData(data.songpa);
+                        break;
+                      default:
+                        break;
+                    }
+                  }
+                });
+              }
+            }
           },
           onDataLoad: evt => {},
           onSearchFinish: evt => {}
