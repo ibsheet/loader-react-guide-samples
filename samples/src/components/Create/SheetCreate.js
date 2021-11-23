@@ -57,6 +57,7 @@ const IBSheet8 = () => {
       case 'Dialog':
       case 'DataLoad':
       case 'Form':
+      case 'MultiRecord':
       case 'MasterDetail':
         sheet.options.Events = {
           onRenderFirstFinish: evt => {

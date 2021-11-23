@@ -6,12 +6,13 @@ import Tree from 'samples/Tree/index';
 import SubSum from 'samples/SubSum/index';
 import DataLoad from 'samples/DataLoad/index';
 import Formula from 'samples/Formula/index';
+import MultiRecord from 'samples/MultiRecord/index';
 import Form from 'samples/Form/index';
 import Multi from 'samples/Multi/index';
 import Dialog from 'samples/Dialog/index';
 import MasterDetail from 'samples/MasterDetail/index';
 
-const route = ['type', 'merge', 'subsum', 'tree', 'dataload', 'formula', 'form', 'multiple', 'dialog', 'masterDetail'];
+const route = ['type', 'merge', 'subsum', 'tree', 'dataload', 'formula', 'multirecord', 'form', 'multiple', 'dialog', 'masterDetail'];
 const matchRoute = (idx) => {
   switch (route[idx]) {
     case 'type':
@@ -26,6 +27,8 @@ const matchRoute = (idx) => {
       return <DataLoad></DataLoad>;
     case 'formula':
       return <Formula></Formula>;
+    case 'multirecord':
+      return <MultiRecord></MultiRecord>;
     case 'form':
       return <Form></Form>;
     case 'multiple':
