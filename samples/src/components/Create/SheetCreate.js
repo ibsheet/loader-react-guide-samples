@@ -49,51 +49,66 @@ const IBSheet8 = () => {
   const eventBinding = (name, sheet) => {
     switch(name) {
       case 'Type':
-      case 'Formula':
       case 'Merge':
       case 'Tree':
+      case 'DataLoad':
       case 'SubSum':
+      case 'Formula':
+      case 'MultiRecord':
+      case 'ServerScrollPaging':
+      case 'Form':
       case 'Multi':
       case 'Dialog':
-      case 'DataLoad':
-      case 'Form':
-      case 'MultiRecord':
       case 'MasterDetail':
         sheet.options.Events = {
           onRenderFirstFinish: evt => {
             if (name !== 'DataLoad') {
-              const data = (name === 'MasterDetail' && sheet.id === 'sheet2') ? [] : sheet.data;
-              if (data.length) evt.sheet.loadSearchData(data);
-              if (name === 'MasterDetail' && sheet.id === 'sheet2') {
-                sheet1.bind('onFocus', sheet1Evt => {
-                  if (sheet1Evt.row !== sheet1Evt.orow) {
-                    const sigun = sheet1Evt.row.sSiGunGu;
-                    const data = sheet.data[0];
+              if (evt.sheet.SearchMode === 0) {
+                const data = (name === 'MasterDetail' && sheet.id === 'sheet2') ? [] : sheet.data;
+                if (data.length) evt.sheet.loadSearchData(data);
+                if (name === 'MasterDetail' && sheet.id === 'sheet2') {
+                  sheet1.bind('onFocus', sheet1Evt => {
+                    if (sheet1Evt.row !== sheet1Evt.orow) {
+                      const sigun = sheet1Evt.row.sSiGunGu;
+                      const data = sheet.data[0];
 
-                    switch (sigun) {
-                      case '관악구':
-                        sheet2.loadSearchData(data.gwanak);
-                        break;
-                      case '광진구':
-                        sheet2.loadSearchData(data.gwangjin);
-                        break;
-                      case '금천구':
-                        sheet2.loadSearchData(data.geumcheon);
-                        break;
-                      case '동작구':
-                        sheet2.loadSearchData(data.dongjak);
-                        break;
-                      case '서초구':
-                        sheet2.loadSearchData(data.seocho);
-                        break;
-                      case '송파구':
-                        sheet2.loadSearchData(data.songpa);
-                        break;
-                      default:
-                        break;
+                      switch (sigun) {
+                        case '관악구':
+                          sheet2.loadSearchData(data.gwanak);
+                          break;
+                        case '광진구':
+                          sheet2.loadSearchData(data.gwangjin);
+                          break;
+                        case '금천구':
+                          sheet2.loadSearchData(data.geumcheon);
+                          break;
+                        case '동작구':
+                          sheet2.loadSearchData(data.dongjak);
+                          break;
+                        case '서초구':
+                          sheet2.loadSearchData(data.seocho);
+                          break;
+                        case '송파구':
+                          sheet2.loadSearchData(data.songpa);
+                          break;
+                        default:
+                          break;
+                      }
                     }
+                  });
+                }
+              } else if (evt.sheet.SearchMode === 3) {
+                const param = {
+                  url: 'http://localhost:8000/api/data',
+                  // 카운팅 할 data 의 갯수와 전체 갯수를 param 으로 해서 보내도록 합니다.
+                  param: 'data=100&total=20000&searchMode=' + evt.sheet.SearchMode,
+                  callback: (rtn) => {
+                    const rtnData = JSON.parse(rtn.data);
+                    evt.sheet.showMessageTime('<span style=\'color:black\'>조회가 완료되었습니다.<br> 서버모듈 전체 데이터 건수 : ' + rtnData.Total + '</span>', 1500);
                   }
-                });
+                };
+
+                evt.sheet.doSearchPaging(param);
               }
             }
           },

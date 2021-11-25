@@ -7,12 +7,13 @@ import SubSum from 'samples/SubSum/index';
 import DataLoad from 'samples/DataLoad/index';
 import Formula from 'samples/Formula/index';
 import MultiRecord from 'samples/MultiRecord/index';
+import ServerScrollPaging from 'samples/ServerScrollPaging/index';
 import Form from 'samples/Form/index';
 import Multi from 'samples/Multi/index';
 import Dialog from 'samples/Dialog/index';
 import MasterDetail from 'samples/MasterDetail/index';
 
-const route = ['type', 'merge', 'subsum', 'tree', 'dataload', 'formula', 'multirecord', 'form', 'multiple', 'dialog', 'masterDetail'];
+const route = ['type', 'merge', 'subsum', 'tree', 'dataload', 'formula', 'multirecord', 'serverscrollpaging', 'form', 'multiple', 'dialog', 'masterDetail'];
 const matchRoute = (idx) => {
   switch (route[idx]) {
     case 'type':
@@ -29,6 +30,8 @@ const matchRoute = (idx) => {
       return <Formula></Formula>;
     case 'multirecord':
       return <MultiRecord></MultiRecord>;
+    case 'serverscrollpaging':
+      return <ServerScrollPaging></ServerScrollPaging>;
     case 'form':
       return <Form></Form>;
     case 'multiple':
