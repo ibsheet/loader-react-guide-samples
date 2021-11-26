@@ -112,6 +112,30 @@ const IBSheet8 = () => {
               }
             }
           },
+          onBeforeDataLoad: evt => {
+            let message = '';
+            const importance = evt.sheet.SuppressMessage + 1;
+            switch(evt.result) {
+              case -1:
+                message = 'URL 을 다시 한 번 확인해주세요.';
+                break;
+              case -3:
+                message = '100이하, 400이상의 상태코드 입니다.';
+                break;
+              case -5:
+                message = 'api 폴더에서 서버를 실행시켜주세요. (명령어: node app.js)';
+                break;
+              case -6:
+                message = '연결 시간 초과 되었습니다.';
+                break;
+              case -7:
+                message = '잘못된 데이터 형식 입니다.';
+                break;
+              default:
+                return;
+            }
+            evt.sheet.showMessage(message, importance, 1);
+          },
           onDataLoad: evt => {},
           onSearchFinish: evt => {}
         }

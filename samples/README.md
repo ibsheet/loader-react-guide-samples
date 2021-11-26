@@ -15,3 +15,4 @@
 7. `Redux` 를 사용하여 전역 객체를 상태 관리 합니다. (여러개의 시트를 만들 수 있어, option 을 배열 형태로 담습니다.)
 8. `SheetCreate.js (src/compoenets/Create/SheetCreate.js)` 에서 시트 생성 공통 모듈이 있습니다.
 9. `samples` 폴더에 각 샘플에서 사용하는 `Config` 와 기능 컴포넌트, `data`를 제공합니다.
+10. `api` 폴더에 `serverscrollpaging` 에서 사용할 수 있도록, `express`를 이용하여 만든 `data api` 가 있습니다. 해당 `serverscrollpaging` 기능을 사용하기 위해서 해당 폴더에서 `node app.js` 를 하여 서버를 실행하셔야 합니다.

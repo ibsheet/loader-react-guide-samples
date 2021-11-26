@@ -15,7 +15,8 @@ const ServerScrollPaging = () => {
     Cfg: {
       SearchMode: 3,
       CustomScroll: 1,
-      Style: 'IBMR'
+      Style: 'IBMR',
+      SuppressMessage: 4
     },
     LeftCols: [
       {
