@@ -5,6 +5,7 @@ import Content from 'components/View/Content';
 import data from './data';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from 'reducer';
+import IB_Preset from 'config/common';
 
 const Type = () => {
   const dispatch = useDispatch();
@@ -54,25 +55,20 @@ const Type = () => {
         Header: '정수(Int)',
         Type: 'Int',
         Name: 'IntData',
-        Width: 90,
-        Align: 'Right',
-        Format: '#,##0'
+        Extend: IB_Preset.Integer
       },
       {
         Header: '실수(Float)',
         Type: 'Float',
         Name: 'FloatData',
-        Width: 110,
-        Align: 'Right',
-        Format: '#,##0.######'
+        Extend: IB_Preset.Float,
       },
       {
         Header: '날짜(Date)',
         Type: 'Date',
         Name: 'DateData',
-        Width: 170,
         Align: 'Center',
-        EmptyValue: '날짜를 입력해주세요'
+        Extend: IB_Preset.YMD,
       },
       {
         Header: '패스워드(Pass)',
@@ -100,7 +96,7 @@ const Type = () => {
         Name: 'CheckData',
         Align: 'Center',
         CanEdit: 1,
-        Width: 100
+        RelWidth: 1
       }
     ],
     Events: {}
