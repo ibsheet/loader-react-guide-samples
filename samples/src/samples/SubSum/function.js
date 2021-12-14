@@ -12,6 +12,28 @@ const Function = () => {
     multisubsum: '#fad1d1',
     multicumul: '#ceebfd'
   };
+  const btnObj = [
+    {
+      value: 'subsum',
+      name: '단일 컬럼 소계'
+    },
+    {
+      value: 'cumulate',
+      name: '단일 컬럼 소계/누계'
+    },
+    {
+      value: 'multisubsum',
+      name: '다중 컬럼 소계'
+    },
+    {
+      value: 'multicumulate',
+      name: '다중 컬럼 소계/누계'
+    },
+    {
+      value: 'remove',
+      name: '소계행 삭제'
+    }
+  ];
 
   const makeSubTotal = (state) => {
     switch(state) {
@@ -156,21 +178,13 @@ const Function = () => {
 
   return (
     <div className={ classes.divStyle }>
-      <Button value='subsum' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
-        단일 컬럼 소계
-      </Button>
-      <Button value='cumulate' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
-        단일 컬럼 소계/누계
-      </Button>
-      <Button value='multisubsum' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
-        다중 컬럼 소계
-      </Button>
-      <Button value='multicumulate' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
-        다중 컬럼 소계/누계
-      </Button>
-      <Button value='remove' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
-        소계행 삭제
-      </Button>
+      {
+        btnObj.map((obj, index) => (
+          <Button value={ obj.value } className={ classes.btnStyle } variant='contained' onClick={ clickHandler } key={ index }>
+            { obj.name }
+          </Button>
+        ))
+      }
     </div>
   );
 };
