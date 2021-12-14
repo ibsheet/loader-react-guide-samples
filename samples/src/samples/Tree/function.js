@@ -8,6 +8,7 @@ const Function = () => {
   const sheet = ibsheet[0];
   const [level, setLevel] = useState(4);
   const mounted = useRef(false);
+  const loop = ['1', '2', '3', '4'];
 
   useEffect(() => {
     if (!mounted.current) {
@@ -18,7 +19,9 @@ const Function = () => {
   }, [level, sheet]);
 
   const changeHandler = (e) => {
-    setLevel(e.target.value);
+    let val = e.target.value;
+    if (typeof val === 'string') val -= 0;
+    setLevel(val);
   };
 
   const useStyles = makeStyles((props) => ({
@@ -50,10 +53,11 @@ const Function = () => {
         value={ level }
         onChange={ changeHandler }
       >
-        <MenuItem value={ 1 }>showTreeLevel: 1</MenuItem>
-        <MenuItem value={ 2 }>showTreeLevel: 2</MenuItem>
-        <MenuItem value={ 3 }>showTreeLevel: 3</MenuItem>
-        <MenuItem value={ 4 }>showTreeLevel: 4</MenuItem>
+        {
+          loop.map((val, index) => (
+            <MenuItem value={ val } key={ index }>showTreeLevel: { val }</MenuItem>
+          ))
+        }
       </Select>
     </div>
   );
