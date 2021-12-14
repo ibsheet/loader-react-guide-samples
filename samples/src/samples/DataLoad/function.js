@@ -8,6 +8,20 @@ import setData from './data';
 const Function = () => {
   const sheet = useSelector(state => state.sheet);
   const [count, setCount] = useState(100000);
+  const item = [
+    {
+      value: 100000,
+      name: '100,000'
+    },
+    {
+      value: 200000,
+      name: '200,000'
+    },
+    {
+      value: 300000,
+      name: '300,000'
+    }
+  ];
 
   const changeHandler = (e) => {
     setCount(e.target.value);
@@ -42,9 +56,11 @@ const Function = () => {
         value={ count }
         onChange={ changeHandler }
       >
-        <MenuItem value={ 100000 }>100,000 건</MenuItem>
-        <MenuItem value={ 200000 }>200,000 건</MenuItem>
-        <MenuItem value={ 300000 }>300,000 건</MenuItem>
+        {
+          item.map((obj, index) => (
+            <MenuItem value={ obj.value } key={ index }> { obj.name } 건</MenuItem>
+          ))
+        }
       </Select>
       <Button className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
         조회
