@@ -10,6 +10,7 @@ const Function = () => {
   const [dataMerge, setDataMerge] = useState(0);
   const [prevColumnMerge, setPrevColumnMerge] = useState(0);
   const mounted = useRef(false);
+  const mObj = ['0', '1', '2', '3', '4', '5', '6'];
 
   useEffect(() => {
     if (!mounted.current) {
@@ -24,13 +25,13 @@ const Function = () => {
   const changeHandler = (e) => {
     switch(e.target.name) {
       case 'headerMerge':
-        setHeaderMerge(e.target.value);
+        setHeaderMerge(e.target.value - 0);
         break;
       case 'dataMerge':
-        setDataMerge(e.target.value);
+        setDataMerge(e.target.value - 0);
         break;
       default:
-        setPrevColumnMerge(e.target.value);
+        setPrevColumnMerge(e.target.value - 0);
     }
   }
 
@@ -58,13 +59,11 @@ const Function = () => {
         value={ headerMerge }
         onChange={ changeHandler }
       >
-        <MenuItem value={0}>HeaderMerge: 0</MenuItem>
-        <MenuItem value={1}>HeaderMerge: 1</MenuItem>
-        <MenuItem value={2}>HeaderMerge: 2</MenuItem>
-        <MenuItem value={3}>HeaderMerge: 3</MenuItem>
-        <MenuItem value={4}>HeaderMerge: 4</MenuItem>
-        <MenuItem value={5}>HeaderMerge: 5</MenuItem>
-        <MenuItem value={6}>HeaderMerge: 6</MenuItem>
+        {
+          mObj.map((val, index) => (
+            <MenuItem value={ val } key={ index }>HeaderMerge: { val }</MenuItem>
+          ))
+        }
       </Select>
       <Select
         className={ classes.selectStyle }
@@ -74,13 +73,11 @@ const Function = () => {
         value={ dataMerge }
         onChange={ changeHandler }
       >
-        <MenuItem value={0}>DataMerge: 0</MenuItem>
-        <MenuItem value={1}>DataMerge: 1</MenuItem>
-        <MenuItem value={2}>DataMerge: 2</MenuItem>
-        <MenuItem value={3}>DataMerge: 3</MenuItem>
-        <MenuItem value={4}>DataMerge: 4</MenuItem>
-        <MenuItem value={5}>DataMerge: 5</MenuItem>
-        <MenuItem value={6}>DataMerge: 6</MenuItem>
+        {
+          mObj.map((val, index) => (
+            <MenuItem value={ val } key={ index }>DataMerge: { val }</MenuItem>
+          ))
+        }
       </Select>
       <Select
         className={ classes.selectStyle }
@@ -90,10 +87,11 @@ const Function = () => {
         value={ prevColumnMerge }
         onChange={ changeHandler }
       >
-        <MenuItem value={0}>PrevColumnMerge: 0</MenuItem>
-        <MenuItem value={1}>PrevColumnMerge: 1</MenuItem>
-        <MenuItem value={2}>PrevColumnMerge: 2</MenuItem>
-        <MenuItem value={3}>PrevColumnMerge: 3</MenuItem>
+        {
+          mObj.slice(0, 4).map((val, index) => (
+            <MenuItem value={ val } key={ index }>PrevColumnMerge: { val }</MenuItem>
+          ))
+        }
       </Select>
     </div>
   );
