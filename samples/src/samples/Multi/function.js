@@ -10,7 +10,16 @@ import { createSheet } from 'reducer';
 const Function = () => {
   const dispatch = useDispatch();
   const options = useSelector(state => state.options);
-
+  const btnObj = [
+    {
+      value: 'create',
+      name: '시트 생성'
+    },
+    {
+      value: 'remove',
+      name: '시트 지우기'
+    }
+  ];
   const clickHandler = (e) => {
     const IBSheet = loader.getIBSheetStatic();
     const value = e.currentTarget.value;
@@ -49,12 +58,13 @@ const Function = () => {
 
   return (
     <div className={ classes.divStyle }>
-      <Button value='create' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
-        시트 생성
-      </Button>
-      <Button value='remove' className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
-        시트 지우기
-      </Button>
+      {
+        btnObj.map((obj, index) => (
+          <Button value={ obj.value } className={ classes.btnStyle } variant='contained' onClick={ clickHandler } key={ index }>
+            { obj.name }
+          </Button>
+        ))
+      }
     </div>
   );
 };
