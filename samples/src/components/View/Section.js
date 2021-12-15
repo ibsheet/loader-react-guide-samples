@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -7,11 +7,33 @@ import { faTable } from '@fortawesome/free-solid-svg-icons';
 import { FaGithub } from 'react-icons/fa';
 import { GrCodeSandbox } from 'react-icons/gr';
 import StyleLink from '@material-ui/core/Link';
+import topModule from './top.module.css';
 
 const Section = () => {
   const title = 'IBSheet8';
-  const subTitle =
-    'Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 React 환경에서 제공합니다.';
+  const subTitle = 'Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 React 환경에서 제공합니다.';
+  const [scrollY, setScrollY] = useState(0);
+
+  const scrollHandler = () => {
+    setScrollY(window.scrollY);
+    if (scrollY > 100) document.getElementsByClassName(topModule.topBtn)[0].style.opacity = 1;
+    else document.getElementsByClassName(topModule.topBtn)[0].style.opacity = 0;
+  };
+
+  const handleTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    setScrollY(0);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHandler);
+    return () => {
+      window.removeEventListener('scroll', scrollHandler);
+    };
+  });
 
   const useStyles = makeStyles((theme) => ({
     title: {
@@ -88,7 +110,8 @@ const Section = () => {
 
   return (
     <>
-      <div className={classes.content}>
+      <div className={ classes.content }>
+        <button className={ topModule.topBtn } onClick={ handleTop }>TOP</button>
         <Container>
           <div className={ classes.header }>
             <FontAwesomeIcon icon={ faTable } className={ classes.icon } size={ '3x' } />
