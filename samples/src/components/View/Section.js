@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTable } from '@fortawesome/free-solid-svg-icons';
 import { FaGithub } from 'react-icons/fa';
 import { GrCodeSandbox } from 'react-icons/gr';
 import StyleLink from '@material-ui/core/Link';
-import topModule from './top.module.css';
+import { sectionClasses } from './Features/ViewStyle';
 
 const Section = () => {
   const title = 'IBSheet8';
   const subTitle = 'Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 React 환경에서 제공합니다.';
   const [scrollY, setScrollY] = useState(0);
+  const classes = sectionClasses();
 
   const scrollHandler = () => {
+    const topButton = document.getElementsByClassName(classes.topButtons)[0];
     setScrollY(window.scrollY);
-    if (scrollY > 100) document.getElementsByClassName(topModule.topBtn)[0].style.opacity = 1;
-    else document.getElementsByClassName(topModule.topBtn)[0].style.opacity = 0;
+    if (scrollY > 100) {
+      topButton.style.opacity = 1;
+      topButton.style.cursor = 'pointer';
+    }
+    else {
+      topButton.style.opacity = 0;
+      topButton.style.cursor = 'default';
+    }
   };
 
   const handleTop = () => {
@@ -35,83 +42,10 @@ const Section = () => {
     };
   });
 
-  const useStyles = makeStyles((theme) => ({
-    title: {
-      fontSize: '40px',
-      fontWeight: 'bold',
-      color: '#000'
-    },
-    subTitle: {
-      fontSize: '18px'
-    },
-    content: {
-      backgroundColor: 'rgb(247, 247, 247)',
-      borderBottom: '1px solid rgb(229, 229, 229)',
-      padding: theme.spacing(6, 0, 3),
-      fontFamily: 'Noto Sans CJK KR,sans-serif',
-    },
-    button: {
-      marginTop: theme.spacing(4),
-    },
-    header: {
-      maxWidth: '1140px',
-      margin: '0px auto'
-    },
-    icon: {
-      marginRight: theme.spacing(1.0),
-      color: 'cornflowerblue'
-    },
-    btnDiv: {
-      paddingTop: '20px'
-    },
-    btnDivChild1: {
-      marginRight: '12px',
-      width: '140px',
-      height: '42px',
-      backgroundColor: '#fff',
-      color: '#fff'
-    },
-    btnDivChild2: {
-      marginRight: '12px',
-      width: '140px',
-      height: '42px',
-      backgroundColor: '#000'
-    },
-    gitp1: {
-      paddingLeft: '10px',
-      color: '#000',
-      fontWeight: 'bold',
-      fontFamily: 'Noto Sans CJK KR,sans-serif',
-    },
-    gitp2: {
-      paddingLeft: '10px',
-      color: '#fff',
-      fontWeight: 'bold',
-      fontFamily: 'Noto Sans CJK KR,sans-serif',
-    },
-    bcontent: {
-      position: 'fiexd',
-      top: '50%',
-      left: '50%',
-      overflow: 'auto',
-      transform: 'translate(-50%, -50%)',
-    },
-    modalTitle: {
-      textAlign: 'center',
-      backgroundColor: '#fff',
-      borderBottom: '1px solid black'
-    },
-    intitle: {
-      fontSize: '1.0rem'
-    }
-  }));
-
-  const classes = useStyles();
-
   return (
     <>
       <div className={ classes.content }>
-        <button className={ topModule.topBtn } onClick={ handleTop }>TOP</button>
+        <button className={ classes.topButtons } onClick={ handleTop }>TOP</button>
         <Container>
           <div className={ classes.header }>
             <FontAwesomeIcon icon={ faTable } className={ classes.icon } size={ '3x' } />
