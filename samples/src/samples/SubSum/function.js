@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import useStyles from './style';
 
 const Function = () => {
   const ibsheet = useSelector(state => state.sheet);
@@ -34,6 +34,8 @@ const Function = () => {
       name: '소계행 삭제'
     }
   ];
+
+  const classes = useStyles();
 
   const makeSubTotal = (state) => {
     switch(state) {
@@ -161,20 +163,6 @@ const Function = () => {
   const clickHandler = (e) => {
     makeSubTotal(e.currentTarget.value);
   }
-
-  const useStyles = makeStyles((props) => ({
-    divStyle: {
-      paddingBottom: '10px'
-    },
-    btnStyle: {
-      height: '30px',
-      background: '#4c4c57',
-      color: '#fff',
-      marginRight: '10px'
-    }
-  }));
-
-  const classes = useStyles();
 
   return (
     <div className={ classes.divStyle }>

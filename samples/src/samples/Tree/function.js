@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Select, MenuItem } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import useStyles from './style';
 
 const Function = () => {
   const ibsheet = useSelector(state => state.sheet);
@@ -9,6 +9,7 @@ const Function = () => {
   const [level, setLevel] = useState(4);
   const mounted = useRef(false);
   const loop = ['1', '2', '3', '4'];
+  const classes = useStyles();
 
   useEffect(() => {
     if (!mounted.current) {
@@ -23,25 +24,6 @@ const Function = () => {
     if (typeof val === 'string') val -= 0;
     setLevel(val);
   };
-
-  const useStyles = makeStyles((props) => ({
-    divStyle: {
-      paddingBottom: '10px'
-    },
-    spanStyle: {
-      color: '#4c4c57',
-      fontSize: '1rem',
-      marginRight: '14px'
-    },
-    btnStyle: {
-      height: '30px',
-      background: '#4c4c57',
-      color: '#fff',
-      marginRight: '10px'
-    }
-  }));
-
-  const classes = useStyles();
 
   return (
     <div className={ classes.divStyle }>

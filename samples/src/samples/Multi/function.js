@@ -1,11 +1,10 @@
 /* eslint-disable array-callback-return */
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import loader from '@ibsheet/loader';
 import { createSheet } from 'reducer';
+import useStyles from './style';
 
 const Function = () => {
   const dispatch = useDispatch();
@@ -20,6 +19,8 @@ const Function = () => {
       name: '시트 지우기'
     }
   ];
+  const classes = useStyles();
+
   const clickHandler = (e) => {
     const IBSheet = loader.getIBSheetStatic();
     const value = e.currentTarget.value;
@@ -40,21 +41,6 @@ const Function = () => {
       });
     }
   };
-
-  const useStyles = makeStyles((props) => ({
-    divStyle: {
-      display: 'flex',
-      paddingBottom: '10px'
-    },
-    btnStyle: {
-      height: '30px',
-      background: '#4c4c57',
-      color: '#fff',
-      marginRight: '10px'
-    }
-  }));
-
-  const classes = useStyles();
 
   return (
     <div className={ classes.divStyle }>
