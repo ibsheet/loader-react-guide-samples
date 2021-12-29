@@ -10,13 +10,13 @@ const IBSheet8 = () => {
   const options = useSelector(state => state.options);
   const dispatch = useDispatch();
 
-  const basicStyle = (width) => {
+  const basicStyle = width => {
     return {
       width: width || '100%',
       height: '70vh'
     }
   };
-  const elStyle = (height) => {
+  const elStyle = height => {
     return {
       width: '100%',
       height: height || 'inherit',
@@ -32,7 +32,7 @@ const IBSheet8 = () => {
           el: sheet.el,
           options: sheet.options
         })
-        .then((sheet) => {
+        .then(sheet => {
           // 시트 객체 생성, 시트 렌더링 x
           dispatch(createSheet(sheet));
         });
@@ -102,7 +102,7 @@ const IBSheet8 = () => {
                   url: 'http://localhost:8000/api/data',
                   // 카운팅 할 data 의 갯수와 전체 갯수를 param 으로 해서 보내도록 합니다.
                   param: 'data=100&total=20000&searchMode=' + evt.sheet.SearchMode,
-                  callback: (rtn) => {
+                  callback: rtn => {
                     const rtnData = JSON.parse(rtn.data);
                     evt.sheet.showMessageTime('<span style=\'color:black\'>조회가 완료되었습니다.<br> 서버모듈 전체 데이터 건수 : ' + rtnData.Total + '</span>', 1500);
                   }

@@ -14,7 +14,7 @@ import Dialog from 'samples/Dialog/index';
 import MasterDetail from 'samples/MasterDetail/index';
 
 const route = ['type', 'merge', 'subsum', 'tree', 'dataload', 'formula', 'multirecord', 'serverscrollpaging', 'form', 'multiple', 'dialog', 'masterDetail'];
-const matchRoute = (idx) => {
+const matchRoute = idx => {
   switch (route[idx]) {
     case 'type':
       return <Type></Type>;
@@ -45,7 +45,7 @@ const matchRoute = (idx) => {
   }
 }
 
-const Navigation = (props) => {
+const Navigation = props => {
   const index = route.indexOf(props.match.params.name);
 
   return (

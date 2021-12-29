@@ -1,7 +1,7 @@
 module.exports = {
 	info: {
 		data: [],
-		selectData: (count) => {
+		selectData: count => {
 			const loaddata = [];
 			const company = [
 				'Google',
