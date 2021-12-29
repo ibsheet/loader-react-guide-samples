@@ -5,77 +5,15 @@ import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import StyleLink from '@material-ui/core/Link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTable, faBook } from '@fortawesome/free-solid-svg-icons';
 import Section from 'components/View/Section';
+import Copyright from 'components/View/Features/CopyRight';
+import { layoutClasses } from './Features/ViewStyle';
 
 const Layout = () => {
-  // 화면에 뿌려질 API
-  const Copyright = () => {
-    return (
-      <Typography variant='body2' color='textSecondary' align='center'>
-        {'Copyright © '}
-        <StyleLink color='inherit' href='https://www.ibsheet.com/'>
-          IBSheet8
-        </StyleLink>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
-
-  const useStyles = makeStyles((theme) => ({
-    icon: {
-      marginRight: theme.spacing(0.8)
-    },
-    homeLink: {
-      color: 'inherit',
-      textDecoration: 'inherit',
-      '&:hover': {
-        color: 'inherit'
-      }
-    },
-    footIcon: {
-      marginRight: theme.spacing(1.0),
-      color: 'cornflowerblue'
-    },
-    footer: {
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(6),
-    },
-    bar: {
-      backgroundColor: 'cornflowerblue'
-    },
-    infooter: {
-      maxWidth: '1140px',
-      margin: '0px auto'
-    },
-    footdesc: {
-      fontSize: '18px'
-    },
-    footTitle: {
-      fontSize: '40px',
-      fontWeight: 'bold',
-      color: '#000'
-    },
-    spContent1: {
-      fontSize: '1.4rem',
-      fontWeight: 'bold',
-      lineHeight: '1.6'
-    },
-    spContent2: {
-      fontSize: '1.25rem',
-      fontWeight: '400',
-      lineHeight: '1.6'
-    },
-    footfloor: {
-      paddingTop: '48px'
-    }
-  }));
-
-  const classes = useStyles();
+  const classes = layoutClasses();
 
   return (
     <>

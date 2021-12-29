@@ -28,7 +28,7 @@ const removeSample = () => {
   }
 };
 
-const createSheet = (sheet) => {
+const createSheet = sheet => {
   return {
     type: CREATE_SHEET,
     sheet

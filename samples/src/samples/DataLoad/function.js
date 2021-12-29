@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { Select, MenuItem } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import useStyles from './style';
 import setData from './data';
 
 const Function = () => {
@@ -23,25 +23,13 @@ const Function = () => {
     }
   ];
 
-  const changeHandler = (e) => {
+  const changeHandler = e => {
     setCount(e.target.value);
   }
 
-  const clickHandler = (e) => {
+  const clickHandler = e => {
     sheet[0].loadSearchData(setData(count));
   }
-
-  const useStyles = makeStyles((props) => ({
-    selectStyle: {
-      paddingLeft: '15px'
-    },
-    btnStyle: {
-      height: '30px',
-      background: '#4c4c57',
-      color: '#fff',
-      marginLeft: '10px'
-    }
-  }));
 
   const classes = useStyles();
 

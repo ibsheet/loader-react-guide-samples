@@ -153,7 +153,7 @@ const IB_Preset = {
       //부모가 체크되어 있는 경우 더 이상 진행하지 않는다.
       const chked = !(evtParam.row[evtParam.col]);
       const prows = evtParam.sheet.getParentRows(evtParam.row);
-      if(!chked && prows[0] && prows[0][evtParam.col]) return true;
+      if (!chked && prows[0] && prows[0][evtParam.col]) return true;
     },
     OnChange: evtParam => {
       const chked = evtParam.row[evtParam.col];
@@ -167,16 +167,15 @@ const IB_Preset = {
         evtParam.sheet.deleteRow(evtParam.row, evtParam.row[evtParam.col]);
         //자식행 추출
         const rows = evtParam.sheet.getChildRows(evtParam.row);
+        let row = {};
         rows.push(evtParam.row);
 
         //모두 체크하고 편집 불가로 변경
         for(let i = 0; i < rows.length; i++) {
-          const row = rows[i];
+          row = rows[i];
           evtParam.sheet.setValue (row, evtParam.col, chked, 0);
           row.CanEdit = !evtParam.row[evtParam.col];
-          if (!row[evtParam.col + 'CanEdit']) {
-            row[evtParam.col + 'CanEdit'] = true;
-          }
+          if (!row[evtParam.col + 'CanEdit']) row[evtParam.col + 'CanEdit'] = true;
           evtParam.sheet.refreshRow(row);
         }
       }
