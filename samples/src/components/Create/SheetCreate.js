@@ -35,6 +35,9 @@ const IBSheet8 = () => {
         .then(sheet => {
           // 시트 객체 생성, 시트 렌더링 x
           dispatch(createSheet(sheet));
+        })
+        .catch(err => {
+          console.log('Failed to create sheet', err);
         });
       });
     }
