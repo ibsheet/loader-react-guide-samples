@@ -149,7 +149,10 @@ const sectionClasses = makeStyles(theme => ({
   },
   intitle: {
     fontSize: '1.0rem'
-  },
+  }
+}));
+
+const topButtonClasses = makeStyles(theme => ({
   topButtons: {
     position: 'fixed',
     opacity: '0',
@@ -171,4 +174,4 @@ const sectionClasses = makeStyles(theme => ({
   }
 }));
 
-export { contentClasses, layoutClasses, sectionClasses };
+export { contentClasses, layoutClasses, sectionClasses, topButtonClasses };
