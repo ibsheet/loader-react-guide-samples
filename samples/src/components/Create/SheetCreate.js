@@ -63,7 +63,7 @@ const IBSheet8 = () => {
       case 'Multi':
       case 'Dialog':
       case 'MasterDetail':
-        sheet.options.Events = {
+        const events = {
           onRenderFirstFinish: evt => {
             if (name !== 'DataLoad') {
               if (evt.sheet.SearchMode === 0) {
@@ -142,6 +142,7 @@ const IBSheet8 = () => {
           onDataLoad: evt => {},
           onSearchFinish: evt => {}
         }
+        Object.assign(sheet.options.Events, events);
         return sheet;
     }
   };
