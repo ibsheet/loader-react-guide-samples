@@ -6,8 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createSheet } from 'reducer';
 
 const IBSheet8 = () => {
-  const name = useSelector(state => state.name);
-  const options = useSelector(state => state.options);
+  const state = useSelector(state => state);
+  const name = state.name;
+  const options = state.options;
   const dispatch = useDispatch();
 
   const basicStyle = width => {
