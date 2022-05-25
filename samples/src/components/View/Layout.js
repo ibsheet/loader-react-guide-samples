@@ -17,7 +17,7 @@ const Layout = () => {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename='/v8/demo/react'>
         <CssBaseline />
         <AppBar position='relative'>
           <Toolbar className={ classes.bar }>
