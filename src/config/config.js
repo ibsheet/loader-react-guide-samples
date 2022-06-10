@@ -6,7 +6,7 @@ const ibsheetLib = {
   locales: ['en', 'ko'],
   theme: 'material',
   plugins: ['excel', 'common', 'dialog'],
-  license: 'W2FtSztPKCZzaTYwYjJxbn9QKhMsHnQlOD0+PX9tLH4oaVt8A28BS34oZmE5UBZYDyQhBT9DNl4kPmdj'
+  license: ''
 }
 
 // 로더 config
