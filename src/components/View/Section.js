@@ -66,7 +66,7 @@ const Section = () => {
               { subTitle }
             </p>
             <div className={ classes.btnDiv }>
-              <Button variant='contained' className={ classes.btnDivChild1 } href='https://codesandbox.io/s/github/ibsheet/loader-react-guide-samples/tree/main/samples?file=/src/index.js' target='_blank' >
+              <Button variant='contained' className={ classes.btnDivChild1 } href='https://codesandbox.io/s/github/ibsheet/loader-react-guide-samples/tree/main?file=/src/index.js' target='_blank' >
                 <GrCodeSandbox size='24' color='#fff' />
                 <p className={ classes.gitp1 }>
                   SandBox
