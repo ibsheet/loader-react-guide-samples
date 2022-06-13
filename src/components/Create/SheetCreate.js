@@ -34,7 +34,7 @@ const IBSheet8 = () => {
           options: sheet.options
         })
         .then(sheet => {
-          // 시트 객체 생성, 시트 렌더링 x
+          // 주의: 해당 구간에서 데이터 조회를 하면 안됩니다. 데이터 조회는 onRenderFirstFinish 이벤트에서 실행해야합니다.
           dispatch(createSheet(sheet));
         })
         .catch(err => {
