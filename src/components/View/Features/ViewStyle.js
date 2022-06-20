@@ -34,14 +34,13 @@ const contentClasses = makeStyles(() => ({
 
 const layoutClasses = makeStyles(theme => ({
   icon: {
-    marginRight: theme.spacing(0.8)
+    margin: theme.spacing(0.8),
+    fontSize: '1.1rem',
   },
   homeLink: {
     color: 'inherit',
     textDecoration: 'inherit',
-    '&:hover': {
-      color: 'inherit'
-    }
+    display: 'inline-flex'
   },
   footIcon: {
     marginRight: theme.spacing(1.0),
@@ -52,7 +51,9 @@ const layoutClasses = makeStyles(theme => ({
     padding: theme.spacing(6),
   },
   bar: {
-    backgroundColor: 'cornflowerblue'
+    backgroundColor: 'cornflowerblue',
+    display: 'flex',
+    justifyContent: 'space-between'
   },
   infooter: {
     maxWidth: '1140px',
@@ -78,7 +79,38 @@ const layoutClasses = makeStyles(theme => ({
   },
   footfloor: {
     paddingTop: '48px'
-  }
+  },
+}));
+
+const menuClasses = makeStyles(theme => ({
+  mainIcon: {
+    margin: theme.spacing(0.9),
+    fontSize: '1.1rem',
+  },
+  titleWrapper: {
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  titleIcon: {
+    fontSize: '2rem',
+    color: 'cornflowerblue'
+  },
+  menuLink: {
+    textDecoration: 'none',
+    color: 'inherit'
+  },
+  listItem: {
+    '&:hover': {
+      backgroundColor: 'rgba(0, 0, 0, 0.04)'
+    },
+    '& span': {
+      cursor: 'pointer',
+      fontSize: '0.9rem', fontFamily: 'inherit'
+    }
+  },
+  listTitle: {
+    fontWeight: 500
+  },
 }));
 
 const sectionClasses = makeStyles(theme => ({
@@ -174,4 +206,4 @@ const topButtonClasses = makeStyles(theme => ({
   }
 }));
 
-export { contentClasses, layoutClasses, sectionClasses, topButtonClasses };
+export { contentClasses, layoutClasses, menuClasses, sectionClasses, topButtonClasses };

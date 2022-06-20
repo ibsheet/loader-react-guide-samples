@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link} from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Navigation  from 'components/Navigation/Navigation';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -11,6 +11,7 @@ import { faTable, faBook } from '@fortawesome/free-solid-svg-icons';
 import Section from 'components/View/Section';
 import Copyright from 'components/View/Features/CopyRight';
 import { layoutClasses } from './Features/ViewStyle';
+import Menu from './Menu';
 
 const Layout = () => {
   const classes = layoutClasses();
