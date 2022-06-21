@@ -34,7 +34,7 @@ const contentClasses = makeStyles(() => ({
 
 const layoutClasses = makeStyles(theme => ({
   icon: {
-    margin: theme.spacing(0.8),
+    marginRight: theme.spacing(0.8),
     fontSize: '1.1rem',
   },
   homeLink: {
