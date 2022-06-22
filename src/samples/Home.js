@@ -6,28 +6,12 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import type from 'image/type.png';
-import merge from 'image/merge.png';
-import subsum from 'image/subsum.png';
-import tree from 'image/tree.png';
-import dataload from 'image/dataload.png';
-import formula from 'image/formula.png';
-import multirecord from 'image/multirecord.png';
-import serverscrollpaging from 'image/serverscrollpaging.png';
-import form from 'image/form.png';
-import multiple from 'image/multi.png';
-import dialog from 'image/dialog.png';
-import masterDetail from 'image/masterDetail.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { route } from 'components/Navigation/Navigation'
 
 // 여기에 Rounter 설정
 const Main = () => {
-  const images = [type, merge, tree, dataload, subsum, formula, multirecord, serverscrollpaging, form, multiple, dialog, masterDetail];
-  const route = ['type', 'merge', 'tree', 'dataload', 'subsum', 'formula', 'multirecord', 'serverscrollpaging', 'form', 'multiple', 'dialog', 'masterDetail'];
-  const f = ['기본기능', '기본기능', '기본기능', '기본기능', '고급기능', '고급기능', '고급기능', '고급기능', '실무예제', '실무예제', '실무예제', '실무예제'];
-  const samples = ['컬럼 타입', '자동 머지', '트리 기능', '대용량 조회', '소계 기능', '포뮬러 기능', '멀티레코드', '서버 페이징', 'Form 형태를 이용한 상세보기', '여러 개의 시트', '시트 + 다이얼로그', '마스터 디테일 구조'];
-
   const useStyles = makeStyles((theme) => ({
     icon: {
       position: 'absolute',
@@ -127,28 +111,28 @@ const Main = () => {
 
   return (
     <>
-    <Container className={ classes.cardGrid } maxWidth='md'>
+      <Container className={ classes.cardGrid } maxWidth='md'>
         {/* 샘플 리스트 영역 */}
         <Grid container spacing={4}>
-          {samples.map((card, index) => (
-            <Grid item key={ card } xs={ 12 } sm={ 6 } md={ 4 }>
+          {route && route.map((card, index) => (
+            <Grid item key={ index } xs={ 12 } sm={ 6 } md={ 4 }>
               <Card className={ classes.card }>
                 <CardContent className={ classes.cardContent }>
-                    <div className={ classes.imgs } style={ { backgroundImage: `url(${images[index]})` } } >
-                      <div className={ classes.cardHover } >
-                        <Link underline='none' to={'/' + route[index]}>
-                          <div className={ classes.iconWrap }>
-                            <FontAwesomeIcon icon={ faSearch } className={ classes.icon }  size={ '4x' } />
-                          </div>
-                        </Link>
-                      </div>
+                  <div className={ classes.imgs } style={ { backgroundImage: `url(${require('image/' + card.name + '.png').default})` } } >
+                    <div className={ classes.cardHover } >
+                      <Link underline='none' to={'/' + card.name}>
+                        <div className={ classes.iconWrap }>
+                          <FontAwesomeIcon icon={ faSearch } className={ classes.icon }  size={ '4x' } />
+                        </div>
+                      </Link>
                     </div>
+                  </div>
                   <div>
-                    <Typography gutterBottom variant='body1' component='span' className={ returnStyleName(f[index]) }>
-                      { f[index] }
+                    <Typography gutterBottom variant='body1' component='span' className={ returnStyleName(card.category) }>
+                      { card.category }
                     </Typography>
                     <Typography gutterBottom variant='body2' component='span' className={ classes.bodyspan }>
-                      { samples[index] }
+                      { card.title }
                     </Typography>
                   </div>
                 </CardContent>

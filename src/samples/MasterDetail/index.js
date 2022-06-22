@@ -11,6 +11,7 @@ const MasterDetail = () => {
   const name = 'MasterDetail';
   const title = '마스터/디테일';
   const subTitle = '두 개의 시트를 이용하여 한 시트의 행 이동 시, 다른 시트의 데이터를 로드하는 방법을 알아봅시다.';
+  const menuIndex = 11;
 
   const masterOptions = {
     Cfg: {
@@ -182,8 +183,8 @@ const MasterDetail = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options1));
-    dispatch(createSample(name, title, subTitle, options2));
+    dispatch(createSample(name, title, subTitle, options1, menuIndex));
+    dispatch(createSample(name, title, subTitle, options2, menuIndex));
     return () => {
       dispatch(removeSample());
     }

@@ -11,6 +11,7 @@ const MultiRecord = () => {
   const name = 'MultiRecord';
   const title = '멀티레코드';
   const subTitle = '일반적인 데이터 그리드는 하나의 데이터가 하나의 행으로 보여지는데, 멀티 레코드는 하나의 데이터를 여러 행으로 표현해서 많은 데이터를 한 번에 제공합니다.';
+  const menuIndex = 6;
 
   const sheetOptions = {
     Cfg: {
@@ -320,7 +321,7 @@ const MultiRecord = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }

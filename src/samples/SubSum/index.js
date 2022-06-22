@@ -11,6 +11,7 @@ const SubSum = () => {
   const name = 'SubSum'
   const title = '소계 기능';
   const subTitle = '특정 컬럼을 기준으로, 지정한 컬럼들에 대한 소계 값을 보여주는 기능입니다.';
+  const menuIndex = 2;
 
   const sheetOptions = {
     Cfg: {
@@ -92,7 +93,7 @@ const SubSum = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }

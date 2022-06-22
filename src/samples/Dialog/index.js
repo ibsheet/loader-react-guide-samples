@@ -11,6 +11,7 @@ const Dialog = () => {
   const name = 'Dialog';
   const title = '시트 + 다이얼로그';
   const subTitle = '다양한 다이얼로그, 모달 창 위에 시트를 띄웁니다. (Material-ui, BootStrap, SweetAlert2)';
+  const menuIndex = 10;
 
   const sheetOptions = {
     Cfg: {
@@ -71,7 +72,7 @@ const Dialog = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }

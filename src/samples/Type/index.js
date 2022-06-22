@@ -12,6 +12,7 @@ const Type = () => {
   const name = 'Type';
   const title = '컬럼 별 타입';
   const subTitle = '각 컬럼별 설정 가능한 Type에 대한 예제입니다.';
+  const menuIndex = 0;
 
   const sheetOptions = {
     Cfg: {
@@ -112,7 +113,7 @@ const Type = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }

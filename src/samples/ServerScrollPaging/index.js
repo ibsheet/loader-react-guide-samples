@@ -10,6 +10,7 @@ const ServerScrollPaging = () => {
   const name = 'ServerScrollPaging';
   const title = '서버 스크롤 페이징';
   const subTitle = '서버에서 데이터를 받아서 스크롤 페이징을 하는 방법을 소개합니다.';
+  const menuIndex = 7;
 
   const sheetOptions = {
     Cfg: {
@@ -90,7 +91,7 @@ const ServerScrollPaging = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }

@@ -10,6 +10,7 @@ const DataLoad = () => {
   const name = 'DataLoad'
   const title = '대용량 조회';
   const subTitle = 'IBSheet8 은 새로운 렌더방식을 이용해, 대용량 데이터 조회/조작을 사용할 수 있습니다.';
+  const menuIndex = 4;
 
   const sheetOptions = {
     Cfg: {
@@ -89,7 +90,7 @@ const DataLoad = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }
