@@ -95,6 +95,7 @@ const Layout = () => {
                 </span>
               </li>
             </ul>
+            <PageNavigation />
             <div className={ classes.footfloor }>
               <Typography variant='subtitle1' align='center' color='textSecondary' component='p'>
                 &copy; {new Date().getFullYear()} IBSheet8 React Guide Sample

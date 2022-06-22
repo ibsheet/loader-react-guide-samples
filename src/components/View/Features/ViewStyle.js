@@ -206,4 +206,16 @@ const topButtonClasses = makeStyles(theme => ({
   }
 }));
 
-export { contentClasses, layoutClasses, menuClasses, sectionClasses, topButtonClasses };
+const pageNavigationClasses = makeStyles(theme => ({
+  wrapper: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '0px 10px 20px'
+  },
+  link: {
+    textDecoration: 'none',
+
+  }
+}));
+
+export { contentClasses, layoutClasses, menuClasses, sectionClasses, topButtonClasses, pageNavigationClasses };
