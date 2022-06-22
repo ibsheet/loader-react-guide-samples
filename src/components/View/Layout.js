@@ -11,8 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTable, faBook } from '@fortawesome/free-solid-svg-icons';
 import Section from 'components/View/Section';
 import Copyright from 'components/View/Features/CopyRight';
-import { layoutClasses } from './Features/ViewStyle';
-import Menu from './Menu';
+import { layoutClasses } from 'components/View/Features/ViewStyle';
+import Menu from 'components/View/Menu';
 import PageNavigation from 'components/View/PageNavigation';
 
 const Layout = () => {

@@ -10,7 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTable } from '@fortawesome/free-solid-svg-icons';
-import { menuClasses } from './Features/ViewStyle';
+import { menuClasses } from 'components/View/Features/ViewStyle';
 import { route } from 'components/Navigation/Navigation';
 
 const Menu = () => {

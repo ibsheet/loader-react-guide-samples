@@ -6,7 +6,7 @@ import { faTable } from '@fortawesome/free-solid-svg-icons';
 import { FaGithub } from 'react-icons/fa';
 import { GrCodeSandbox } from 'react-icons/gr';
 import StyleLink from '@material-ui/core/Link';
-import { sectionClasses, topButtonClasses } from './Features/ViewStyle';
+import { sectionClasses, topButtonClasses } from 'components/View/Features/ViewStyle';
 
 const Section = () => {
   const title = 'IBSheet8';
