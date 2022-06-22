@@ -15,15 +15,22 @@ const PageNavigation = () => {
   return (
     <>
       {
-        menuIndex &&
+        menuIndex != null &&
           <div>
             <div className={ classes.wrapper }>
-              <Link underline='none' to={`/${route[menuIndex - 1].name}`} className={ classes.link }>
-                <Button startIcon={<ChevronLeftTwoToneIcon/>}>{route[menuIndex - 1].title}</Button>
-              </Link>
-              <Link underline='none' to={`/${route[menuIndex + 1].name}`} className={ classes.link }>
-                <Button endIcon={<ChevronRightTwoToneIcon/>}>{route[menuIndex + 1].title}</Button>
-              </Link>
+              {
+                route[menuIndex - 1] ?
+                  <Link underline='none' to={`/${route[menuIndex - 1].name}`} className={ classes.link }>
+                    <Button startIcon={<ChevronLeftTwoToneIcon/>}>{route[menuIndex - 1].title}</Button>
+                  </Link>
+                  : <div></div>
+              }
+              {
+                route[menuIndex + 1] && 
+                  <Link underline='none' to={`/${route[menuIndex + 1].name}`} className={ classes.link }>
+                    <Button endIcon={<ChevronRightTwoToneIcon/>}>{route[menuIndex + 1].title}</Button>
+                  </Link>
+              }
             </div>
             <Divider />
           </div>
