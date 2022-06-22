@@ -33,6 +33,9 @@ const contentClasses = makeStyles(() => ({
 }));
 
 const layoutClasses = makeStyles(theme => ({
+  main: {
+    borderBottom: '1px solid rgb(229, 229, 229)',
+  },
   icon: {
     marginRight: theme.spacing(0.8),
     fontSize: '1.1rem',
@@ -49,6 +52,7 @@ const layoutClasses = makeStyles(theme => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
+    paddingTop: theme.spacing(3)
   },
   bar: {
     backgroundColor: 'cornflowerblue',
@@ -67,6 +71,9 @@ const layoutClasses = makeStyles(theme => ({
     fontWeight: 'bold',
     color: '#000'
   },
+  provide: {
+    padding: theme.spacing(1.5),
+  },
   spContent1: {
     fontSize: '1.4rem',
     fontWeight: 'bold',
@@ -75,10 +82,13 @@ const layoutClasses = makeStyles(theme => ({
   spContent2: {
     fontSize: '1.25rem',
     fontWeight: '400',
-    lineHeight: '1.6'
+    lineHeight: '1.6',
+  },
+  divier: {
+    marginBottom: theme.spacing(1),
   },
   footfloor: {
-    paddingTop: '48px'
+    paddingTop: theme.spacing(3),
   },
 }));
 
