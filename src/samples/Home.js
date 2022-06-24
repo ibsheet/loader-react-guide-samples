@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
+import { FaSearch } from 'react-icons/fa';
 import { route } from 'components/Navigation/Navigation'
 import styles from 'assets/styles/samples/home.module.css';
 import styled from '@emotion/styled';
@@ -36,7 +35,8 @@ const Main = () => {
                   <div className={ styles.imgs } style={ { backgroundImage: `url(${require('assets/image/' + card.name + '.png').default})` } } >
                     <div className={ styles.cardHover } >
                       <Link underline='none' to={'/' + card.name}>
-                          <FontAwesomeIcon icon={ faSearch } className={ classes.icon }  size={ '4x' } />
+                        <div className={ styles.iconWrap }>
+                          <FaSearch className={ styles.icon }  size='60' />
                         </div>
                       </Link>
                     </div>

@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Navigation  from 'components/Navigation/Navigation';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTable, faBook } from '@fortawesome/free-solid-svg-icons';
 import Section from 'components/View/Section';
 import Copyright from 'components/View/Features/CopyRight';
 import Menu from 'components/View/Menu';
@@ -13,6 +11,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import StyleLink from '@mui/material/Link';
+import { FaTable } from 'react-icons/fa';
+import { RiBook3Fill } from 'react-icons/ri';
 import styles from 'assets/styles/components/View/layout.module.css';
 
 const Layout = () => {
@@ -22,9 +22,9 @@ const Layout = () => {
       <BrowserRouter basename='/v8/demo/react'>
         <CssBaseline />
         <AppBar position='relative'>
-              <FontAwesomeIcon icon={ faTable } className={ classes.icon } />
           <Toolbar className={ styles.bar }>
             <Link className={ styles.homeLink } to='/'>
+              <FaTable size='25' className={ styles.icon } />
               <Typography variant='h6' color='inherit' noWrap>
                 IBSheet8
               </Typography>
@@ -42,8 +42,8 @@ const Layout = () => {
         <footer className={ styles.footer }>
           <div className={ styles.infooter }>
             <PageNavigation />
-              <FontAwesomeIcon icon={ faBook } className={ classes.footIcon } size={ '3x' } />
             <div className={ styles.provide }>
+              <RiBook3Fill className={ styles.footIcon } size='50' />
               <span className={ styles.footTitle }>
                 { 'Provide' }
               </span>

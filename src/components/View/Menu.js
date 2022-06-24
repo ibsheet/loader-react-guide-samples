@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTable } from '@fortawesome/free-solid-svg-icons';
 import { route } from 'components/Navigation/Navigation';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -11,6 +9,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText'
 import Typography from '@mui/material/Typography';
+import { FaTable, FaBars } from 'react-icons/fa';
 import styles from 'assets/styles/components/View/menu.module.css';
 
 const Menu = () => {
@@ -34,7 +33,7 @@ const Menu = () => {
     >
       <List>
         <ListItem>
-          <FontAwesomeIcon icon={faTable} className={classes.titleIcon} />
+          <FaTable size='30' className={styles.titleIcon} />
           <Divider orientation='vertical' variant='middle' flexItem />
           <div className={styles.titleWrapper}>
             <Typography variant='h6' className={styles.listTitle}>{`IBSHEET`}</Typography>
@@ -59,9 +58,7 @@ const Menu = () => {
 
   return (
     <div>
-      <FontAwesomeIcon
-        icon={faBars}
-        className={classes.mainIcon}
+      <FaBars
         className={styles.mainIcon}
         onClick={toggleDrawer(true)}
       />

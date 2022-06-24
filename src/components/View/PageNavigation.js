@@ -2,10 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { route } from 'components/Navigation/Navigation';
-import ChevronLeftTwoToneIcon from '@material-ui/icons/ChevronLeftTwoTone';
-import ChevronRightTwoToneIcon from '@material-ui/icons/ChevronRightTwoTone';
 import { StyledDivider } from 'components/View/Features/GlobalStyles';
 import Button from '@mui/material/Button';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import styles from 'assets/styles/components/View/pageNavigation.module.css';
 
 const PageNavigation = () => {
@@ -19,15 +18,15 @@ const PageNavigation = () => {
             <div className={ styles.wrapper }>
               {
                 route[menuIndex - 1] ?
-                    <Button startIcon={<ChevronLeftTwoToneIcon/>}>{route[menuIndex - 1].title}</Button>
                   <Link to={`/${route[menuIndex - 1].name}`} className={ styles.link }>
+                    <Button startIcon={<FiChevronLeft/>}>{route[menuIndex - 1].title}</Button>
                   </Link>
                   : <div></div>
               }
               {
                 route[menuIndex + 1] && 
-                    <Button endIcon={<ChevronRightTwoToneIcon/>}>{route[menuIndex + 1].title}</Button>
                   <Link to={`/${route[menuIndex + 1].name}`} className={ styles.link }>
+                    <Button endIcon={<FiChevronRight/>}>{route[menuIndex + 1].title}</Button>
                   </Link>
               }
             </div>

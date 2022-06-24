@@ -5,9 +5,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import SheetDialog from 'samples/Dialog/Common/dialogCreate';
 import dialogOptions from 'samples/Dialog/Common/dialogOption';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import useStyles from './style';
+import { FaTimes } from 'react-icons/fa';
 import styles from 'assets/styles/samples/material.module.css';
 
 const MaterailModal = () => {
@@ -27,7 +25,7 @@ const MaterailModal = () => {
         <Box className={ styles.content }>
           <Typography id='modal-modal-title' variant='h6' component='h2' className={ styles.title }>
             Material Modal
-            <FontAwesomeIcon icon={ faTimes } className={ classes.modalIcon } onClick={ handleClose } />
+            <FaTimes size='20' className={ styles.icon } onClick={ handleClose } />
           </Typography>
           <div>
             {

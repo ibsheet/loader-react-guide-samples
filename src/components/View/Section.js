@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTable } from '@fortawesome/free-solid-svg-icons';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { FaGithub } from 'react-icons/fa';
 import { GrCodeSandbox } from 'react-icons/gr';
+import { FaTable } from 'react-icons/fa';
 import styles from 'assets/styles/components/View/section.module.css';
 
 const Section = () => {
@@ -52,11 +51,11 @@ const Section = () => {
   });
 
   return (
-            <FontAwesomeIcon icon={ faTable } className={ classes.icon } size={ '3x' } />
     <div className={ styles.content }>
       <button className={ styles.topButtons } onClick={ handleTop }>TOP</button>
       <Container>
         <div className={ styles.header }>
+          <FaTable className={ styles.icon } size='40' />
           <span className={ styles.title }>
             { title }
           </span>
