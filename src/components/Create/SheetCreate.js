@@ -1,11 +1,12 @@
 /* eslint-disable */
 // IBSheet를 태그 형태로 제공합니다. CreateSheet.
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import loader from '@ibsheet/loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { createSheet } from '../../reducer';
 
 const IBSheet8 = () => {
+  const mounted = useRef(false);
   const state = useSelector(state => state);
   const name = state.name;
   const options = state.options;
@@ -23,24 +24,26 @@ const IBSheet8 = () => {
       height: height || 'inherit',
     }
   };
-
   useEffect(() => {
-    if (options.length > 0) {
-      options.map(sheet => {
-        eventBinding(name, sheet);
-        loader.createSheet({
-          id: sheet.id,
-          el: sheet.el,
-          options: sheet.options
-        })
-        .then(sheet => {
-          // 주의: 해당 구간에서 데이터 조회를 하면 안됩니다. 데이터 조회는 onRenderFirstFinish 이벤트에서 실행해야합니다.
-          dispatch(createSheet(sheet));
-        })
-        .catch(err => {
-          console.log('Failed to create sheet', err);
+    if (!mounted.current) mounted.current = true;
+    else {
+      if (options.length > 0) {
+        options.map(sheet => {
+          eventBinding(name, sheet);
+          loader.createSheet({
+            id: sheet.id,
+            el: sheet.el,
+            options: sheet.options
+          })
+          .then(sheet => {
+            // 주의: 해당 구간에서 데이터 조회를 하면 안됩니다. 데이터 조회는 onRenderFirstFinish 이벤트에서 실행해야합니다.
+            dispatch(createSheet(sheet));
+          })
+          .catch(err => {
+            console.log('Failed to create sheet', err);
+          });
         });
-      });
+      }
     }
     return () => {
       options.map(sheet => {
