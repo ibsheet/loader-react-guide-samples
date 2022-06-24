@@ -1,0 +1,39 @@
+.col {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  border: 1px solid #cfd1d6;
+}
+
+.inner {
+  width: 100%
+}
+
+.title {
+  display: flex;
+  height: 15%;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700 !important;
+}
+
+.label {
+  color: #000;
+  font-size: 2.0rem;
+  font-weight: bold;
+  margin: auto;
+}
+
+.content {
+  text-align: center;
+}
+
+.comp {
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 55px;
+}
+
+.textField {
+  width: 70%
+}

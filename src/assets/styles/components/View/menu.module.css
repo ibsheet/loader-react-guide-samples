@@ -1,0 +1,38 @@
+.mainIcon {
+  margin: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.mainIcon:hover {
+  cursor: pointer;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleIcon {
+  margin-right: 1rem;
+  font-size: 2rem;
+  color: #6495ed;
+}
+
+.menuLink {
+  text-decoration: inherit;
+  color: inherit
+}
+
+.listItem:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.listItem span{
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.listTitle {
+  font-weight: 500;
+}

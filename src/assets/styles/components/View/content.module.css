@@ -1,0 +1,54 @@
+.container {
+  font-family: Noto Sans CJK KR,sans-serif;;
+  margin: 0px auto;
+  max-width: 1200px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.main {
+  width: 100%;
+  padding-top: 15px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.sub {
+  width: 100%
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
+  align-items: center;
+}
+
+.subTitle {
+  color: #4c4c57;
+  font-size: 1rem;
+}
+
+.sheetWrapper {
+  display: flex;
+}
+
+.topButtons {
+  position: fixed;
+  opacity: 0;
+  bottom: 40px;
+  right: 40px;
+  z-index: 255;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: none;
+  background: #6495ed;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: -0.06em;
+  box-shadow: 1px 1px 6px 3px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: opacity 0.3s ease-in;
+}

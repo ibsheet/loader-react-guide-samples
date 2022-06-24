@@ -1,5 +1,5 @@
-import Typography from '@material-ui/core/Typography';
-import StyleLink from '@material-ui/core/Link';
+import Typography from '@mui/material/Typography';
+import StyleLink from '@mui/material/Link';
 
 const Copyright = () => {
   return (
