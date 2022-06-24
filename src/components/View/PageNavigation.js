@@ -13,21 +13,18 @@ const PageNavigation = () => {
   return (
     <>
       {
-        menuIndex != null &&
+        menuIndex != null && route &&
           <div>
             <div className={ styles.wrapper }>
               {
-                route[menuIndex - 1] ?
-                  <Link to={`/${route[menuIndex - 1].name}`} className={ styles.link }>
-                    <Button startIcon={<FiChevronLeft/>}>{route[menuIndex - 1].title}</Button>
-                  </Link>
-                  : <div></div>
+                <Link to={`/${menuIndex === 0 ? route[route.length - 1].name : route[menuIndex - 1].name}`} className={styles.link}>
+                  <Button startIcon={<FiChevronLeft />}>{menuIndex === 0 ? route[route.length - 1].title : route[menuIndex - 1].title}</Button>
+                </Link>
               }
               {
-                route[menuIndex + 1] && 
-                  <Link to={`/${route[menuIndex + 1].name}`} className={ styles.link }>
-                    <Button endIcon={<FiChevronRight/>}>{route[menuIndex + 1].title}</Button>
-                  </Link>
+                <Link to={`/${menuIndex === route.length - 1 && route ? route[0].name : route[menuIndex + 1].name}`} className={styles.link}>
+                <Button endIcon={<FiChevronRight />}>{menuIndex === route.length - 1 ? route[0].title : route[menuIndex + 1].title}</Button>
+              </Link>
               }
             </div>
             <StyledDivider />
