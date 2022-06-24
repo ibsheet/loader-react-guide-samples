@@ -45,6 +45,10 @@ p {
   @include marin(14px, 14px, null, null, null)
 }
 
+a {
+  text-decoration: none;
+}
+
 .swal2-modal {
   height: 80vh;
 }

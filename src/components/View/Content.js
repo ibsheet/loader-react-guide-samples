@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react';
-import Container from '@material-ui/core/Container';
+import { useSelector } from 'react-redux';
+import Container from '@mui/material/Container';
 import IBSheet8 from 'components/Create/SheetCreate';
 import DialogSheet from 'samples/Dialog/component';
 import MergeFunction from 'samples/Merge/function';
@@ -9,8 +10,7 @@ import SubSumFunction from 'samples/SubSum/function';
 import MultiFunction from 'samples/Multi/function';
 import TreeFunction from 'samples/Tree/function';
 import FormDiv from 'samples/Form/component';
-import { useSelector } from 'react-redux';
-import { contentClasses, topButtonClasses } from './Features/ViewStyle';
+import styles from 'assets/styles/components/View/content.module.css';
 
 // 각 샘플 컴포넌트에서 title, subTitle, func 받아오는 것은 sheet 컴포넌트 쪽 탭을 만들어서 사용함.
 const Content = () => {
@@ -18,12 +18,10 @@ const Content = () => {
   const subTitle = useSelector((state) => state.subTitle);
   const name = useSelector((state) => state.name);
   const sheet = useSelector((state) => state.sheet);
-  const classes = contentClasses();
-  const topBtnClasses = topButtonClasses();
   const [scrollY, setScrollY] = useState(0);
 
   const scrollHandler = () => {
-    const topButton = document.getElementsByClassName(topBtnClasses.topButtons)[0];
+    const topButton = document.getElementsByClassName(styles.topButtons)[0];
     setScrollY(window.scrollY);
     if (scrollY > 100) {
       topButton.style.opacity = 1;
@@ -39,7 +37,7 @@ const Content = () => {
     if (scrollY > 100) {
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: 'smooth'
       });
       setScrollY(0);
     }
@@ -47,8 +45,8 @@ const Content = () => {
 
   useEffect(() => {
     if (scrollY < 100) {
-      const topButton = document.getElementsByClassName(topBtnClasses.topButtons)[0];
-      if (topButton.style.opacity === '1') {
+      const topButton = document.getElementsByClassName(styles.topButtons)[0];
+      if (topButton && topButton.style.opacity === '1') {
         topButton.style.opacity = 0;
         topButton.style.cursor = 'default';
       }
@@ -57,18 +55,18 @@ const Content = () => {
     return () => {
       window.removeEventListener('scroll', scrollHandler);
     };
-  });
+  }, []);
 
   return (
     <>
-      <Container maxWidth='lg' component='main' className={ classes.content }>
-        <div className={ classes.mainDiv }>
-        <button className={ topBtnClasses.topButtons } onClick={ handleTop }>TOP</button>
-          <div className={ classes.subDiv }>
-            <span className={ classes.title }>
+      <Container maxWidth='lg' component='main' className={ styles.container }>
+        <div className={ styles.main }>
+        <button className={ styles.topButtons } onClick={ handleTop }>TOP</button>
+          <div className={ styles.sub }>
+            <span className={ styles.title }>
               { title }
             </span>
-            <p className={ classes.subTitle }>
+            <p className={ styles.subTitle }>
               { subTitle }
             </p>
               {
@@ -80,7 +78,7 @@ const Content = () => {
                 (name === 'Dialog' && <DialogSheet />)
               }
           </div>
-          <div className={ classes.divRow }>
+          <div className={ styles.sheetWrapper }>
             {
               (sheet && <IBSheet8 />)
             }

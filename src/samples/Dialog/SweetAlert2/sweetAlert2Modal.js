@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import SheetDialog from 'samples/Dialog/Common/dialogCreate';
 import dialogOptions from 'samples/Dialog/Common/dialogOption';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import useStyles from './style';
+import styles from 'assets/styles/samples/sweetAlert2.module.css';
 
 const SweetAlert2Modal = () => {
   const MySwal = withReactContent(Swal);
@@ -17,11 +17,9 @@ const SweetAlert2Modal = () => {
     });
   }
 
-  const classes = useStyles();
-
   return (
     <>
-      <Button variant='primary' onClick={ swalHandler } className={ classes.btnStyle }>SweetAlert2</Button>
+      <Button variant='contained' color='error' onClick={ swalHandler } className={ styles.button }>SweetAlert2</Button>
     </>
   );
 }

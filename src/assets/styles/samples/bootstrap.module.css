@@ -1,0 +1,15 @@
+.button {
+  color: #fff;
+  float: right;
+  height: 30px;
+}
+
+.header {
+  text-align: center;
+  margin: 16px;
+}
+
+.content {
+  overflow: auto;
+  transform: translate(-50%, -50%);
+}

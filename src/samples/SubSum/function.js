@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import useStyles from './style';
+import { StyledSampleWrapper, StyledSampleButton } from 'components/View/Features/GlobalStyles.js';
 
 const Function = () => {
   const ibsheet = useSelector(state => state.sheet);
@@ -34,8 +33,6 @@ const Function = () => {
       name: '소계행 삭제'
     }
   ];
-
-  const classes = useStyles();
 
   const makeSubTotal = (state) => {
     switch(state) {
@@ -165,15 +162,15 @@ const Function = () => {
   }
 
   return (
-    <div className={ classes.divStyle }>
+    <StyledSampleWrapper>
       {
         btnObj.map((obj, index) => (
-          <Button value={ obj.value } className={ classes.btnStyle } variant='contained' onClick={ clickHandler } key={ index }>
+          <StyledSampleButton value={ obj.value } variant='contained' onClick={ clickHandler } key={ index }>
             { obj.name }
-          </Button>
+          </StyledSampleButton>
         ))
       }
-    </div>
+    </StyledSampleWrapper>
   );
 };
 

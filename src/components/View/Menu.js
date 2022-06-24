@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Box from '@material-ui/core/Box';
-import Drawer from '@material-ui/core/Drawer';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText'
-import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTable } from '@fortawesome/free-solid-svg-icons';
-import { menuClasses } from 'components/View/Features/ViewStyle';
 import { route } from 'components/Navigation/Navigation';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Divider from '@mui/material/Divider';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText'
+import Typography from '@mui/material/Typography';
+import styles from 'assets/styles/components/View/menu.module.css';
 
 const Menu = () => {
-  const classes = menuClasses();
-
   const [open, setOpen] = useState(false);
   const ibsheet = useSelector(state => state.sheet);
 
@@ -37,18 +35,18 @@ const Menu = () => {
       <List>
         <ListItem>
           <FontAwesomeIcon icon={faTable} className={classes.titleIcon} />
-          <Divider orientation="vertical" variant="middle" flexItem />
-          <div className={classes.titleWrapper}>
-            <Typography variant="h6" className={classes.listTitle}>{`IBSHEET`}</Typography>
-            <Typography variant="caption">{ibsheet && ibsheet[0] && ibsheet[0].version().split('-')[0]}</Typography>
+          <Divider orientation='vertical' variant='middle' flexItem />
+          <div className={styles.titleWrapper}>
+            <Typography variant='h6' className={styles.listTitle}>{`IBSHEET`}</Typography>
+            <Typography variant='caption'>{ibsheet && ibsheet[0] && ibsheet[0].version().split('-')[0]}</Typography>
           </div>
         </ListItem>
         <Divider />
         {
           route && route.map((val, index) => {
             return (
-              <Link key={index} to={`/${val.name}`} className={classes.menuLink}>
-                <ListItem className={classes.listItem}>
+              <Link key={index} to={`/${val.name}`} className={styles.menuLink}>
+                <ListItem className={styles.listItem}>
                   <ListItemText primary={val.title}/>
                 </ListItem>
               </Link>
@@ -64,6 +62,7 @@ const Menu = () => {
       <FontAwesomeIcon
         icon={faBars}
         className={classes.mainIcon}
+        className={styles.mainIcon}
         onClick={toggleDrawer(true)}
       />
       <Drawer

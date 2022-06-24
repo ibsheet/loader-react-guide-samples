@@ -1,0 +1,29 @@
+.button {
+  color: #fff;
+  float: right;
+  height: 30px;
+}
+
+.title {
+  text-align: center;
+  margin: 16px
+}
+
+.content {
+  height: 600px;
+  width: 80vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: auto;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 2px solid #000;
+  z-index: 1200;
+}
+
+.icon {
+  float: right;
+  margin-top: 5px;
+  cursor: pointer;
+}

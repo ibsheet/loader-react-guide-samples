@@ -1,0 +1,73 @@
+.main {
+  border-bottom: 1px solid rgb(229, 229, 229);
+  background-color: #fafafa;
+}
+
+.icon {
+  margin-right: 0.2rem;
+  font-size: 1.1rem;
+  padding-top: 5px;
+}
+
+.homeLink {
+  color: inherit;
+  text-decoration: inherit;
+  display: inline-flex;
+}
+
+.homeLink:hover {
+  color: inherit;
+}
+
+.footIcon {
+  margin-right: 0.5rem;
+  margin-bottom: 1.2rem;
+  color: #6495ed
+}
+
+.footer {
+  background-color: white;
+  padding: 4rem;
+  padding-top: 2rem;
+}
+
+.bar {
+  background-color: #6495ed;
+  display: flex;
+  justify-content: space-between
+}
+
+.infooter {
+  max-width: 1140px;
+  margin: 0px auto
+}
+
+.footTitle {
+  font-size: 40px;
+  font-weight: bold;
+  color: #000
+}
+
+.provide {
+  padding: 1rem;
+}
+
+.spContent1 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.6
+}
+
+.spContent2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.divier {
+  margin-bottom: 0.5rem;
+}
+
+.footfloor {
+  padding-top: 2rem;
+}
