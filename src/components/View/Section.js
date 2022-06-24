@@ -68,7 +68,7 @@ const Section = () => {
                 SandBox
               </p>
             </Button>
-            <Link underline='none' color='inherit' href='https://github.com/ibsheet/loader-react-guide-samples/tree/main/samples'>
+            <Link underline='none' color='inherit' href='https://github.com/ibsheet/loader-react-guide-samples'>
               <Button variant='contained' startIcon={<FaGithub size='24' color='#fff'/>} className={ styles.buttonGithub }>
                 <p className={ styles.textGithub }>
                   GitHub
