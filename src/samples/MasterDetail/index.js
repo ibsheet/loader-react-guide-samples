@@ -1,10 +1,10 @@
 /* eslint-disable */
 // 기본 옵션.
 import React, { useEffect } from 'react';
-import Content from 'components/View/Content';
+import Content from '../../components/View/Content';
 import { masterData, detailData } from './data';
 import { useDispatch } from 'react-redux';
-import { createSample, removeSample } from 'reducer';
+import { createSample, removeSample } from '../../reducer';
 
 const MasterDetail = () => {
   const dispatch = useDispatch();

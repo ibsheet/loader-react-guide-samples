@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import SheetDialog from 'samples/Dialog/Common/dialogCreate';
-import dialogOptions from 'samples/Dialog/Common/dialogOption';
+import SheetDialog from '../Common/dialogCreate';
+import dialogOptions from '../Common/dialogOption';
 import Button from '@mui/material/Button';
 import Modal from 'react-bootstrap/Modal';
-import styles from 'assets/styles/samples/bootstrap.module.css';
+import styles from '../../../assets/styles/samples/bootstrap.module.css';
 
 const BootStrapModal = () => {
   const [open, setOpen] = useState(false);

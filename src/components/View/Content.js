@@ -2,15 +2,15 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Container from '@mui/material/Container';
-import IBSheet8 from 'components/Create/SheetCreate';
-import DialogSheet from 'samples/Dialog/component';
-import MergeFunction from 'samples/Merge/function';
-import LoadFunction from 'samples/DataLoad/function';
-import SubSumFunction from 'samples/SubSum/function';
-import MultiFunction from 'samples/Multi/function';
-import TreeFunction from 'samples/Tree/function';
-import FormDiv from 'samples/Form/component';
-import styles from 'assets/styles/components/View/content.module.css';
+import IBSheet8 from '../Create/SheetCreate';
+import DialogSheet from '../../samples/Dialog/component';
+import MergeFunction from '../../samples/Merge/function';
+import LoadFunction from '../../samples/DataLoad/function';
+import SubSumFunction from '../../samples/SubSum/function';
+import MultiFunction from '../../samples/Multi/function';
+import TreeFunction from '../../samples/Tree/function';
+import FormDiv from '../../samples/Form/component';
+import styles from '../../assets/styles/components/View/content.module.css';
 
 // 각 샘플 컴포넌트에서 title, subTitle, func 받아오는 것은 sheet 컴포넌트 쪽 탭을 만들어서 사용함.
 const Content = () => {

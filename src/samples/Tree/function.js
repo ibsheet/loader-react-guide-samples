@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Select, MenuItem } from '@mui/material';
-import styles from 'assets/styles/samples/tree.module.css';
+import styles from '../../assets/styles/samples/tree.module.css';
 
 const Function = () => {
   const ibsheet = useSelector(state => state.sheet);
-  const sheet = ibsheet[0];
+  const sheet = ibsheet[ibsheet.length - 1];
   const [level, setLevel] = useState(4);
   const mounted = useRef(false);
   const loop = ['1', '2', '3', '4'];

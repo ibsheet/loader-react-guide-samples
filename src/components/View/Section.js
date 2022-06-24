@@ -6,7 +6,7 @@ import Link from '@mui/material/Link';
 import { FaGithub } from 'react-icons/fa';
 import { GrCodeSandbox } from 'react-icons/gr';
 import { FaTable } from 'react-icons/fa';
-import styles from 'assets/styles/components/View/section.module.css';
+import styles from '../../assets/styles/components/View/section.module.css';
 
 const Section = () => {
   const title = 'IBSheet8';

@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import Navigation  from 'components/Navigation/Navigation';
-import Section from 'components/View/Section';
-import Copyright from 'components/View/Features/CopyRight';
-import Menu from 'components/View/Menu';
-import PageNavigation from 'components/View/PageNavigation';
-import { StyledDivider } from 'components/View/Features/GlobalStyles';
+import Navigation  from '../Navigation/Navigation';
+import Section from '../View/Section';
+import Copyright from '../View/Features/CopyRight';
+import Menu from '../View/Menu';
+import PageNavigation from '../View/PageNavigation';
+import { StyledDivider } from '../View/Features/GlobalStyles';
 import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import StyleLink from '@mui/material/Link';
 import { FaTable } from 'react-icons/fa';
 import { RiBook3Fill } from 'react-icons/ri';
-import styles from 'assets/styles/components/View/layout.module.css';
+import styles from '../../assets/styles/components/View/layout.module.css';
 
 const Layout = () => {
 

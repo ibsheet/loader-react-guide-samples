@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Select, MenuItem } from '@mui/material';
-import styles from 'assets/styles/samples/dataLoad.module.css';
-import { StyledSampleButton } from 'components/View/Features/GlobalStyles.js';
+import styles from '../../assets/styles/samples/dataLoad.module.css';
+import { StyledSampleButton } from '../../components/View/Features/GlobalStyles.js';
 import setData from './data';
 
 const Function = () => {
@@ -28,7 +28,7 @@ const Function = () => {
   }
 
   const clickHandler = e => {
-    sheet[0].loadSearchData(setData(count));
+    sheet[sheet.length - 1].loadSearchData(setData(count));
   }
 
   return (

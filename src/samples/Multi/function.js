@@ -2,8 +2,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import loader from '@ibsheet/loader';
-import { createSheet } from 'reducer';
-import { StyledSampleWrapper, StyledSampleButton } from 'components/View/Features/GlobalStyles.js';
+import { createSheet } from '../../reducer';
+import { StyledSampleWrapper, StyledSampleButton } from '../../components/View/Features/GlobalStyles.js';
 
 const Function = () => {
   const dispatch = useDispatch();

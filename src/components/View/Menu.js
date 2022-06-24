@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { route } from 'components/Navigation/Navigation';
+import { route } from '../Navigation/Navigation';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
@@ -10,7 +10,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText'
 import Typography from '@mui/material/Typography';
 import { FaTable, FaBars } from 'react-icons/fa';
-import styles from 'assets/styles/components/View/menu.module.css';
+import styles from '../../assets/styles/components/View/menu.module.css';
 
 const Menu = () => {
   const [open, setOpen] = useState(false);

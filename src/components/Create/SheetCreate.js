@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import loader from '@ibsheet/loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { createSheet } from 'reducer';
+import { createSheet } from '../../reducer';
 
 const IBSheet8 = () => {
   const state = useSelector(state => state);

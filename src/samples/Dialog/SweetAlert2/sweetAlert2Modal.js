@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import SheetDialog from 'samples/Dialog/Common/dialogCreate';
-import dialogOptions from 'samples/Dialog/Common/dialogOption';
+import SheetDialog from '../Common/dialogCreate';
+import dialogOptions from '../Common/dialogOption';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import styles from 'assets/styles/samples/sweetAlert2.module.css';
+import styles from '../../../assets/styles/samples/sweetAlert2.module.css';
 
 const SweetAlert2Modal = () => {
   const MySwal = withReactContent(Swal);

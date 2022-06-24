@@ -2,9 +2,9 @@
 // 기본 옵션.
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import Content from 'components/View/Content';
+import Content from '../../components/View/Content';
 import data from './data';
-import { createSample, removeSample } from 'reducer';
+import { createSample, removeSample } from '../../reducer';
 
 const Merge = () => {
   const dispatch = useDispatch();

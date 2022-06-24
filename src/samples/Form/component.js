@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import styles from 'assets/styles/samples/form.module.css';
+import styles from '../../assets/styles/samples/form.module.css';
 
 const FormDiv = () => {
   const ibsheet = useSelector(state => state.sheet);

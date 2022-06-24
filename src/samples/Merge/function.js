@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Select, MenuItem } from '@mui/material';
-import styles from 'assets/styles/samples/merge.module.css';
+import styles from '../../assets/styles/samples/merge.module.css';
 
 const Function = () => {
   const sheet = useSelector(state => state.sheet);

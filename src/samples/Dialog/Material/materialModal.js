@@ -3,10 +3,10 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import SheetDialog from 'samples/Dialog/Common/dialogCreate';
-import dialogOptions from 'samples/Dialog/Common/dialogOption';
+import SheetDialog from '../Common/dialogCreate';
+import dialogOptions from '../Common/dialogOption';
 import { FaTimes } from 'react-icons/fa';
-import styles from 'assets/styles/samples/material.module.css';
+import styles from '../../../assets/styles/samples/material.module.css';
 
 const MaterailModal = () => {
   const [open, setOpen] = useState(false);

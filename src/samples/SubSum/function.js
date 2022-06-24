@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { StyledSampleWrapper, StyledSampleButton } from 'components/View/Features/GlobalStyles.js';
+import { StyledSampleWrapper, StyledSampleButton } from '../../components/View/Features/GlobalStyles.js';
 
 const Function = () => {
   const ibsheet = useSelector(state => state.sheet);
-  const sheet = ibsheet[0];
+  const sheet = ibsheet[ibsheet.length - 1];
   const color = {
     subsum: '#f08080',
     cumul: '#78c7fa',

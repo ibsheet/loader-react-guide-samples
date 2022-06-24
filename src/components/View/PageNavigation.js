@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { route } from 'components/Navigation/Navigation';
-import { StyledDivider } from 'components/View/Features/GlobalStyles';
+import { route } from '../Navigation/Navigation';
+import { StyledDivider } from '../View/Features/GlobalStyles';
 import Button from '@mui/material/Button';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import styles from 'assets/styles/components/View/pageNavigation.module.css';
+import styles from '../../assets/styles/components/View/pageNavigation.module.css';
 
 const PageNavigation = () => {
   const menuIndex = useSelector(state => state.menuIndex);
