@@ -32,7 +32,7 @@ const Main = () => {
             <Grid item key={ index } xs={ 12 } sm={ 6 } md={ 4 }>
               <Card className={ styles.card }>
                 <CardContent className={ styles.cardContent }>
-                  <div className={ styles.imgs } style={ { backgroundImage: `url(${require('../assets/image/' + card.name + '.png').default})` } } >
+                  <div className={ styles.imgs } style={ { backgroundImage: `url(${require('../assets/image/' + card.name + '.png')})` } } >
                     <div className={ styles.cardHover } >
                       <Link underline='none' to={'/' + card.name}>
                         <div className={ styles.iconWrap }>
