@@ -8,6 +8,18 @@ import { FaSearch } from 'react-icons/fa';
 import { route } from '../components/Navigation/Navigation'
 import styles from '../assets/styles/samples/home.module.css';
 import styled from '@emotion/styled';
+import type from '../assets/image/type.png';
+import merge from '../assets/image/merge.png';
+import subsum from '../assets/image/subsum.png';
+import tree from '../assets/image/tree.png';
+import dataload from '../assets/image/dataload.png';
+import formula from '../assets/image/formula.png';
+import multirecord from '../assets/image/multirecord.png';
+import serverscrollpaging from '../assets/image/serverscrollpaging.png';
+import form from '../assets/image/form.png';
+import multiple from '../assets/image/multiple.png';
+import dialog from '../assets/image/dialog.png';
+import masterDetail from '../assets/image/masterDetail.png';
 
 const StyledFunctionText = styled.span`
   font-size: 1.0rem;
@@ -22,6 +34,7 @@ const StyledFunctionText = styled.span`
 
 // 여기에 Rounter 설정
 const Main = () => {
+  const images = [type, merge, subsum, tree, dataload, formula, multirecord, serverscrollpaging, form, multiple, dialog, masterDetail];
 
   return (
     <>
@@ -32,7 +45,7 @@ const Main = () => {
             <Grid item key={ index } xs={ 12 } sm={ 6 } md={ 4 }>
               <Card className={ styles.card }>
                 <CardContent className={ styles.cardContent }>
-                  <div className={ styles.imgs } style={ { backgroundImage: `url(${require('../assets/image/' + card.name + '.png')})` } } >
+                  <div className={ styles.imgs } style={ { backgroundImage: `url(${images[index]})` } } >
                     <div className={ styles.cardHover } >
                       <Link underline='none' to={'/' + card.name}>
                         <div className={ styles.iconWrap }>
