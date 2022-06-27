@@ -1,17 +1,18 @@
 /* eslint-disable */
 // 기본 옵션.
 import React, { useEffect } from 'react';
-import Content from 'components/View/Content';
+import Content from '../../components/View/Content';
 import data from './data';
 import { useDispatch } from 'react-redux';
-import { createSample, removeSample } from 'reducer';
-import IB_Preset from 'config/common';
+import { createSample, removeSample } from '../../reducer';
+import IB_Preset from '../../config/common';
 
 const Type = () => {
   const dispatch = useDispatch();
   const name = 'Type';
   const title = '컬럼 별 타입';
   const subTitle = '각 컬럼별 설정 가능한 Type에 대한 예제입니다.';
+  const menuIndex = 0;
 
   const sheetOptions = {
     Cfg: {
@@ -112,7 +113,7 @@ const Type = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }

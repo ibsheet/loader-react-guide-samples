@@ -1,11 +1,12 @@
 /* eslint-disable */
 // IBSheet를 태그 형태로 제공합니다. CreateSheet.
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import loader from '@ibsheet/loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { createSheet } from 'reducer';
+import { createSheet } from '../../reducer';
 
 const IBSheet8 = () => {
+  const mounted = useRef(false);
   const state = useSelector(state => state);
   const name = state.name;
   const options = state.options;
@@ -23,9 +24,9 @@ const IBSheet8 = () => {
       height: height || 'inherit',
     }
   };
-
   useEffect(() => {
-    if (options.length > 0) {
+    if (!mounted.current) mounted.current = true;
+    else if (options.length > 0) {
       options.map(sheet => {
         eventBinding(name, sheet);
         loader.createSheet({

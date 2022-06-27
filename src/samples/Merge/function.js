@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { Select, MenuItem } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Select, MenuItem } from '@mui/material';
+import styles from '../../assets/styles/samples/merge.module.css';
 
 const Function = () => {
   const sheet = useSelector(state => state.sheet);
@@ -35,29 +35,17 @@ const Function = () => {
     }
   }
 
-  const useStyles = makeStyles((props) => ({
-    divStyle: {
-      display: 'flex',
-      paddingBottom: '10px'
-    },
-    selectStyle: {
-      flex: 1,
-      textAlign: 'center',
-      marginRight: '10px'
-    }
-  }));
-
-  const classes = useStyles();
-
   return (
-    <div className={ classes.divStyle }>
+    <div className={ styles.wrapper }>
       <Select
-        className={ classes.selectStyle }
+        className={ styles.selectStyle }
         labelId='header-merge-label'
         id='header-merge-label'
         name='headerMerge'
         value={ headerMerge }
         onChange={ changeHandler }
+        size='small'
+        variant='standard'
       >
         {
           mObj.map((val, index) => (
@@ -66,12 +54,14 @@ const Function = () => {
         }
       </Select>
       <Select
-        className={ classes.selectStyle }
+        className={ styles.selectStyle }
         labelId='data-merge-label'
         id='data-merge-label'
         name='dataMerge'
         value={ dataMerge }
         onChange={ changeHandler }
+        size='small'
+        variant='standard'
       >
         {
           mObj.map((val, index) => (
@@ -80,12 +70,14 @@ const Function = () => {
         }
       </Select>
       <Select
-        className={ classes.selectStyle }
+        className={ styles.selectStyle }
         labelId='prev-column-merge-label'
         id='prev-column-merge-select'
         name='prevColumnMerge'
         value={ prevColumnMerge }
         onChange={ changeHandler }
+        size='small'
+        variant='standard'
       >
         {
           mObj.slice(0, 4).map((val, index) => (

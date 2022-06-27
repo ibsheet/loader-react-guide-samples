@@ -2,15 +2,16 @@
 // 기본 옵션.
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import Content from 'components/View/Content';
+import Content from '../../components/View/Content';
 import data from './data';
-import { createSample, removeSample } from 'reducer';
+import { createSample, removeSample } from '../../reducer';
 
 const Merge = () => {
   const dispatch = useDispatch();
   const name = 'Merge';
   const title = '자동 머지 기능';
   const subTitle = '헤더, 데이터 영역의 각 셀들의 값이 같은 경우 자동으로 병합시킬 수 있습니다.';
+  const menuIndex = 1;
 
   const sheetOptions = {
     Cfg: {
@@ -79,7 +80,7 @@ const Merge = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }

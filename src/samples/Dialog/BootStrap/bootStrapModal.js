@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import SheetDialog from 'samples/Dialog/Common/dialogCreate';
-import dialogOptions from 'samples/Dialog/Common/dialogOption';
+import SheetDialog from '../Common/dialogCreate';
+import dialogOptions from '../Common/dialogOption';
+import Button from '@mui/material/Button';
 import Modal from 'react-bootstrap/Modal';
-import useStyles from './style';
+import styles from '../../../assets/styles/samples/bootstrap.module.css';
 
 const BootStrapModal = () => {
   const [open, setOpen] = useState(false);
@@ -11,19 +11,17 @@ const BootStrapModal = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const classes = useStyles();
-
   return (
     <>
-      <Button variant='primary' onClick={ handleOpen } className={ classes.btnStyle }>BootStrap</Button>
-      <Modal show={ open } className= { classes.bcontent } centered size='lg'>
-        <Modal.Header closeButton onHide={ handleClose } className={ classes.modalTitle }>
+      <Button variant='contained' color='secondary' onClick={ handleOpen } className={ styles.button }>BootStrap</Button>
+      <Modal show={ open } className= { styles.content } centered size='lg' style={{ top: '50%', left: '50%'}}>
+        <Modal.Header closeButton onHide={ handleClose } className={ styles.header }>
           <Modal.Title>BootStrap Modal</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            {
-              <SheetDialog options={ dialogOptions }/>
-            }
+          {
+            <SheetDialog options={ dialogOptions }/>
+          }
         </Modal.Body>
       </Modal>
     </>

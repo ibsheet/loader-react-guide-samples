@@ -1,16 +1,17 @@
 /* eslint-disable */
 // 기본 옵션.
 import React, { useEffect } from 'react';
-import Content from 'components/View/Content';
+import Content from '../../components/View/Content';
 import { multiData1, multiData2, multiData3 } from './data';
 import { useDispatch } from 'react-redux';
-import { createSample, removeSample } from 'reducer';
+import { createSample, removeSample } from '../../reducer';
 
 const Multi = () => {
   const dispatch = useDispatch();
   const name = 'Multi';
   const title = '여러 개의 시트';
   const subTitle = '여러 개의 시트를 각 컴포넌트 별로 생성할 수 있습니다. onRenderFirstFinishAll 이벤트 에서 마지막에 생성된 시트 객체를 알 수 있습니다.';
+  const menuIndex = 9;
 
   const sheetOptions1 = {
     Cfg: {
@@ -171,9 +172,9 @@ const Multi = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options1));
-    dispatch(createSample(name, title, subTitle, options2));
-    dispatch(createSample(name, title, subTitle, options3));
+    dispatch(createSample(name, title, subTitle, options1, menuIndex));
+    dispatch(createSample(name, title, subTitle, options2, menuIndex));
+    dispatch(createSample(name, title, subTitle, options3, menuIndex));
     return () => {
       dispatch(removeSample());
     }

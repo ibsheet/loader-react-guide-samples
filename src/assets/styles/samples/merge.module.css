@@ -1,0 +1,10 @@
+.wrapper  {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.selectStyle {
+  flex: 1;
+  text-align: center;
+  margin-right: 10px;
+}

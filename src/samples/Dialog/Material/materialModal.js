@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import Box from '@material-ui/core/Box';
-import Modal from '@material-ui/core/Modal';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import SheetDialog from 'samples/Dialog/Common/dialogCreate';
-import dialogOptions from 'samples/Dialog/Common/dialogOption';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import useStyles from './style';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import SheetDialog from '../Common/dialogCreate';
+import dialogOptions from '../Common/dialogOption';
+import { FaTimes } from 'react-icons/fa';
+import styles from '../../../assets/styles/samples/material.module.css';
 
 const MaterailModal = () => {
   const [open, setOpen] = useState(false);
@@ -15,20 +14,18 @@ const MaterailModal = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const classes = useStyles();
-
   return (
     <>
-      <Button variant='contained' onClick={ handleOpen } className={ classes.btnStyle }>material UI</Button>
+      <Button variant='contained' color='primary' onClick={ handleOpen } className={ styles.button }>material UI</Button>
       <Modal
       open={ open }
       aria-labelledby='modal-modal-title'
       aria-describedby='modal-modal-description'
       >
-        <Box className={ classes.mcontent }>
-          <Typography id='modal-modal-title' variant='h6' component='h2' className={ classes.modalTitle }>
+        <Box className={ styles.content }>
+          <Typography id='modal-modal-title' variant='h6' component='h2' className={ styles.title }>
             Material Modal
-            <FontAwesomeIcon icon={ faTimes } className={ classes.modalIcon } onClick={ handleClose } />
+            <FaTimes size='20' className={ styles.icon } onClick={ handleClose } />
           </Typography>
           <div>
             {

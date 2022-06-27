@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 10px 20px;
+}
+
+.link {
+  text-decoration: inherit;
+}

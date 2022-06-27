@@ -1,16 +1,17 @@
 /* eslint-disable */
 // 기본 옵션.
 import React, { useEffect } from 'react';
-import Content from 'components/View/Content';
+import Content from '../../components/View/Content';
 import data from './data';
 import { useDispatch } from 'react-redux';
-import { createSample, removeSample } from 'reducer';
+import { createSample, removeSample } from '../../reducer';
 
 const Formula = () => {
   const dispatch = useDispatch();
   const name = 'Formula';
   const title = '포뮬러 기능';
   const subTitle = '포뮬러를 이용하여 자동값 계산 또는 속성을 설정할 수 있습니다.'
+  const menuIndex = 5;
 
   const sheetOptions = {
     Def: {
@@ -114,7 +115,7 @@ const Formula = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }

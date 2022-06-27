@@ -1,16 +1,17 @@
 /* eslint-disable */
 // 기본 옵션.
 import React, { useEffect } from 'react';
-import Content from 'components/View/Content';
+import Content from '../../components/View/Content';
 import data from './data';
 import { useDispatch } from 'react-redux';
-import { createSample, removeSample } from 'reducer';
+import { createSample, removeSample } from '../../reducer';
 
 const Form = () => {
   const dispatch = useDispatch();
   const name = 'Form';
   const title = 'Form 형태를 이용한 상세보기';
   const subTitle = '시트와 form 간의 연동을 통해 행 선택시 내용을 form 에서 확인하고 form 의 내용을 수정하여 시트의 반영할 수 있습니다.';
+  const menuIndex = 8;
 
   const sheetOptions = {
     Cfg: {
@@ -71,7 +72,7 @@ const Form = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }

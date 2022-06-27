@@ -1,16 +1,17 @@
 /* eslint-disable */
 // 기본 옵션.
 import React, { useEffect } from 'react';
-import Content from 'components/View/Content';
+import Content from '../../components/View/Content';
 import data from './data';
 import { useDispatch } from 'react-redux';
-import { createSample, removeSample } from 'reducer';
+import { createSample, removeSample } from '../../reducer';
 
 const Tree = () => {
   const dispatch = useDispatch();
   const name = 'Tree';
   const title = '트리 예제';
   const subTitle = '트리 관련 예제 입니다.';
+  const menuIndex = 3;
 
   const sheetOptions = {
     Cfg: {
@@ -101,7 +102,7 @@ const Tree = () => {
   };
 
   useEffect(() => {
-    dispatch(createSample(name, title, subTitle, options));
+    dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import { Select, MenuItem } from '@material-ui/core';
-import useStyles from './style';
+import { Select, MenuItem } from '@mui/material';
+import styles from '../../assets/styles/samples/dataLoad.module.css';
+import { StyledSampleButton } from '../../components/View/Features/GlobalStyles.js';
 import setData from './data';
 
 const Function = () => {
@@ -28,21 +28,21 @@ const Function = () => {
   }
 
   const clickHandler = e => {
-    sheet[0].loadSearchData(setData(count));
+    sheet[sheet.length - 1].loadSearchData(setData(count));
   }
-
-  const classes = useStyles();
 
   return (
     <div>
       조회 건 수:
       <Select
-        className={ classes.selectStyle }
         labelId='data-load'
         id='data-load'
+        className={ styles.select }
         name='dataload'
         value={ count }
         onChange={ changeHandler }
+        size='small'
+        variant='standard'
       >
         {
           item.map((obj, index) => (
@@ -50,9 +50,9 @@ const Function = () => {
           ))
         }
       </Select>
-      <Button className={ classes.btnStyle } variant='contained' onClick={ clickHandler }>
+      <StyledSampleButton className={ styles.button } variant='contained' onClick={ clickHandler }>
         조회
-      </Button>
+      </StyledSampleButton>
     </div>
   );
 };

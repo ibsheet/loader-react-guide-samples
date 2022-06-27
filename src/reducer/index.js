@@ -8,17 +8,19 @@ const initalState = {
   subTitle: '',
   name: '',
   sheet: [],
-  options: []
+  options: [],
+  menuIndex: null
 };
 
 // sample, sheet action
-const createSample = (name, title, subTitle, options) => {
+const createSample = (name, title, subTitle, options, menuIndex) => {
   return {
     type: CREATE_SAMPLE,
     name,
     title,
     subTitle,
-    options
+    options,
+    menuIndex
   }
 };
 
@@ -49,7 +51,8 @@ const reducer = (state = initalState, action) => {
         name: action.name,
         title: action.title,
         subTitle: action.subTitle,
-        options: [...state.options, action.options]
+        options: [...state.options, action.options],
+        menuIndex: action.menuIndex
       };
     case REMOVE_SAMPLE:
       return {
@@ -58,7 +61,8 @@ const reducer = (state = initalState, action) => {
         title: null,
         subTitle: null,
         options: [],
-        sheet: []
+        sheet: [],
+        menuIndex: null
       };
     default:
       return state;

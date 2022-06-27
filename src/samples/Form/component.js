@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import TextField from '@material-ui/core/TextField';
-import useStyles from './style';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import styles from '../../assets/styles/samples/form.module.css';
 
 const FormDiv = () => {
   const ibsheet = useSelector(state => state.sheet);
-  const sheet = ibsheet[0];
+  const sheet = ibsheet[ibsheet.length - 1];
   const mounted = useRef(false);
   const fname = useRef();
   const fage = useRef();
@@ -35,7 +36,6 @@ const FormDiv = () => {
       name: 'sDepart'
     },
   ];
-  const classes = useStyles();
 
   useEffect(() => {
     if (!mounted.current) {
@@ -85,17 +85,15 @@ const FormDiv = () => {
   };
 
   return (
-    <div className={ classes.divCol }>
-      <div className={ classes.divInner }>
-        <div className={ classes.divTitle }>
-          <label className={ classes.labelTitle }>상세보기</label>
-        </div>
-        <div className={ classes.divContent }>
+    <div className={ styles.col }>
+      <div className={ styles.inner }>
+        <Typography variant='h4' className={ styles.title }>상세보기</Typography>
+        <div className={ styles.content }>
           {
             formId.map((obj, index) => {
               return (
-                <div key={ obj.id } className={ classes.divComp }>
-                  <TextField key={ index.toString() } ref={ refData[index] } id={ obj.name } variant='standard' className={ classes.textfield } onBlur={ onblurhandler } />
+                <div key={ obj.id } className={ styles.comp }>
+                  <TextField key={ index.toString() } ref={ refData[index] } id={ obj.name } variant='standard' className={ styles.textField } onBlur={ onblurhandler } />
                 </div>
               )
             })

@@ -1,10 +1,9 @@
 /* eslint-disable array-callback-return */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Button from '@material-ui/core/Button';
 import loader from '@ibsheet/loader';
-import { createSheet } from 'reducer';
-import useStyles from './style';
+import { createSheet } from '../../reducer';
+import { StyledSampleWrapper, StyledSampleButton } from '../../components/View/Features/GlobalStyles.js';
 
 const Function = () => {
   const dispatch = useDispatch();
@@ -19,7 +18,6 @@ const Function = () => {
       name: '시트 지우기'
     }
   ];
-  const classes = useStyles();
 
   const clickHandler = (e) => {
     const IBSheet = loader.getIBSheetStatic();
@@ -43,15 +41,15 @@ const Function = () => {
   };
 
   return (
-    <div className={ classes.divStyle }>
+    <StyledSampleWrapper>
       {
         btnObj.map((obj, index) => (
-          <Button value={ obj.value } className={ classes.btnStyle } variant='contained' onClick={ clickHandler } key={ index }>
+          <StyledSampleButton value={ obj.value } variant='contained' onClick={ clickHandler } key={ index }>
             { obj.name }
-          </Button>
+          </StyledSampleButton>
         ))
       }
-    </div>
+    </StyledSampleWrapper>
   );
 };
 
