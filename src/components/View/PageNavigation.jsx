@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { route } from '../Navigation/Navigation';
-import { StyledDivider } from '../View/Features/GlobalStyles';
+import { route } from '../Navigation/Routes';
+import { StyledDivider } from './Features/GlobalStyles';
 import Button from '@mui/material/Button';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import styles from '../../assets/styles/components/View/pageNavigation.module.css';

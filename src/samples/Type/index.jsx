@@ -1,9 +1,10 @@
 /* eslint-disable */
 // 기본 옵션.
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import Content from '../../components/View/Content';
 import data from './data';
-import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from '../../reducer';
 import IB_Preset from '../../config/common';
 

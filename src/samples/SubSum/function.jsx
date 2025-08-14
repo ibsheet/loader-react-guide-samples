@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { StyledSampleWrapper, StyledSampleButton } from '../../components/View/Features/GlobalStyles.js';
+import { StyledSampleWrapper, StyledSampleButton } from '../../components/View/Features/GlobalStyles'
 
 const Function = () => {
   const ibsheet = useSelector(state => state.sheet);

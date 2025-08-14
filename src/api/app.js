@@ -1,10 +1,13 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
+// const express = require('express');
+// const cors = require('cors');
 const app = express();
 const PORT = 8000;
 
 // module.exports 를 리턴
-const { info } = require('./data.js');
+import { info } from './data.js'
+// const { info } = require('./data.js');
 
 // sleep 기능
 const sleep = (ms) => {

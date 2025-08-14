@@ -104,7 +104,7 @@ const IBSheet8 = () => {
                 }
               } else if (evt.sheet.SearchMode === 3) {
                 const param = {
-                  url: location.href.indexOf('localhost') > -1 ? 'http://localhost:8000/api/data' : 'https://dev.ibleaders.com/api/ibsheet/v8/samples/customer/paging.jsp',
+                  url: location.href.indexOf('localhost') > -1 ? 'http://localhost:8000/api/data' : 'https://api.ibsheet.com/ibsheet/v8/samples/customer/paging.jsp',
                   method: location.href.indexOf('localhost') > -1 ? 'GET' : 'POST',
                   // 카운팅 할 data 의 갯수와 전체 갯수를 param 으로 해서 보내도록 합니다.
                   param: 'data=100&total=20000&searchMode=' + evt.sheet.SearchMode,

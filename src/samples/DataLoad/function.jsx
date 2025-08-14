@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Select, MenuItem } from '@mui/material';
 import styles from '../../assets/styles/samples/dataLoad.module.css';
-import { StyledSampleButton } from '../../components/View/Features/GlobalStyles.js';
-import setData from './data';
+import { StyledSampleButton } from '../../components/View/Features/GlobalStyles'
+import setData from './data.jsx';
 
 const Function = () => {
   const sheet = useSelector(state => state.sheet);
