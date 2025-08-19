@@ -1,7 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-// const express = require('express');
-// const cors = require('cors');
 const app = express();
 
 // CORS 허용 (개발 중 Angular에서 접근 가능하게 하기 위함)

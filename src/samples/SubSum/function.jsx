@@ -1,10 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { StyledSampleWrapper, StyledSampleButton } from '../../components/View/Features/GlobalStyles'
+import { StyledSampleWrapper, StyledSampleButton } from '../../components/View/Features/GlobalStyles';
+import loader from '@ibsheet/loader';
 
 const Function = () => {
-  const ibsheet = useSelector(state => state.sheet);
-  const sheet = ibsheet[ibsheet.length - 1];
+  const sheetIds = useSelector(state => state.sheetIds);
+  const IBSheet = loader.getIBSheetStatic();
+  let sheet = sheetIds.length > 0 && IBSheet[sheetIds[sheetIds.length -1]];
   const color = {
     subsum: '#f08080',
     cumul: '#78c7fa',

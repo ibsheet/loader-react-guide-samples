@@ -2,15 +2,29 @@
 export const CREATE_SHEET = 'CREATE_SHEET';
 export const CREATE_SAMPLE = 'CREATE_SAMPLE';
 export const REMOVE_SAMPLE = 'REMOVE_SAMPLE';
+export const ADD_SHEET_ID = 'ADD_SHEET_ID';
+export const SET_VISIBLE = 'SET_VISIBLE';
 
 const initalState = {
+  sheetIds: [], // id만 저장!
   title: '',
   subTitle: '',
   name: '',
   sheet: [],
   options: [],
-  menuIndex: null
+  menuIndex: null,
+  visible: true
 };
+
+const addSheetId = (id) => ({
+  type: ADD_SHEET_ID,
+  payload: id,
+});
+
+const setVisible = (visible) => ({
+  type: SET_VISIBLE,
+  payload: visible
+});
 
 // sample, sheet action
 const createSample = (name, title, subTitle, options, menuIndex) => {
@@ -64,10 +78,21 @@ const reducer = (state = initalState, action) => {
         sheet: [],
         menuIndex: null
       };
+    case ADD_SHEET_ID:
+      if (state.sheetIds.includes(action.payload)) return state;
+      return {
+        ...state,
+        sheetIds: [...state.sheetIds, action.payload]
+      };
+    case SET_VISIBLE:
+      return {
+        ...state,
+        visible: action.payload
+      };
     default:
       return state;
   }
 };
 
 export default reducer;
-export { createSample, removeSample, createSheet };
+export { createSample, removeSample, createSheet, addSheetId, setVisible };

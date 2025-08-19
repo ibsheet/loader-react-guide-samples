@@ -2,10 +2,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Select, MenuItem } from '@mui/material';
 import styles from '../../assets/styles/samples/tree.module.css';
+import loader from '@ibsheet/loader';
 
 const Function = () => {
-  const ibsheet = useSelector(state => state.sheet);
-  const sheet = ibsheet[ibsheet.length - 1];
+  const sheetIds = useSelector(state => state.sheetIds);
+  const IBSheet = loader.getIBSheetStatic();
+  let sheet = sheetIds.length > 0 && IBSheet[sheetIds[sheetIds.length -1]];
+  
   const [level, setLevel] = useState(4);
   const mounted = useRef(false);
   const loop = ['1', '2', '3', '4'];

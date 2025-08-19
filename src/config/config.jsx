@@ -14,6 +14,8 @@ IBSheetLoader.config({
   registry: [ibsheetLib]
 });
 
+IBSheetLoader.load();
+
 // 로더 이벤트
 IBSheetLoader.once('loaded', (evt) => {
   const target = evt.target;

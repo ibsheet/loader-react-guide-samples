@@ -1,16 +1,11 @@
 /* eslint-disable */
 import React, { useEffect, useMemo } from 'react';
-import loader from '@ibsheet/loader';
 import data from '../data';
+import { IBSheetReact } from '@ibsheet/react';
 
 const SheetDialog = ({ options }) => {
-
-  const getId = id => id;
-  const getEl = el => el;
   const getOpt = opt => opt;
 
-  const useMemoId = useMemo(() => getId(options.id), [options.id]);
-  const useMemoEl = useMemo(() => getEl(options.el), [options.el]);
   const useMemoOpt = useMemo(() => getOpt(options.options), [options.options]);
 
   const elStyle = ({ height }) => {
@@ -20,25 +15,12 @@ const SheetDialog = ({ options }) => {
     }
   }
 
-  useEffect(() => {
-    loader.createSheet({
-      id: useMemoId,
-      el: useMemoEl,
-      options: useMemoOpt,
-      data: data
-    })
-    .then(sheet => {
-      console.log('create DialogSheet', sheet.id);
-    });
-    return () => {
-      loader.removeSheet(useMemoId);
-    }
-  }, []);
-
   return (
-    <>
-      <div id={ useMemoEl } style={ elStyle('100%') }></div>
-    </>
+    <IBSheetReact
+      style={elStyle('100%')}
+      data={data}
+      options={useMemoOpt}
+    />
   );
 }
 

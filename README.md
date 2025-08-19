@@ -21,7 +21,7 @@
 
 ### 사용기술
 
-👉 `@ibsheet/loader: 1.1.15` <br/>
+👉 `@ibsheet/loader: 1.1.25` <br/>
 👉 `Javascript, React, Redux, Material-UI, BootStrap, SweetAlert2, React-Icons`
 
 ### ✨설치방법

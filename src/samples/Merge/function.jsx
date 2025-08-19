@@ -2,21 +2,25 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Select, MenuItem } from '@mui/material';
 import styles from '../../assets/styles/samples/merge.module.css';
+import loader from '@ibsheet/loader';
 
 const Function = () => {
-  const sheet = useSelector(state => state.sheet);
-
+  const sheetIds = useSelector(state => state.sheetIds);
+  
   const [headerMerge, setHeaderMerge] = useState(0);
   const [dataMerge, setDataMerge] = useState(0);
   const [prevColumnMerge, setPrevColumnMerge] = useState(0);
   const mounted = useRef(false);
   const mObj = ['0', '1', '2', '3', '4', '5', '6'];
 
+  const IBSheet = loader.getIBSheetStatic();
+  let sheet = sheetIds.length > 0 && IBSheet[sheetIds[sheetIds.length -1]];
+
   useEffect(() => {
     if (!mounted.current) {
       mounted.current = true;
     } else {
-      sheet[0].setAutoMerge({headerMerge: headerMerge, dataMerge: dataMerge, prevColumnMerge: prevColumnMerge});
+      sheet.setAutoMerge({headerMerge: headerMerge, dataMerge: dataMerge, prevColumnMerge: prevColumnMerge});
     }
     return () => {
     };

@@ -63,11 +63,11 @@ const Section = () => {
             { subTitle }
           </p>
           <Stack spacing={2} direction='row' className={ styles.buttonWrapper }>
-            <Button variant='contained' startIcon={<GrCodeSandbox size='24' color='#fff'/>} className={ styles.buttonSandbox } href='https://codesandbox.io/s/github/ibsheet/loader-react-guide-samples/tree/main?file=/src/index.js' target='_blank' >
+            {/* <Button variant='contained' startIcon={<GrCodeSandbox size='24' color='#fff'/>} className={ styles.buttonSandbox } href='https://codesandbox.io/s/github/ibsheet/loader-react-guide-samples/tree/main?file=/src/index.js' target='_blank' >
               <p className={ styles.textSanbox }>
                 SandBox
               </p>
-            </Button>
+            </Button> */}
             <Link underline='none' color='inherit' href='https://github.com/ibsheet/loader-react-guide-samples'>
               <Button variant='contained' startIcon={<FaGithub size='24' color='#fff'/>} className={ styles.buttonGithub }>
                 <p className={ styles.textGithub }>

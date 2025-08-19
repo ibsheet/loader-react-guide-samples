@@ -1,13 +1,14 @@
 /* eslint-disable array-callback-return */
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import loader from '@ibsheet/loader';
-import { createSheet } from '../../reducer';
+import { setVisible } from '../../reducer';
 import { StyledSampleWrapper, StyledSampleButton } from '../../components/View/Features/GlobalStyles'
 
 const Function = () => {
   const dispatch = useDispatch();
-  const options = useSelector(state => state.options);
+  const IBSheet = loader.getIBSheetStatic();
+
   const btnObj = [
     {
       value: 'create',
@@ -20,23 +21,13 @@ const Function = () => {
   ];
 
   const clickHandler = (e) => {
-    const IBSheet = loader.getIBSheetStatic();
     const value = e.currentTarget.value;
 
     if (value === 'remove' || (IBSheet && IBSheet.length)) {
-      IBSheet.disposeAll();
+      dispatch(setVisible(false));
     }
     if (value === 'create') {
-      options.map(sheet => {
-        loader.createSheet({
-          id: sheet.id,
-          el: sheet.el,
-          options: sheet.options
-        })
-        .then(sheet => {
-          dispatch(createSheet(sheet));
-        });
-      });
+      dispatch(setVisible(true));
     }
   };
 

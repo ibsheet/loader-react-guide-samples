@@ -3,10 +3,12 @@ import { useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import styles from '../../assets/styles/samples/form.module.css';
+import loader from '@ibsheet/loader';
 
 const FormDiv = () => {
-  const ibsheet = useSelector(state => state.sheet);
-  const sheet = ibsheet[ibsheet.length - 1];
+  const sheetIds = useSelector(state => state.sheetIds);
+  const IBSheet = loader.getIBSheetStatic();
+  let sheet = sheetIds.length > 0 && IBSheet[sheetIds[sheetIds.length -1]];
   const mounted = useRef(false);
   const fname = useRef();
   const fage = useRef();
@@ -56,7 +58,7 @@ const FormDiv = () => {
   };
 
   const eventBind = (sheet) => {
-    sheet.bind('onBeforeFocus', evt => {
+    sheet.bind('onBeforeFocus', () => {
       switch (document.activeElement) {
         case fname.current.lastChild.firstChild:
         case fage.current.lastChild.firstChild:
@@ -75,7 +77,7 @@ const FormDiv = () => {
       fsalary.current.lastChild.firstChild.value = evt.row['sPrice'];
       fdepartment.current.lastChild.firstChild.value = evt.row['sDepart'];
     });
-    sheet.bind('onBlur', evt => {
+    sheet.bind('onBlur', () => {
       fname.current.lastChild.firstChild.value = '';
       fage.current.lastChild.firstChild.value = '';
       fposition.current.lastChild.firstChild.value = '';

@@ -16,7 +16,9 @@ const DataLoad = () => {
     Cfg: {
       SearchMode: 0,
       CustomScroll: 1,
-      Style: 'IBMR'
+      Style: 'IBMR',
+      NoDataMessage: 3,
+      NoDataMiddle: true
     },
     LeftCols: [
       {

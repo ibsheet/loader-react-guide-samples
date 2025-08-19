@@ -4,9 +4,12 @@ import { Select, MenuItem } from '@mui/material';
 import styles from '../../assets/styles/samples/dataLoad.module.css';
 import { StyledSampleButton } from '../../components/View/Features/GlobalStyles'
 import setData from './data.jsx';
+import loader from '@ibsheet/loader';
 
 const Function = () => {
-  const sheet = useSelector(state => state.sheet);
+  const sheetIds = useSelector(state => state.sheetIds);
+  const IBSheet = loader.getIBSheetStatic();
+  let sheet = sheetIds.length > 0 && IBSheet[sheetIds[sheetIds.length -1]];
   const [count, setCount] = useState(100000);
   const item = [
     {
@@ -27,8 +30,8 @@ const Function = () => {
     setCount(e.target.value);
   }
 
-  const clickHandler = e => {
-    sheet[sheet.length - 1].loadSearchData(setData(count));
+  const clickHandler = () => {
+    sheet.loadSearchData(setData(count));
   }
 
   return (
