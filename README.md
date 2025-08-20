@@ -1,6 +1,6 @@
 # Loader-React-Guide-Samples 👋
 
-## Guide sample using loader and react
+## Guide sample using loader and ibsheet-react, react
 
 ## 📖 구조
 
@@ -13,7 +13,6 @@
 7. `Redux` 를 사용하여 전역 객체를 상태 관리 합니다. (여러개의 시트를 만들 수 있어, option 을 배열 형태로 담습니다.)
 8. `SheetCreate.js (src/compoenets/Create/SheetCreate.js)` 에서 시트 생성 공통 모듈이 있습니다.
 9. `samples` 폴더에 각 샘플에서 사용하는 `Config` 와 기능 컴포넌트, `data`를 제공합니다.
-10. `serverscrollpaging` 사용을 위해 `api` 폴더에서 서버를 실행하셔야 합니다. (명령어: `node app.js`)
 
 ### :gift_heart:메인 화면 흐름
 
@@ -22,6 +21,7 @@
 ### 사용기술
 
 👉 `@ibsheet/loader: 1.1.25` <br/>
+👉 `@ibsheet/react: 1.0.1` <br/>
 👉 `Javascript, React, Redux, Material-UI, BootStrap, SweetAlert2, React-Icons`
 
 ### ✨설치방법
