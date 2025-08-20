@@ -1,20 +1,20 @@
 /* eslint-disable */
-// 기본 옵션.
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Content from '../../components/View/Content';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from '../../reducer';
 
-const DataLoad = () => {
+// 대용량 조회 (클라이언트 초기 구조 + 별도 LoadFunction 으로 데이터 주입)
+const DataLoad = React.memo(() => {
   const dispatch = useDispatch();
-  const name = 'DataLoad'
+  const name = 'DataLoad';
   const title = '대용량 조회';
   const subTitle = 'IBSheet8 은 새로운 렌더방식을 이용해, 대용량 데이터 조회/조작을 사용할 수 있습니다.';
   const menuIndex = 4;
 
-  const sheetOptions = {
+  const sheetOptions = useMemo(() => ({
     Cfg: {
-      SearchMode: 0,
+      SearchMode: 0,        // 기존 유지. (LoadFunction 에서 커스텀 로딩 / batch 처리)
       CustomScroll: 1,
       Style: 'IBMR',
       NoDataMessage: 3,
@@ -81,28 +81,25 @@ const DataLoad = () => {
       }
     ],
     Events: {}
-  };
+  }), []);
 
-  const options = {
+  const options = useMemo(() => ({
     id: 'sheet',
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
-    options: sheetOptions
-  };
+    options: sheetOptions,
+    data: [] // 초기 빈 데이터 (LoadFunction / 외부 트리거로 채움)
+  }), [sheetOptions]);
 
   useEffect(() => {
     dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
-    }
-  }, []);
+    };
+  }, [dispatch, name, title, subTitle, options, menuIndex]);
 
-  return (
-    <>
-      <Content />
-    </>
-  );
-}
+  return <Content />;
+});
 
 export default DataLoad;

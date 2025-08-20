@@ -1,19 +1,19 @@
 /* eslint-disable */
-// 기본 옵션.
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Content from '../../components/View/Content';
 import data from './data';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from '../../reducer';
 
-const Dialog = () => {
+const Dialog = React.memo(() => {
   const dispatch = useDispatch();
   const name = 'Dialog';
   const title = '시트 + 다이얼로그';
   const subTitle = '다양한 다이얼로그, 모달 창 위에 시트를 띄웁니다. (Material-ui, BootStrap, SweetAlert2)';
   const menuIndex = 10;
 
-  const sheetOptions = {
+  // 시트 옵션 메모이제이션
+  const sheetOptions = useMemo(() => ({
     Cfg: {
       SearchMode: 0,
       CustomScroll: 1,
@@ -50,7 +50,8 @@ const Dialog = () => {
         Header: '월급',
         Type: 'Int',
         MinWidth: 100,
-        Name: 'sPrice'
+        Name: 'sPrice',
+        Format: '#,### \\원'
       },
       {
         Header: '부서',
@@ -60,29 +61,26 @@ const Dialog = () => {
       }
     ],
     Events: {}
-  };
+  }), []);
 
-  const options = {
+  // options 객체도 메모이제이션 (참조 안정화)
+  const options = useMemo(() => ({
     id: 'sheet',
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
     options: sheetOptions,
-    data: data
-  };
+    data // 정적 import
+  }), [sheetOptions]);
 
   useEffect(() => {
     dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
-    }
-  }, []);
+    };
+  }, [dispatch, name, title, subTitle, options, menuIndex]);
 
-  return (
-    <>
-      <Content/>
-    </>
-  );
-}
+  return <Content />;
+});
 
 export default Dialog;

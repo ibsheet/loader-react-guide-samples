@@ -1,6 +1,6 @@
 /* eslint-disable */
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { useSelector, shallowEqual } from 'react-redux';
 import Container from '@mui/material/Container';
 import IBSheet8 from '../Create/SheetCreate';
 import DialogSheet from '../../samples/Dialog/component';
@@ -12,84 +12,80 @@ import TreeFunction from '../../samples/Tree/function';
 import FormDiv from '../../samples/Form/component';
 import styles from '../../assets/styles/components/View/content.module.css';
 
-// 각 샘플 컴포넌트에서 title, subTitle, func 받아오는 것은 sheet 컴포넌트 쪽 탭을 만들어서 사용함.
 const Content = () => {
-  const title = useSelector((state) => state.title);
-  const subTitle = useSelector((state) => state.subTitle);
-  const name = useSelector((state) => state.name);
-  const sheet = useSelector((state) => state.sheet);
-  const [scrollY, setScrollY] = useState(0);
+  const title = useSelector(state => state.title);
+  const subTitle = useSelector(state => state.subTitle);
+  const name = useSelector(state => state.name);
+  const sheet = useSelector(state => state.sheet, shallowEqual);
 
-  const scrollHandler = () => {
-    const topButton = document.getElementsByClassName(styles.topButtons)[0];
-    setScrollY(window.scrollY);
-    if (scrollY > 100) {
-      topButton.style.opacity = 1;
-      topButton.style.cursor = 'pointer';
+  // TOP 버튼 노출 여부 (임계값 넘을 때만 렌더 트리거)
+  const [showTop, setShowTop] = useState(false);
+  const showTopRef = useRef(false);
+  const tickingRef = useRef(false);
+
+  const updateTopVisibility = useCallback(() => {
+    tickingRef.current = false;
+    const shouldShow = window.scrollY > 100;
+    if (shouldShow !== showTopRef.current) {
+      showTopRef.current = shouldShow;
+      setShowTop(shouldShow);
     }
-    else {
-      topButton.style.opacity = 0;
-      topButton.style.cursor = 'default';
+  }, []);
+
+  const scrollHandler = useCallback(() => {
+    if (!tickingRef.current) {
+      tickingRef.current = true;
+      requestAnimationFrame(updateTopVisibility);
     }
-  };
+  }, [updateTopVisibility]);
 
   const handleTop = () => {
-    if (scrollY > 100) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-      setScrollY(0);
+    if (showTopRef.current) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   useEffect(() => {
-    if (scrollY < 100) {
-      const topButton = document.getElementsByClassName(styles.topButtons)[0];
-      if (topButton && topButton.style.opacity === '1') {
-        topButton.style.opacity = 0;
-        topButton.style.cursor = 'default';
-      }
-    }
-    window.addEventListener('scroll', scrollHandler);
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+    updateTopVisibility(); // 초기 상태 동기화
     return () => {
       window.removeEventListener('scroll', scrollHandler);
     };
-  }, []);
+  }, [scrollHandler, updateTopVisibility]);
 
   return (
-    <>
-      <Container maxWidth='lg' component='main' className={ styles.container }>
-        <div className={ styles.main }>
-        <button className={ styles.topButtons } onClick={ handleTop }>TOP</button>
-          <div className={ styles.sub }>
-            <span className={ styles.title }>
-              { title }
-            </span>
-            <p className={ styles.subTitle }>
-              { subTitle }
-            </p>
-              {
-                (name === 'Merge' && <MergeFunction />) ||
-                (name === 'Tree' && <TreeFunction />) ||
-                (name === 'DataLoad' && <LoadFunction />) ||
-                (name === 'SubSum' && <SubSumFunction />) ||
-                (name === 'Multi' && <MultiFunction />) ||
-                (name === 'Dialog' && <DialogSheet />)
-              }
-          </div>
-          <div className={ styles.sheetWrapper }>
-            {
-              (sheet && <IBSheet8 />)
-            }
-            {
-              (name === 'Form' && <FormDiv />)
-            }
-          </div>
+    <Container maxWidth='lg' component='main' className={ styles.container }>
+      <div className={ styles.main }>
+        <button
+          className={ styles.topButtons }
+          onClick={ handleTop }
+          style={{
+            opacity: showTop ? 1 : 0,
+            cursor: showTop ? 'pointer' : 'default',
+            transition: 'opacity .25s'
+          }}
+        >
+          TOP
+        </button>
+        <div className={ styles.sub }>
+          <span className={ styles.title }>{ title }</span>
+          <p className={ styles.subTitle }>{ subTitle }</p>
+          {
+            (name === 'Merge' && <MergeFunction />) ||
+            (name === 'Tree' && <TreeFunction />) ||
+            (name === 'DataLoad' && <LoadFunction />) ||
+            (name === 'SubSum' && <SubSumFunction />) ||
+            (name === 'Multi' && <MultiFunction />) ||
+            (name === 'Dialog' && <DialogSheet />)
+          }
         </div>
-      </Container>
-    </>
-  )
-}
+        <div className={ styles.sheetWrapper }>
+          { sheet && <IBSheet8 /> }
+          { name === 'Form' && <FormDiv /> }
+        </div>
+      </div>
+    </Container>
+  );
+};
 
 export default Content;

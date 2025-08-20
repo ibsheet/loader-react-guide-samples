@@ -1,6 +1,6 @@
 /* eslint-disable */
 // 기본 옵션.
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 
 import Content from '../../components/View/Content';
@@ -15,7 +15,7 @@ const Type = () => {
   const subTitle = '각 컬럼별 설정 가능한 Type에 대한 예제입니다.';
   const menuIndex = 0;
 
-  const sheetOptions = {
+  const sheetOptions = useMemo(() => ({
     Cfg: {
       SearchMode: 0,
       CustomScroll: 1,
@@ -102,23 +102,23 @@ const Type = () => {
       }
     ],
     Events: {}
-  };
+  }), []);
 
-  const options = {
+  const options = useMemo(() => ({
     id: 'sheet',
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
     options: sheetOptions,
-    data: data
-  };
+    data
+  }), [sheetOptions]);
 
   useEffect(() => {
     dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
     }
-  }, []);
+  }, [dispatch, name, title, subTitle, options, menuIndex]);
 
   return (
     <>

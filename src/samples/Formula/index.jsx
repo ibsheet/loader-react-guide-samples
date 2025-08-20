@@ -1,22 +1,23 @@
 /* eslint-disable */
-// 기본 옵션.
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Content from '../../components/View/Content';
 import data from './data';
 import { useDispatch } from 'react-redux';
 import { createSample, removeSample } from '../../reducer';
 
-const Formula = () => {
+const Formula = React.memo(() => {
   const dispatch = useDispatch();
   const name = 'Formula';
   const title = '포뮬러 기능';
-  const subTitle = '포뮬러를 이용하여 자동값 계산 또는 속성을 설정할 수 있습니다.'
+  const subTitle = '포뮬러를 이용하여 자동값 계산 또는 속성을 설정할 수 있습니다.';
   const menuIndex = 5;
 
-  const sheetOptions = {
+  // 시트 옵션 메모이제이션
+  const sheetOptions = useMemo(() => ({
     Def: {
       Row: {
         CanFormula: 1,
+        // 포뮬러/색상 계산 순서 (필요 시 마지막 sNote 가 전체 합계이므로 가장 뒤)
         CalcOrder: 'sTheaterColor,sSeatColor,sNormalColor,sDigital2Color,sDigital4TextColor,sDigital4Color,sNote'
       }
     },
@@ -26,11 +27,7 @@ const Formula = () => {
       Style: 'IBMR'
     },
     LeftCols: [
-      {
-        Header: 'No',
-        Type: 'Int',
-        Name: 'SEQ'
-      }
+      { Header: 'No', Type: 'Int', Name: 'SEQ' }
     ],
     Cols: [
       {
@@ -44,7 +41,7 @@ const Formula = () => {
         Header: '영화상영관수',
         Name: 'sTheater',
         Type: 'Int',
-        ColorFormula: 'Value < 10 ? \'Green\' : \'\'',
+        ColorFormula: "Value < 10 ? 'Green' : ''",
         Width: 100
       },
       {
@@ -57,21 +54,21 @@ const Formula = () => {
         Header: '좌석수',
         Name: 'sSeat',
         Type: 'Int',
-        ColorFormula: 'Value > 5000 ? \'Gray\' : \'\'',
+        ColorFormula: "Value > 5000 ? 'Gray' : ''",
         Width: 150
       },
       {
         Header: '일반',
         Name: 'sNormal',
         Type: 'Int',
-        ColorFormula: 'Value > 10 ? \'Purple\' : \'\'',
+        ColorFormula: "Value > 10 ? 'Purple' : ''",
         Width: 100
       },
       {
         Header: 'Digital 2D',
         Name: 'sDigital2',
         Type: 'Int',
-        ColorFormula: 'Value > 100 ? \'Red\' : \'\'',
+        ColorFormula: "Value > 100 ? 'Red' : ''",
         Width: 100
       },
       {
@@ -84,8 +81,8 @@ const Formula = () => {
         Header: 'Digital 4D',
         Name: 'sDigital4',
         Type: 'Int',
-        ColorFormula: 'Value > 1 ? \'Black\' : \'\'',
-        TextColorFormula: 'Value > 1 ? \'Yellow\' : \'\'',
+        ColorFormula: "Value > 1 ? 'Black' : ''",
+        TextColorFormula: "Value > 1 ? 'Yellow' : ''",
         Width: 100
       },
       {
@@ -99,33 +96,52 @@ const Formula = () => {
         Name: 'sNote',
         Type: 'Text',
         RelWidth: 1,
-        Formula: fr => fr.Row.sTheater + fr.Row.sScreen + fr.Row.sSeat + fr.Row.sNormal + fr.Row.sDigital2 + fr.Row.sDigital3 + fr.Row.sDigital4 + fr.Row.sDigitalImax
+        // 안전하게 0 기본값 적용 (데이터가 모두 보장되면 바로 합산 가능)
+        Formula: fr => {
+          const r = fr.Row;
+            const v = (n) => {
+            const val = r[n];
+            return typeof val === 'number' ? val : (parseFloat(val) || 0);
+          };
+          return (
+            v('sTheater') +
+            v('sScreen') +
+            v('sSeat') +
+            v('sNormal') +
+            v('sDigital2') +
+            v('sDigital3') +
+            v('sDigital4') +
+            v('sDigitalImax')
+          );
+        }
+        // 문자열 식으로 가능하다면 (문법 지원 확인 후):
+        // Formula: "sTheater + sScreen + sSeat + sNormal + sDigital2 + sDigital3 + sDigital4 + sDigitalImax"
       }
     ],
-    Events: {}
-  };
+    Events: {
+      // 필요 시 계산 후 후처리
+      // onCalculateFinish: evt => { console.log('Recalc done'); }
+    }
+  }), []);
 
-  const options = {
+  // options 메모이제이션
+  const options = useMemo(() => ({
     id: 'sheet',
     el: 'sheetDiv',
     height: '100%',
     width: '100%',
     options: sheetOptions,
-    data: data
-  };
+    data
+  }), [sheetOptions]);
 
   useEffect(() => {
     dispatch(createSample(name, title, subTitle, options, menuIndex));
     return () => {
       dispatch(removeSample());
-    }
-  }, []);
+    };
+  }, [dispatch, name, title, subTitle, options, menuIndex]);
 
-  return (
-  <>
-    <Content />
-  </>
-  );
-}
+  return <Content />;
+});
 
 export default Formula;
